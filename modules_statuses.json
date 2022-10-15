@@ -3,5 +3,6 @@
     "MenuManagement": true,
     "PermissionManagement": true,
     "UserManagement": true,
-    "Setting": true
+    "Setting": true,
+    "Report": true
 }
