@@ -18,7 +18,7 @@ class MenuManagementDatabaseSeeder extends Seeder
 
         // $this->call("OthersTableSeeder");
 
-        $this->call(MenuGeneralSeederTableSeeder::class);
-        $this->call(MenuSettingSeederTableSeeder::class);
+        $this->call(MenuGeneralSeederTableSeeder::class); // position 1
+        $this->call(MenuSettingSeederTableSeeder::class); // position 2
     }
 }

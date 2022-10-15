@@ -34,5 +34,23 @@ class MenuGeneralSeederTableSeeder extends Seeder
             'menu_group_id' => $general->id,
             'posision' => 1,
         ]);
+
+        MenuItem::create([
+            'name' => 'Report',
+            'icon' => 'ri-file-warning-line',
+            'route' => 'dashboard.index',
+            'permission_name' => 'dashboard_index',
+            'menu_group_id' => $general->id,
+            'posision' => 2,
+        ]);
+
+        MenuItem::create([
+            'name' => 'Infrastructure',
+            'icon' => 'ri-file-list-line',
+            'route' => 'dashboard.index',
+            'permission_name' => 'dashboard_index',
+            'menu_group_id' => $general->id,
+            'posision' => 3,
+        ]);
     }
 }
