@@ -1,5 +1,8 @@
 <?php
 
+use Illuminate\Support\Facades\Route;
+use Modules\Infrastructure\app\Http\Controllers\InfrastructureController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -11,6 +14,4 @@
 |
 */
 
-Route::prefix('infrastructure')->group(function() {
-    Route::get('/', 'InfrastructureController@index');
-});
+Route::resource('infrastructure', InfrastructureController::class)->only('index');
