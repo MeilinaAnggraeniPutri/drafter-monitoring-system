@@ -1,9 +1,7 @@
-@extends('infrastructure::layouts.master')
+@extends('layouts.dashboard.app')
 
-@section('content')
-    <h1>Hello World</h1>
+@section('title', 'Infrastructure')
 
-    <p>
-        This view is loaded from module: {!! config('infrastructure.name') !!}
-    </p>
+@section('breadcrumb')
+<x-dashboard::breadcrumb title="Infrastructure" page="Infrastructure" active="Infrastructure" route="{{ route('infrastructure.index') }}" />
 @endsection

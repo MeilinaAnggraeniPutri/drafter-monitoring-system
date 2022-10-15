@@ -1,9 +1,7 @@
-@extends('report::layouts.master')
+@extends('layouts.dashboard.app')
 
-@section('content')
-    <h1>Hello World</h1>
+@section('title', 'Report')
 
-    <p>
-        This view is loaded from module: {!! config('report.name') !!}
-    </p>
+@section('breadcrumb')
+<x-dashboard::breadcrumb title="Report" page="Report" active="Report" route="{{ route('report.index') }}" />
 @endsection
