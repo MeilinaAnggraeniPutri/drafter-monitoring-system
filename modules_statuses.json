@@ -4,5 +4,6 @@
     "PermissionManagement": true,
     "UserManagement": true,
     "Setting": true,
-    "Report": true
+    "Report": true,
+    "Infrastructure": true
 }
