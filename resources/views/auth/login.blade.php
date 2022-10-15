@@ -18,7 +18,7 @@
 
             <div class="mb-3">
               <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email" value="{{ old('email') }}" required placeholder="Email" autocomplete="email" autofocus>
+              <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email" value="{{ old('email') }}" required placeholder="Email" autocomplete="email" autofocus tabindex="1">
               <x-form.validation.error name="email" />
             </div>
 
@@ -28,19 +28,19 @@
               </div>
               <label class="form-label" for="password-input">Password</label>
               <div class="position-relative auth-pass-inputgroup mb-3">
-                <input type="password" class="form-control pe-5" placeholder="Enter password" id="password-input" name="password" required placeholder="Password" autocomplete="current-password">
-                <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
+                <input type="password" class="form-control pe-5 password-input" placeholder="Enter password" id="password-input" name="password" required placeholder="Password" autocomplete="current-password" tabindex="2">
+                <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                 <x-form.validation.error name="password" />
               </div>
             </div>
 
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="auth-remember-check" name="remember" {{ old('remember') ? 'checked' : '' }}>
+              <input class="form-check-input" type="checkbox" value="" id="auth-remember-check" name="remember" {{ old('remember') ? 'checked' : '' }} tabindex="3">
               <label class="form-check-label" for="auth-remember-check">Remember me</label>
             </div>
 
             <div class="mt-4">
-              <button class="btn btn-success w-100" type="submit">Sign In</button>
+              <button class="btn btn-success w-100" type="submit" tabindex="4">Sign In</button>
             </div>
 
             <div class="mt-4 text-center">

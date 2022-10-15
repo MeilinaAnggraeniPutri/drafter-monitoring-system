@@ -18,20 +18,20 @@
 
             <div class="mb-3">
               <label for="name" class="form-label">Name <span class="text-danger">*</span></label>
-              <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+              <input type="text" class="form-control" id="name" placeholder="Enter your name" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus tabindex="1">
               <x-form.validation.error name="name" />
             </div>
 
             <div class="mb-3">
               <label for="useremail" class="form-label">Email <span class="text-danger">*</span></label>
-              <input type="email" class="form-control" id="useremail" placeholder="Enter email address" name="email" value="{{ old('email') }}" required autocomplete="email">
+              <input type="email" class="form-control" id="useremail" placeholder="Enter email address" name="email" value="{{ old('email') }}" required autocomplete="email" tabindex="2">
               <x-form.validation.error name="email" />
             </div>
 
             <div class="mb-3">
               <label class="form-label" for="password">Password</label>
               <div class="position-relative auth-pass-inputgroup">
-                <input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" id="password" name="password" required autocomplete="new-password" placeholder="Password">
+                <input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password" id="password" name="password" required autocomplete="new-password" placeholder="Password" tabindex="3">
                 <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                 <x-form.validation.error name="password" />
               </div>
@@ -40,7 +40,7 @@
             <div class="mb-3">
               <label class="form-label" for="password_confirmation">Password Confirmation</label>
               <div class="position-relative auth-pass-inputgroup">
-                <input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password confirmation" id="password_confirmation" name="password_confirmation" required autocomplete="new-password" placeholder="Password Confirmation">
+                <input type="password" class="form-control pe-5 password-input" onpaste="return false" placeholder="Enter password confirmation" id="password_confirmation" name="password_confirmation" required autocomplete="new-password" placeholder="Password Confirmation" tabindex="4">
                 <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
               </div>
             </div>
@@ -50,7 +50,7 @@
             </div>
 
             <div class="mt-4">
-              <button class="btn btn-success w-100" type="submit">Sign Up</button>
+              <button class="btn btn-success w-100" type="submit" tabindex="6">Sign Up</button>
             </div>
 
             <div class="mt-4 text-center">

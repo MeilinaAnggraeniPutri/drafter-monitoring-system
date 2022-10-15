@@ -49,6 +49,7 @@
               <p class="mb-0 text-muted">&copy;
                 <script>
                   document.write(new Date().getFullYear())
+
                 </script> Velzon. Crafted with <i class="mdi mdi-heart text-danger"></i> by Themesbrand
               </p>
             </div>
@@ -67,6 +68,9 @@
   <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
   <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
   <script src="{{ asset('assets/js/plugins.js') }}"></script>
+
+  <!-- show password -->
+  <script src="{{ asset('assets/js/pages/passowrd-create.init.js') }}"></script>
 
 </body>
 
