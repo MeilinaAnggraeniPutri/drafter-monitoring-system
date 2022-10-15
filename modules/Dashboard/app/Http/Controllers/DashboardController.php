@@ -5,6 +5,8 @@ namespace Modules\Dashboard\app\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Infrastructure\app\Repositories\InfrastructureRepository;
+use Modules\Report\app\Repositories\ReportRepository;
 
 class DashboardController extends Controller
 {
@@ -12,8 +14,10 @@ class DashboardController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
-    {
+    public function index(
+        ReportRepository $reportRepository,
+        InfrastructureRepository $infrastructureRepository
+    ) {
         return view('dashboard::dashboard.index');
     }
 
