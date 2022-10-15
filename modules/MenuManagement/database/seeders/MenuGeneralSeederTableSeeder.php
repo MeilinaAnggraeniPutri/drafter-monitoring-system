@@ -38,8 +38,8 @@ class MenuGeneralSeederTableSeeder extends Seeder
         MenuItem::create([
             'name' => 'Report',
             'icon' => 'ri-file-warning-line',
-            'route' => 'dashboard.index',
-            'permission_name' => 'dashboard_index',
+            'route' => 'report.index',
+            'permission_name' => 'report_index',
             'menu_group_id' => $general->id,
             'posision' => 2,
         ]);
@@ -47,8 +47,8 @@ class MenuGeneralSeederTableSeeder extends Seeder
         MenuItem::create([
             'name' => 'Infrastructure',
             'icon' => 'ri-file-list-line',
-            'route' => 'dashboard.index',
-            'permission_name' => 'dashboard_index',
+            'route' => 'infrastructure.index',
+            'permission_name' => 'infrastructure_index',
             'menu_group_id' => $general->id,
             'posision' => 3,
         ]);

@@ -166,5 +166,21 @@ class RouteSeederTableSeeder extends Seeder
                 'permission_name' => 'permission_destroy'
             ],
         ]);
+
+        // Report
+        Route::insert([
+            [
+                'route' => 'report.index',
+                'permission_name' => 'report_index'
+            ]
+        ]);
+
+        // Infrastructure
+        Route::insert([
+            [
+                'route' => 'infrastructure.index',
+                'permission_name' => 'infrastructure_index'
+            ]
+        ]);
     }
 }
