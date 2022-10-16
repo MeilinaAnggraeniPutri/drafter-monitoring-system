@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
@@ -14,8 +15,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('reports', function (Blueprint $table) {
-            $table->id();
-
+            $table->uuid();
+            $table->string('title')->unique();
+            $table->json('attach')->nullable();
+            $table->longText('description')->nullable();
+            $table->foreignIdFor(User::class);
             $table->timestamps();
         });
     }

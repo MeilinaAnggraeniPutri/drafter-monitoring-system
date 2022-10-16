@@ -18,7 +18,16 @@ class DashboardController extends Controller
         ReportRepository $reportRepository,
         InfrastructureRepository $infrastructureRepository
     ) {
-        return view('dashboard::dashboard.index');
+        $reportCount = $reportRepository->getCount();
+        $infrastructureCount = $infrastructureRepository->getCount();
+
+        return view(
+            'dashboard::dashboard.index',
+            compact(
+                'reportCount',
+                'infrastructureCount'
+            )
+        );
     }
 
     /**

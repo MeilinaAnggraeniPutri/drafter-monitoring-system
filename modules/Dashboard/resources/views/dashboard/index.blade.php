@@ -15,7 +15,7 @@
         <div class="d-flex justify-content-between">
           <div>
             <p class="fw-medium text-muted mb-0">Report</p>
-            <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="3348">0</span></h2>
+            <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="{{ $reportCount }}">0</span></h2>
             <p class="mb-0 text-muted py-1"></p>
           </div>
           <div>
@@ -36,7 +36,7 @@
         <div class="d-flex justify-content-between">
           <div>
             <p class="fw-medium text-muted mb-0">Infrastructure</p>
-            <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="3348">0</span></h2>
+            <h2 class="mt-4 ff-secondary fw-semibold"><span class="counter-value" data-target="{{ $infrastructureCount }}">0</span></h2>
             <p class="mb-0 text-muted py-1"></p>
           </div>
           <div>
