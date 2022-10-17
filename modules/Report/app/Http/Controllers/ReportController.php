@@ -5,6 +5,7 @@ namespace Modules\Report\app\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Report\app\Repositories\ReportRepository;
 
 class ReportController extends Controller
 {
@@ -12,9 +13,15 @@ class ReportController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
-    {
-        return view('report::index');
+    public function index(
+        ReportRepository $reportRepository
+    ) {
+        $reports = $reportRepository->getAll();
+
+        return view(
+            'report::index',
+            compact('reports')
+        );
     }
 
     /**

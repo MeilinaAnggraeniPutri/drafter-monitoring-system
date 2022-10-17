@@ -2,6 +2,7 @@
 
 namespace Modules\Report\app\Models;
 
+use App\Models\User;
 use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -24,5 +25,10 @@ class Report extends Model
     protected static function newFactory()
     {
         return \Modules\Report\Database\factories\ReportFactory::new();
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 }
