@@ -75,7 +75,7 @@
       </tr>
       @empty
       <tr>
-        <th colspan="5" class="text-center">No data to display</th>
+        <th colspan="6" class="text-center">No data to display</th>
       </tr>
       @endforelse
     </tbody>

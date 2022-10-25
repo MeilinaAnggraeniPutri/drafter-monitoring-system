@@ -28,6 +28,7 @@
         <th scope="col">Attach</th>
         <th scope="col">Description</th>
         <th scope="col">Created By</th>
+        <th scope="col">Status</th>
         <th scope="col" class="col-1"></th>
       </tr>
     </thead>
@@ -36,9 +37,12 @@
       <tr>
         <th scope="row">{{ $loop->iteration }}</th>
         <td>{{ $report->title }}</td>
-        <td>{{ $report->attach }}</td>
+        <td>
+          <span class="badge badge-soft-success">{{ count($report->attach) . ' file' }}</span>
+        </td>
         <td>{{ strlen($report->description) > 32 ? substr($report->description, 32) . '...' : $report->description }}</td>
         <td>{{ $report->user->name }}</td>
+        <td>{{ $report->status }}</td>
         <td>
           <div class="dropdown">
             <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,6 +50,11 @@
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li>
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-edit-report-{{ $report->uuid }}">
+                  Detail
+                </a>
+              </li>
               <li>
                 <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-edit-report-{{ $report->uuid }}">
                   Edit
@@ -65,7 +74,7 @@
       </tr>
       @empty
       <tr>
-        <th colspan="5" class="text-center">No data to display</th>
+        <th colspan="7" class="text-center">No data to display</th>
       </tr>
       @endforelse
     </tbody>
@@ -77,5 +86,28 @@
   </div>
 </div>
 
-{{-- @include('report::components.form.modal.report.add') --}}
+@include('report::components.form.modal.report.add')
 @endsection
+
+@push('plugin-css')
+<!-- dropzone css -->
+<link rel="stylesheet" href="{{ asset('assets/libs/dropzone/dropzone.css') }}" type="text/css" />
+
+<!-- Filepond css -->
+<link rel="stylesheet" href="{{ asset('assets/libs/filepond/filepond.min.css') }}" type="text/css" />
+<link rel="stylesheet" href="{{ asset('assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css') }}" />
+@endpush
+
+@push('plugin-script')
+<!-- dropzone min -->
+<script src="{{ asset('assets/libs/dropzone/dropzone-min.js') }}"></script>
+
+<!-- filepond js -->
+<script src="{{ asset('assets/libs/filepond/filepond.min.js') }}"></script>
+<script src="{{ asset('assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js') }}"></script>
+<script src="{{ asset('assets/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js') }}"></script>
+<script src="{{ asset('assets/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js') }}"></script>
+<script src="{{ asset('assets/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js') }}"></script>
+
+<script src="{{ asset('assets/js/pages/form-file-upload.init.js') }}"></script>
+@endpush

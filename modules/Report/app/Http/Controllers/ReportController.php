@@ -5,6 +5,7 @@ namespace Modules\Report\app\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Report\app\Http\Requests\ReportStoreRequest;
 use Modules\Report\app\Repositories\ReportRepository;
 
 class ReportController extends Controller
@@ -38,9 +39,13 @@ class ReportController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(
+        ReportStoreRequest $request,
+        ReportRepository $reportRepository
+    ) {
+        return $reportRepository->store($request)
+            ? back()->with('success', 'Report has been created successfully!')
+            : back()->with('failed', 'Report was not created successfully!');
     }
 
     /**

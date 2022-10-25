@@ -24,6 +24,7 @@
   <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
   <!-- custom CSS-->
   <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+
   @stack('css')
 
 </head>
@@ -70,6 +71,7 @@
             <div class="col-sm-6">
               <script>
                 document.write(new Date().getFullYear())
+
               </script> © Velzon.
             </div>
             <div class="col-sm-6">

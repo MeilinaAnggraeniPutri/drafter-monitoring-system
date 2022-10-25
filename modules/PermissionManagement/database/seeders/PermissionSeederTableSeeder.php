@@ -73,6 +73,7 @@ class PermissionSeederTableSeeder extends Seeder
 
         // Report
         Permission::create(['name' => 'report_index']);
+        Permission::create(['name' => 'report_store']);
 
         // Infrastructure
         Permission::create(['name' => 'infrastructure_index']);

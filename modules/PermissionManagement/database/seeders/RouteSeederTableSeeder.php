@@ -172,7 +172,19 @@ class RouteSeederTableSeeder extends Seeder
             [
                 'route' => 'report.index',
                 'permission_name' => 'report_index'
-            ]
+            ],
+            [
+                'route' => 'report.store',
+                'permission_name' => 'report_store'
+            ],
+            // [
+            //     'route' => 'report.index',
+            //     'permission_name' => 'report_index'
+            // ],
+            // [
+            //     'route' => 'report.index',
+            //     'permission_name' => 'report_index'
+            // ]
         ]);
 
         // Infrastructure
