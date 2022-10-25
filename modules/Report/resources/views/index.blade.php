@@ -40,9 +40,11 @@
         <td>
           <span class="badge badge-soft-success">{{ count($report->attach) . ' file' }}</span>
         </td>
-        <td>{{ strlen($report->description) > 32 ? substr($report->description, 32) . '...' : $report->description }}</td>
+        <td>{{ strlen($report->description) > 32 ? substr($report->description, 0, 32) . '...' : $report->description }}</td>
         <td>{{ $report->user->name }}</td>
-        <td>{{ $report->status }}</td>
+        <td>
+          <span class="badge badge-soft-secondary">{{ $report->status }}</span>
+        </td>
         <td>
           <div class="dropdown">
             <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">

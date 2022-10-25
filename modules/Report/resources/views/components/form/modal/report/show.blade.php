@@ -10,9 +10,9 @@
 
       <div class="modal-body">
 
-        <div class="">
+        <div class="mb-3">
           <h6>Description:</h6>
-          <p>{{ $report->description }}</p>
+          <textarea class="form-control" cols="30" rows="10" disabled>{{ $report->description }}</textarea>
         </div>
 
         <div class="">

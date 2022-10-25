@@ -30,6 +30,7 @@ class UserManagementController extends Controller
             })
             ->latest()
             ->paginate(10);
+
         $roles = Role::orderBy('name')->get();
 
         return view('usermanagement::user.index', compact('users', 'roles'));
