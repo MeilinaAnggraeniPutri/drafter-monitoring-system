@@ -56,19 +56,19 @@ class ReportRepository implements ReportInterface
 
   public function store(Request $request): bool | Report
   {
-    $image = $this->storeAttach($request);
+    $attach = $this->storeAttach($request);
 
     return Report::create(
-      $this->mergeRequest($request, $image)
+      $this->mergeRequest($request, $attach)
     );
   }
 
-  protected function mergeRequest(Request $request, string $image)
+  protected function mergeRequest(Request $request, string $attach)
   {
     return array_merge(
       $request->validated(),
       array(
-        'attach' => $image,
+        'attach' => $attach,
         'user_id' => auth()->id()
       )
     );
@@ -82,9 +82,9 @@ class ReportRepository implements ReportInterface
       return json_encode($contents);
     }
 
-    $files = $request->file('attach');
+    $attach = $request->file('attach');
 
-    foreach ($files as $file) {
+    foreach ($attach as $file) {
       $fileName = str()->uuid()->toString() . '.' . $file->extension();
 
       $file->move(public_path('assets/files/'), $fileName);
