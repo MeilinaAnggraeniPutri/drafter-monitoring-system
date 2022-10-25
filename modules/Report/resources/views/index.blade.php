@@ -51,7 +51,7 @@
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li>
-                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-edit-report-{{ $report->uuid }}">
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-show-report-{{ $report->uuid }}">
                   Detail
                 </a>
               </li>
@@ -67,6 +67,7 @@
               </li>
             </ul>
 
+            @include('report::components.form.modal.report.show')
             {{-- @include('report::components.form.modal.report.edit') --}}
             {{-- @include('report::components.form.modal.report.delete') --}}
           </div>

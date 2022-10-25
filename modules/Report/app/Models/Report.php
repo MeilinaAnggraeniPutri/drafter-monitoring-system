@@ -34,7 +34,9 @@ class Report extends Model
         return \Modules\Report\Database\factories\ReportFactory::new();
     }
 
-    // attribute
+    /**
+     * attribute
+     */
     public function attach(): Attribute
     {
         return Attribute::make(
@@ -42,7 +44,9 @@ class Report extends Model
         );
     }
 
-    // relation
+    /**
+     * relation eloquent
+     */
     public function user()
     {
         return $this->belongsTo(User::class);
