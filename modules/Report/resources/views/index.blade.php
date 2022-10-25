@@ -53,17 +53,17 @@
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li>
-                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-show-report-{{ $report->uuid }}">
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-show-report-{{ $report->id }}">
                   Detail
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-edit-report-{{ $report->uuid }}">
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-edit-report-{{ $report->id }}">
                   Edit
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('modal-form-delete-report-{{ $report->uuid }}').submit()">
+                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('modal-form-delete-report-{{ $report->id }}').submit()">
                   Delete
                 </a>
               </li>

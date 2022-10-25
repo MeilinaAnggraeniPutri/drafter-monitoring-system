@@ -1,10 +1,10 @@
 <!-- Modals add menu -->
-<div id="modal-form-show-report-{{ $report->uuid }}" class="modal fade" tabindex="-1" aria-labelledby="modal-form-show-report-{{ $report->uuid }}-label" aria-hidden="true" style="display: none;">
+<div id="modal-form-show-report-{{ $report->id }}" class="modal fade" tabindex="-1" aria-labelledby="modal-form-show-report-{{ $report->id }}-label" aria-hidden="true" style="display: none;">
   <div class="modal-dialog modal-xl modal-dialog-centered">
     <div class="modal-content">
 
       <div class="modal-header">
-        <h5 class="modal-title" id="modal-form-show-report-{{ $report->uuid }}-label">Detail ({{ $report->title }})</h5>
+        <h5 class="modal-title" id="modal-form-show-report-{{ $report->id }}-label">Detail ({{ $report->title }})</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
       </div>
 
