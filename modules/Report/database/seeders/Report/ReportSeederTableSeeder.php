@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Report\database\seeders;
+namespace Modules\Report\database\seeders\Report;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Report\database\seeders\Report\ReportSeederTableSeeder;
+use Modules\Report\app\Models\Report;
 
-class ReportDatabaseSeeder extends Seeder
+class ReportSeederTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -17,6 +17,8 @@ class ReportDatabaseSeeder extends Seeder
     {
         Model::unguard();
 
-        $this->call(ReportSeederTableSeeder::class);
+        // $this->call("OthersTableSeeder");
+
+        Report::factory(5)->create();
     }
 }

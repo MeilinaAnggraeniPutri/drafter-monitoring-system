@@ -11,6 +11,20 @@ class ReportRepository implements ReportInterface
 {
   public function getCount()
   {
+    return auth()->user()->hasRole('User')
+      ? $this->getUserCount()
+      : $this->getAllCount();
+  }
+
+  protected function getUserCount()
+  {
+    return Report::query()
+      ->whereBelongsTo(auth()->user())
+      ->count();
+  }
+
+  protected function getAllCount()
+  {
     return Report::count();
   }
 
@@ -19,6 +33,25 @@ class ReportRepository implements ReportInterface
     return auth()->user()->hasRole('User')
       ? $this->getListForUser($paginate)
       : $this->getListForAdmin($paginate);
+  }
+
+  protected function getListForUser(int $paginate = 10): LengthAwarePaginator
+  {
+    return Report::query()
+      ->whereBelongsTo(
+        related: auth()->user()
+      )
+      ->with('user')
+      ->latest()
+      ->paginate($paginate);
+  }
+
+  protected function getListForAdmin(int $paginate = 10): LengthAwarePaginator
+  {
+    return Report::query()
+      ->with('user')
+      ->latest()
+      ->paginate($paginate);
   }
 
   public function store(Request $request): bool | Report
@@ -60,24 +93,5 @@ class ReportRepository implements ReportInterface
     }
 
     return json_encode($contents);
-  }
-
-  protected function getListForUser(int $paginate = 10): LengthAwarePaginator
-  {
-    return Report::query()
-      ->whereBelongsTo(
-        related: auth()->user()
-      )
-      ->with('user')
-      ->latest()
-      ->paginate($paginate);
-  }
-
-  protected function getListForAdmin(int $paginate = 10): LengthAwarePaginator
-  {
-    return Report::query()
-      ->with('user')
-      ->latest()
-      ->paginate($paginate);
   }
 }

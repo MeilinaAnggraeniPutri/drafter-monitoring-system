@@ -31,7 +31,7 @@ class Report extends Model
 
     protected static function newFactory()
     {
-        return \Modules\Report\Database\factories\ReportFactory::new();
+        return \Modules\Report\database\factories\Report\ReportFactory::new();
     }
 
     /**

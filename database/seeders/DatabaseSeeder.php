@@ -7,6 +7,7 @@ use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Modules\MenuManagement\database\seeders\MenuManagementDatabaseSeeder;
 use Modules\PermissionManagement\database\seeders\PermissionManagementDatabaseSeeder;
+use Modules\Report\database\seeders\ReportDatabaseSeeder;
 use Modules\Setting\database\seeders\SettingDatabaseSeeder;
 
 class DatabaseSeeder extends Seeder
@@ -32,5 +33,6 @@ class DatabaseSeeder extends Seeder
         $this->call(MenuManagementDatabaseSeeder::class);
         $this->call(PermissionManagementDatabaseSeeder::class);
         $this->call(SettingDatabaseSeeder::class);
+        $this->call(ReportDatabaseSeeder::class);
     }
 }
