@@ -12,10 +12,12 @@
   <div class="card-header border-bottom-dashed align-items-center d-flex">
     <h4 class="card-title mb-0 flex-grow-1">Report</h4>
     <div class="flex-shrink-0">
+      @if(auth()->user()->hasRole('User'))
       <button type="button" class="btn btn-soft-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-form-add-report">
         <i class="ri-add-line"></i>
         Add
       </button>
+      @endif
     </div>
   </div>
   <!-- end cardheader -->
@@ -62,11 +64,13 @@
                   Edit
                 </a>
               </li>
+              @if($report->user->id === auth()->id())
               <li>
                 <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('modal-form-delete-report-{{ $report->id }}').submit()">
                   Delete
                 </a>
               </li>
+              @endif
             </ul>
 
             @include('report::components.form.modal.report.show')
@@ -84,12 +88,15 @@
   </table>
   <div class="card-footer py-4">
     <nav aria-label="..." class="pagination justify-content-end">
-      {{-- {{ $reports->links() }} --}}
+      {{ $reports->links() }}
     </nav>
   </div>
 </div>
 
+@if(auth()->user()->hasRole('User'))
 @include('report::components.form.modal.report.add')
+@endif
+
 @endsection
 
 @push('plugin-css')
