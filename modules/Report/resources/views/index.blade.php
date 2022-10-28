@@ -66,7 +66,7 @@
                   Edit
                 </a>
               </li>
-              @if($report->user->id === auth()->id())
+              @if($report->user->id === auth()->id() || auth()->user()->hasRole('Super Admin'))
               <li>
                 <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('modal-form-delete-report-{{ $report->id }}').submit()">
                   Delete
