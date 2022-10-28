@@ -51,4 +51,17 @@ class Report extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+    /**
+     * proced columns
+     */
+    public function getStatusColor()
+    {
+        return $this->status->value === 'Pending' ? 'primary'
+            : ($this->status->value === 'Processed' ? 'secondary'
+                : ($this->status->value === 'Accepted' ? 'success'
+                    : ($this->status->value === 'Rejected' ? 'danger'
+                        : ($this->status->value === 'Closed' ? 'dark'
+                            : 'warning'))));
+    }
 }

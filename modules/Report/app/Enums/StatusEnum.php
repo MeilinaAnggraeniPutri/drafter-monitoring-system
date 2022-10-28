@@ -4,11 +4,11 @@ namespace Modules\Report\app\Enums;
 
 enum StatusEnum: string
 {
-  case PENDING = 'Pending';
-  case PROCESSED = 'Processed';
+  case PENDING = 'Pending'; // primary
+  case PROCESSED = 'Processed'; // secondary
 
-  case ACCEPTED = 'Accepted';
-  case REJECTED = 'Rejected';
+  case ACCEPTED = 'Accepted'; // success
+  case REJECTED = 'Rejected'; // danger
 
-  case CLOSED = 'Closed';
+  case CLOSED = 'Closed'; // dark
 }

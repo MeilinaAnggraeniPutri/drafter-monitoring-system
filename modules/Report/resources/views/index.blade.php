@@ -45,7 +45,9 @@
         <td>{{ strlen($report->description) > 32 ? substr($report->description, 0, 32) . '...' : $report->description }}</td>
         <td>{{ $report->user->name }}</td>
         <td>
-          <span class="badge badge-soft-success">{{ $report->status }}</span>
+          <span class="badge badge-soft-{{ $report->getStatusColor() }}">
+            {{ $report->status }}
+          </span>
         </td>
         <td>
           <div class="dropdown">
