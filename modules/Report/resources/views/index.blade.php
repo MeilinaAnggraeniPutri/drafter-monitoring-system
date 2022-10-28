@@ -40,12 +40,12 @@
         <th scope="row">{{ $loop->iteration }}</th>
         <td>{{ $report->title }}</td>
         <td>
-          <span class="badge badge-soft-success">{{ count($report->attach) . ' file' }}</span>
+          <span class="badge badge-soft-info">{{ count($report->attach) . ' file' }}</span>
         </td>
         <td>{{ strlen($report->description) > 32 ? substr($report->description, 0, 32) . '...' : $report->description }}</td>
         <td>{{ $report->user->name }}</td>
         <td>
-          <span class="badge badge-soft-secondary">{{ $report->status }}</span>
+          <span class="badge badge-soft-success">{{ $report->status }}</span>
         </td>
         <td>
           <div class="dropdown">
@@ -74,7 +74,7 @@
             </ul>
 
             @include('report::components.form.modal.report.show')
-            {{-- @include('report::components.form.modal.report.edit') --}}
+            @include('report::components.form.modal.report.edit')
             {{-- @include('report::components.form.modal.report.delete') --}}
           </div>
         </td>

@@ -4,11 +4,16 @@ namespace Modules\Report\app\Repositories;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
+use Modules\Report\app\Http\Requests\UpdateReportSuperAdminRequest;
+use Modules\Report\app\Http\Requests\UpdateReportUserRequest;
 use Modules\Report\app\Interfaces\ReportInterface;
 use Modules\Report\app\Models\Report;
 
 class ReportRepository implements ReportInterface
 {
+  /**
+   * getCount
+   */
   public function getCount()
   {
     return auth()->user()->hasRole('User')
@@ -28,6 +33,9 @@ class ReportRepository implements ReportInterface
     return Report::count();
   }
 
+  /**
+   * getAll
+   */
   public function getAll(int $paginate = 10): LengthAwarePaginator
   {
     return auth()->user()->hasRole('User')
@@ -54,6 +62,9 @@ class ReportRepository implements ReportInterface
       ->paginate($paginate);
   }
 
+  /**
+   * store
+   */
   public function store(Request $request): bool | Report
   {
     $attach = $this->storeAttach($request);
@@ -93,5 +104,40 @@ class ReportRepository implements ReportInterface
     }
 
     return json_encode($contents);
+  }
+
+  /**
+   * update
+   */
+  public function update(Request $request, Report $report)
+  {
+    if ($request->_c2VuZGVy === 'VXNlcg==') {
+      return $this->updateUser($request, $report);
+    }
+
+    if ($request->_c2VuZGVy === 'U3VwZXIgQWRtaW4=') {
+      return $this->updateSuperAdmin($request, $report);
+    }
+
+    return false;
+  }
+
+  protected function updateUser(UpdateReportUserRequest $request, Report $report)
+  {
+    # code...
+  }
+
+  protected function updateSuperAdmin(Request $request, Report $report)
+  {
+    return $report->update(
+      $this->validateSuperAdmin($request)
+    );
+  }
+
+  protected function validateSuperAdmin(Request $request)
+  {
+    return $request->validate([
+      'status' => ['required', 'string']
+    ]);
   }
 }

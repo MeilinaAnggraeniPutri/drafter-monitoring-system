@@ -6,6 +6,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Report\app\Http\Requests\ReportStoreRequest;
+use Modules\Report\app\Http\Requests\UpdateReportRequest;
+use Modules\Report\app\Models\Report;
 use Modules\Report\app\Repositories\ReportRepository;
 
 class ReportController extends Controller
@@ -74,9 +76,14 @@ class ReportController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(
+        UpdateReportRequest $request,
+        Report $report,
+        ReportRepository $reportRepository
+    ) {
+        return $reportRepository->update($request, $report)
+            ? back()->with('success', 'Report has been updated successfully!')
+            : back()->with('failed', 'Report was not updated successfully!');
     }
 
     /**
