@@ -21,11 +21,17 @@ class ReportFactory extends Factory
      */
     public function definition()
     {
+        /**
+         * status
+         */
+        $status = ['Pending', 'Processed', 'Accepted', 'Rejected', 'Closed'];
+
         return [
             'title' => $this->faker->sentence(),
             'attach' => json_encode(array()),
             'description' => $this->faker->paragraph(),
             'user_id' => User::firstWhere('email', 'user@gmail.com')->id,
+            'status' => $status[array_rand($status, 1)]
         ];
     }
 }
