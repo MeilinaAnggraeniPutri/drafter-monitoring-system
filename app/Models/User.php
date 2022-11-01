@@ -48,4 +48,12 @@ class User extends Authenticatable // implements MustVerifyEmail
         'validated_at' => 'datetime',
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * check is validated
+     */
+    public function isValidated(): bool
+    {
+        return (bool) $this->validated_at;
+    }
 }
