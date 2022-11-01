@@ -12,7 +12,6 @@
         <div class="modal-body">
 
           @if(auth()->user()->isValidated())
-
           <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" class="form-control" id="title" placeholder="Report title" name="title">
@@ -30,11 +29,8 @@
             <input id="attach" name="attach[]" type="file" class="filepond filepond-input-multiple form-control" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3">
             <x-form.validation.error name="attach" />
           </div>
-
           @else
-
           <p>Validate your account first to do reporting!</p>
-
           @endif
 
         </div>

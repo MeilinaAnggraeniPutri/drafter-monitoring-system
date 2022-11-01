@@ -29,6 +29,12 @@
             </select>
             <x-form.validation.error name="status" />
           </div>
+
+          <div class="mb-3">
+            <label for="comment" class="form-label">Comment</label>
+            <textarea class="form-control" name="comment" id="comment"></textarea>
+            <x-form.validation.error name="comment" />
+          </div>
           @endif
 
         </div>

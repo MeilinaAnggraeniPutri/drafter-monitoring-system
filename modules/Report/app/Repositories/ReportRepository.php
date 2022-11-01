@@ -137,7 +137,8 @@ class ReportRepository implements ReportInterface
   protected function validateSuperAdmin(Request $request)
   {
     return $request->validate([
-      'status' => ['required', 'string']
+      'status' => ['required', 'string'],
+      'comment' => ['nullable', 'string']
     ]);
   }
 }
