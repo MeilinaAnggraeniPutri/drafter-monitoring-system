@@ -11,6 +11,8 @@
         </div>
         <div class="modal-body">
 
+          @if(auth()->user()->isValidated())
+
           <div class="mb-3">
             <label for="title" class="form-label">Title</label>
             <input type="text" class="form-control" id="title" placeholder="Report title" name="title">
@@ -29,10 +31,18 @@
             <x-form.validation.error name="attach" />
           </div>
 
+          @else
+
+          <p>Validate your account first to do reporting!</p>
+
+          @endif
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
+          @if(auth()->user()->isValidated())
           <button type="submit" class="btn btn-primary ">Save</button>
+          @endif
         </div>
       </form>
 
