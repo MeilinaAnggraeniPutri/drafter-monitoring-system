@@ -8,7 +8,7 @@ enum StatusEnum: string
   case PROCESSED = 'Processed'; // secondary
 
   case ACCEPTED = 'Accepted'; // success
-  case REJECTED = 'Rejected'; // danger
+  case REJECTED = 'Rejected'; // warning
 
-  case CLOSED = 'Closed'; // dark
+  case CLOSED = 'Closed'; // danger
 }

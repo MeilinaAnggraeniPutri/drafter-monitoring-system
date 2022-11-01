@@ -60,8 +60,8 @@ class Report extends Model
         return $this->status->value === 'Pending' ? 'primary'
             : ($this->status->value === 'Processed' ? 'secondary'
                 : ($this->status->value === 'Accepted' ? 'success'
-                    : ($this->status->value === 'Rejected' ? 'danger'
-                        : ($this->status->value === 'Closed' ? 'dark'
-                            : 'warning'))));
+                    : ($this->status->value === 'Rejected' ? 'warning'
+                        : ($this->status->value === 'Closed' ? 'danger'
+                            : ''))));
     }
 }
