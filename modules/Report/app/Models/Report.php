@@ -17,12 +17,14 @@ class Report extends Model
         'title',
         'attach',
         'description',
+        'comment',
         'status',
         'user_id',
     ];
 
     protected $hidden = [
-        'user_id'
+        'status',
+        'user_id',
     ];
 
     protected $casts = [
