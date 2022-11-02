@@ -15,6 +15,11 @@
           <textarea class="form-control" cols="30" rows="10" disabled>{{ $report->description }}</textarea>
         </div>
 
+        <div class="mb-3">
+          <h6>Comment:</h6>
+          <textarea class="form-control" cols="30" rows="10" disabled>{{ $report->comment }}</textarea>
+        </div>
+
         <div class="">
           <h6>Attached:</h6>
           @foreach($report->attach as $file)

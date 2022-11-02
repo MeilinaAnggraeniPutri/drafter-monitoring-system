@@ -18,8 +18,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('title')->unique();
             $table->json('attach')->nullable();
-            $table->longText('comment')->nullable();
             $table->longText('description')->nullable();
+            $table->longText('comment')->nullable();
             $table->string('status')->default('Pending');
             $table->foreignIdFor(User::class);
             $table->timestamps();

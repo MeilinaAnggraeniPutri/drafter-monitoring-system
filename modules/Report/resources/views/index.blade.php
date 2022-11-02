@@ -29,6 +29,7 @@
         <th scope="col">Title</th>
         <th scope="col">Attach</th>
         <th scope="col">Description</th>
+        <th scope="col">Comment</th>
         <th scope="col">Created By</th>
         <th scope="col">Status</th>
         <th scope="col" class="col-1"></th>
@@ -43,6 +44,7 @@
           <span class="badge badge-soft-info">{{ count($report->attach) . ' file' }}</span>
         </td>
         <td>{{ strlen($report->description) > 32 ? substr($report->description, 0, 32) . '...' : $report->description }}</td>
+        <td>{{ strlen($report->comment) > 32 ? substr($report->comment, 0, 32) . '...' : $report->comment }}</td>
         <td>{{ $report->user->name }}</td>
         <td>
           <span class="badge badge-soft-{{ $report->getStatusColor() }}">
