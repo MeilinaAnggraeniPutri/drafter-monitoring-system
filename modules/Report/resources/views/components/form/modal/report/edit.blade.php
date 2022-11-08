@@ -15,6 +15,25 @@
           @if(auth()->user()->hasRole('User'))
           <input type="hidden" name="_c2VuZGVy" value="VXNlcg==">
 
+          <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+            <input type="text" class="form-control" id="title" placeholder="Report title" name="title" value="{{ $report->title }}">
+            <x-form.validation.error name="title" />
+          </div>
+
+          <div class="mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea class="form-control" name="description" id="description">{{ $report->description }}</textarea>
+            <x-form.validation.error name="description" />
+          </div>
+
+          <div class="mb-3">
+            <label for="attach" class="form-label">Attachment</label>
+            <span class="text-sm text-muted"></span>
+            <input id="attach" name="attach[]" type="file" class="filepond filepond-input-multiple form-control" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3">
+            <x-form.validation.error name="attach" />
+          </div>
+
           @elseif(auth()->user()->hasRole('Super Admin'))
           <input type="hidden" name="_c2VuZGVy" value="U3VwZXIgQWRtaW4=">
 

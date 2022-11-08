@@ -15,8 +15,8 @@ class ReportStoreRequest extends FormRequest
     {
         return [
             'title' => ['required', 'string'],
-            'description' => ['nullable', 'string'],
             'attach.*' => ['nullable', 'file'],
+            'description' => ['nullable', 'string'],
         ];
     }
 

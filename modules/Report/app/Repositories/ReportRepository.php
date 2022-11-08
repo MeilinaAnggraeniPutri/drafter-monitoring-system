@@ -4,7 +4,6 @@ namespace Modules\Report\app\Repositories;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
-use Modules\Report\app\Http\Requests\UpdateReportSuperAdminRequest;
 use Modules\Report\app\Http\Requests\UpdateReportUserRequest;
 use Modules\Report\app\Interfaces\ReportInterface;
 use Modules\Report\app\Models\Report;
@@ -122,16 +121,38 @@ class ReportRepository implements ReportInterface
     return false;
   }
 
-  protected function updateUser(UpdateReportUserRequest $request, Report $report)
+  protected function updateUser(Request $request, Report $report)
   {
-    # code...
+    $validated = $this->validateUser($request);
+
+    $attach = $this->storeAttach($request);
+
+    return $report->update(
+      array_merge(
+        $validated,
+        [
+          'attach' => $attach,
+        ]
+      )
+    );
   }
 
   protected function updateSuperAdmin(Request $request, Report $report)
   {
+    $validated = $this->validateSuperAdmin($request);
+
     return $report->update(
-      $this->validateSuperAdmin($request)
+      $validated
     );
+  }
+
+  protected function validateUser(Request $request)
+  {
+    return $request->validate([
+      'title' => ['required', 'string'],
+      'attach.*' => ['nullable', 'file'],
+      'description' => ['nullable', 'string'],
+    ]);
   }
 
   protected function validateSuperAdmin(Request $request)

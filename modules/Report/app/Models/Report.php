@@ -24,6 +24,7 @@ class Report extends Model
 
     protected $hidden = [
         'status',
+        'comment',
         'user_id',
     ];
 
