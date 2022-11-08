@@ -4,7 +4,6 @@ namespace Modules\Report\app\Repositories;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
-use Modules\Report\app\Http\Requests\UpdateReportUserRequest;
 use Modules\Report\app\Interfaces\ReportInterface;
 use Modules\Report\app\Models\Report;
 
