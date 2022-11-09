@@ -10,7 +10,13 @@ class Infrastructure extends Model
 {
     use Uuid, HasFactory;
 
-    protected $fillable = [];
+    protected $fillable = [
+        'title',
+        'slug',
+        'thumbnail',
+        'body',
+        'user_id',
+    ];
 
     protected static function newFactory()
     {
