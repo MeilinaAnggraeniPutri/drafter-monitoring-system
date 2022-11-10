@@ -14,7 +14,9 @@ class InfrastructureController extends Controller
      */
     public function index()
     {
-        return view('infrastructure::index');
+        return auth()->user()->hasRole('User')
+            ? view('infrastructure::user.index')
+            : view('infrastructure::admin.index');
     }
 
     /**
@@ -23,7 +25,7 @@ class InfrastructureController extends Controller
      */
     public function create()
     {
-        return view('infrastructure::create');
+        return view('infrastructure::admin.create');
     }
 
     /**
@@ -43,7 +45,7 @@ class InfrastructureController extends Controller
      */
     public function show($id)
     {
-        return view('infrastructure::show');
+        return view('infrastructure::admin.show');
     }
 
     /**
@@ -53,7 +55,7 @@ class InfrastructureController extends Controller
      */
     public function edit($id)
     {
-        return view('infrastructure::edit');
+        return view('infrastructure::admin.edit');
     }
 
     /**
