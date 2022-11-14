@@ -73,8 +73,8 @@ class ReportTest extends TestCase
         $user = User::firstWhere('email', 'superadmin@gmail.com');
 
         $response = $this->actingAs($user)->post(
-            uri: route('report.store'),
-            data: [
+            route('report.store'),
+            [
                 'title' => 'Title',
                 'description' => 'description',
                 'attach' => json_encode(array()),
@@ -82,7 +82,7 @@ class ReportTest extends TestCase
             ]
         );
 
-        return $response->assertRedirect(uri: route('dashboard.index'));
+        return $response->assertRedirect(route('dashboard.index'));
     }
 
     // public function test_create_report()
