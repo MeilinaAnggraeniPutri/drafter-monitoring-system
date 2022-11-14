@@ -5,6 +5,7 @@ namespace Modules\Infrastructure\app\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Infrastructure\app\Repositories\InfrastructureRepository;
 
 class InfrastructureController extends Controller
 {
@@ -12,11 +13,15 @@ class InfrastructureController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
-    {
-        return auth()->user()->hasRole('User')
-            ? view('infrastructure::user.index')
-            : view('infrastructure::admin.index');
+    public function index(
+        InfrastructureRepository $infrastructureRepository
+    ) {
+        $infrastructures = $infrastructureRepository->getAll();
+
+        return view(
+            'infrastructure::' . (auth()->user()->hasRole('User') ? 'user' : 'admin') . '.index',
+            compact('infrastructures')
+        );
     }
 
     /**
