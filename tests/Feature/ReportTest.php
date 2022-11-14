@@ -14,7 +14,7 @@ class ReportTest extends TestCase
     /**
      * A basic feature test example.
      *
-     * @return void
+     * @void
      */
 
     use RefreshDatabase;
@@ -29,6 +29,16 @@ class ReportTest extends TestCase
         $response = $this->actingAs($user)->get(route('report.index'));
 
         $response->assertStatus(200);
+    }
+
+    public function test_redirect_when_open_report_view()
+    {
+        $this->refreshDatabase();
+        $this->seed();
+
+        $response = $this->get(route('report.index'));
+
+        $response->assertRedirect(route('dashboard.index'));
     }
 
     public function test_get_report_list_null()
@@ -82,28 +92,28 @@ class ReportTest extends TestCase
             ]
         );
 
-        return $response->assertRedirect(route('dashboard.index'));
+        $response->assertRedirect(route('dashboard.index'));
     }
 
-    // public function test_create_report()
-    // {
-    //     $this->refreshDatabase();
-    //     $this->seed();
+    public function test_create_report()
+    {
+        $this->refreshDatabase();
+        $this->seed();
 
-    //     $user = User::firstWhere('email', 'user@gmail.com');
+        $user = User::firstWhere('email', 'user@gmail.com');
 
-    //     Report::create([
-    //         'title' => 'Title',
-    //         'description' => 'description',
-    //         'attach' => json_encode(array()),
-    //         'user_id' => $user->id
-    //     ]);
+        Report::create([
+            'title' => 'Title',
+            'description' => 'description',
+            'attach' => json_encode(array()),
+            'user_id' => $user->id
+        ]);
 
-    //     $response = $this->actingAs($user)->get(route('report.index'));
+        $response = $this->actingAs($user)->get(route('report.index'));
 
-    //     return $response
-    //         ->assertSeeText('Title')
-    //         ->assertSeeText('description')
-    //         ->assertSeeText($user->name);
-    // }
+        $response
+            ->assertSee('Title')
+            ->assertSee('description')
+            ->assertSee($user->name);
+    }
 }
