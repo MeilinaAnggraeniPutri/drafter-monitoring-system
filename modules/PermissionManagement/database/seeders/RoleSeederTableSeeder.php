@@ -25,6 +25,8 @@ class RoleSeederTableSeeder extends Seeder
         $user = Role::create(['name' => 'User']);
 
         $superadmin->givePermissionTo(Permission::all());
+        $superadmin->revokePermissionTo('report_store');
+
         $user->givePermissionTo([
             'general',
             'dashboard_index',
