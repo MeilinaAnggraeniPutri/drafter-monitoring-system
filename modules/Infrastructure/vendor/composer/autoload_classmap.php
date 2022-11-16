@@ -14,5 +14,7 @@ return array(
     'Modules\\Infrastructure\\app\\Providers\\InfrastructureServiceProvider' => $baseDir . '/app/Providers/InfrastructureServiceProvider.php',
     'Modules\\Infrastructure\\app\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
     'Modules\\Infrastructure\\app\\Repositories\\InfrastructureRepository' => $baseDir . '/app/Repositories/InfrastructureRepository.php',
+    'Modules\\Infrastructure\\database\\factories\\InfrastructureFactory' => $baseDir . '/database/factories/InfrastructureFactory.php',
     'Modules\\Infrastructure\\database\\seeders\\InfrastructureDatabaseSeeder' => $baseDir . '/database/seeders/InfrastructureDatabaseSeeder.php',
+    'Modules\\Infrastructure\\database\\seeders\\Infrastructure\\InfrastructureTableSeeder' => $baseDir . '/database/seeders/Infrastructure/InfrastructureTableSeeder.php',
 );

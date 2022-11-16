@@ -29,7 +29,9 @@ class ComposerStaticInit2a96e0d70d203cf2261d746786880017
         'Modules\\Infrastructure\\app\\Providers\\InfrastructureServiceProvider' => __DIR__ . '/../..' . '/app/Providers/InfrastructureServiceProvider.php',
         'Modules\\Infrastructure\\app\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'Modules\\Infrastructure\\app\\Repositories\\InfrastructureRepository' => __DIR__ . '/../..' . '/app/Repositories/InfrastructureRepository.php',
+        'Modules\\Infrastructure\\database\\factories\\InfrastructureFactory' => __DIR__ . '/../..' . '/database/factories/InfrastructureFactory.php',
         'Modules\\Infrastructure\\database\\seeders\\InfrastructureDatabaseSeeder' => __DIR__ . '/../..' . '/database/seeders/InfrastructureDatabaseSeeder.php',
+        'Modules\\Infrastructure\\database\\seeders\\Infrastructure\\InfrastructureTableSeeder' => __DIR__ . '/../..' . '/database/seeders/Infrastructure/InfrastructureTableSeeder.php',
     );
 
     public static function getInitializer(ClassLoader $loader)
