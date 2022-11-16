@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\Infrastructure\database\seeders;
+namespace Modules\Infrastructure\database\seeders\Infrastructure;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
-use Modules\Infrastructure\database\seeders\Infrastructure\InfrastructureTableSeeder;
+use Modules\Infrastructure\app\Models\Infrastructure;
 
-class InfrastructureDatabaseSeeder extends Seeder
+class InfrastructureTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -19,6 +19,6 @@ class InfrastructureDatabaseSeeder extends Seeder
 
         // $this->call("OthersTableSeeder");
 
-        $this->call(InfrastructureTableSeeder::class);
+        Infrastructure::factory(rand(100, 500))->create();
     }
 }

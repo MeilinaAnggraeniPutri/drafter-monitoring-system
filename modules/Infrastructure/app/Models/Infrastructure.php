@@ -21,7 +21,7 @@ class Infrastructure extends Model
 
     protected static function newFactory()
     {
-        return \Modules\Infrastructure\Database\factories\InfrastructureFactory::new();
+        return \Modules\Infrastructure\database\factories\InfrastructureFactory::new();
     }
 
     public function user()

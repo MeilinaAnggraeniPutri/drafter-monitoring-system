@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Database\Seeders\User\UserSeeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Modules\Infrastructure\database\seeders\InfrastructureDatabaseSeeder;
 use Modules\MenuManagement\database\seeders\MenuManagementDatabaseSeeder;
 use Modules\PermissionManagement\database\seeders\PermissionManagementDatabaseSeeder;
 use Modules\Report\database\seeders\ReportDatabaseSeeder;
@@ -38,5 +39,6 @@ class DatabaseSeeder extends Seeder
         $this->call(PermissionManagementDatabaseSeeder::class);
         $this->call(SettingDatabaseSeeder::class);
         $this->call(ReportDatabaseSeeder::class);
+        $this->call(InfrastructureDatabaseSeeder::class);
     }
 }

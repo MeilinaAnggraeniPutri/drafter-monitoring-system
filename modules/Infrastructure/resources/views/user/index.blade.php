@@ -9,6 +9,7 @@
 @section('content')
 <div class="row">
 
+  @foreach($infrastructures as $infrastructure)
   <div class="col-sm-6 col-xl-3">
     <div class="card">
       <img class="card-img-top img-fluid" src="assets/images/small/img-2.jpg" alt="Card image cap">
@@ -21,6 +22,11 @@
       </div>
     </div><!-- end card -->
   </div><!-- end col -->
+  @endforeach
 
+</div>
+
+<div class="py-3">
+  {{ $infrastructures->links() }}
 </div>
 @endsection
