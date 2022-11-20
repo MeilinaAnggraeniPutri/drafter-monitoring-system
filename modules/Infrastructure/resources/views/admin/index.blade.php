@@ -10,7 +10,7 @@
 <div class="card card-height-100 table-responsive">
   <!-- cardheader -->
   <div class="card-header border-bottom-dashed align-items-center d-flex">
-    <h4 class="card-title mb-0 flex-grow-1">Report</h4>
+    <h4 class="card-title mb-0 flex-grow-1">Infrastructure</h4>
     <div class="flex-shrink-0">
       @if(auth()->user()->hasRole('Super Admin'))
       <button type="button" class="btn btn-soft-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-form-add-report">
@@ -29,12 +29,47 @@
         <th scope="col">thumbnail</th>
         <th scope="col">Title</th>
         <th scope="col">Created By</th>
-        <th scope="col">Status</th>
         <th scope="col" class="col-1"></th>
       </tr>
     </thead>
     <tbody>
-      @forelse($infrastructures as $key => $value)
+      @forelse($infrastructures as $infrastructure)
+      <tr>
+        <td>{{ $loop->iteration }}</td>
+        <td>
+          <img class="img-thumbnail" alt="200x200" width="200" src="assets/images/small/img-3.jpg">
+        </td>
+        <td>{{ $infrastructure->title }}</td>
+        <td>{{ $infrastructure->user->name }}</td>
+        <td>
+          <div class="dropdown">
+            <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="ri-more-2-fill"></i>
+            </a>
+
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+              <li>
+                <a class="dropdown-item" href="{{ $infrastructure->slug }}">
+                  Show
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-edit-user-{{ $infrastructure->id }}">
+                  Edit
+                </a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('modal-form-delete-user-{{ $infrastructure->id }}').submit()">
+                  Delete
+                </a>
+              </li>
+            </ul>
+
+            {{-- @include('usermanagement::components.form.modal.user.edit') --}}
+            {{-- @include('usermanagement::components.form.modal.user.delete') --}}
+          </div>
+        </td>
+      </tr>
       @empty
       <tr>
         <th colspan="6" class="text-center">No data to display</th>
@@ -44,7 +79,7 @@
   </table>
   <div class="card-footer py-4">
     <nav aria-label="..." class="pagination justify-content-end">
-      {{-- {{ $reports->links() }} --}}
+      {{ $infrastructures->links() }}
     </nav>
   </div>
 </div>
