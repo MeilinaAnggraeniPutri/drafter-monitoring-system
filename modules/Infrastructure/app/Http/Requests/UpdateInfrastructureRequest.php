@@ -4,7 +4,7 @@ namespace Modules\Infrastructure\app\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class InfrastructureRequest extends FormRequest
+class UpdateInfrastructureRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,7 +14,9 @@ class InfrastructureRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => ['required', 'string'],
+            'body' => ['required', 'string'],
+            'thumbnail' => ['nullable', 'file'],
         ];
     }
 

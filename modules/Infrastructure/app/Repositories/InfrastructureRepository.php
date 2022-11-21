@@ -31,6 +31,17 @@ class InfrastructureRepository implements InfrastructureInterface
     );
   }
 
+  public function update(Request $request, Infrastructure $infrastructure)
+  {
+    $image = $request->hasFile('thumbnail')
+      ? $this->storeThumbnail($request)
+      : $infrastructure->thumbnail;
+
+    return $infrastructure->update(
+      $this->mergeRequest($request, $image)
+    );
+  }
+
   protected function storeThumbnail(Request $request): string
   {
     $name = str()->uuid()->toString() . '.' . $request->file('thumbnail')->extension();

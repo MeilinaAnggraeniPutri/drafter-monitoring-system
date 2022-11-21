@@ -6,6 +6,8 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Infrastructure\app\Http\Requests\StoreInfrastructureRequest;
+use Modules\Infrastructure\app\Http\Requests\UpdateInfrastructureRequest;
+use Modules\Infrastructure\app\Models\Infrastructure;
 use Modules\Infrastructure\app\Repositories\InfrastructureRepository;
 
 class InfrastructureController extends Controller
@@ -65,9 +67,9 @@ class InfrastructureController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function edit($id)
+    public function edit(Infrastructure $infrastructure)
     {
-        return view('infrastructure::admin.edit');
+        return view('infrastructure::admin.edit', compact('infrastructure'));
     }
 
     /**
@@ -76,9 +78,14 @@ class InfrastructureController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
-    {
-        //
+    public function update(
+        UpdateInfrastructureRequest $request,
+        InfrastructureRepository $infrastructureRepository,
+        Infrastructure $infrastructure
+    ) {
+        return $infrastructureRepository->update($request, $infrastructure)
+            ? to_route('infrastructure.index')->with('success', 'Infrastructure has been updated successfully!')
+            : to_route('infrastructure.index')->with('failed', 'Infrastructure was not updated successfully!');
     }
 
     /**

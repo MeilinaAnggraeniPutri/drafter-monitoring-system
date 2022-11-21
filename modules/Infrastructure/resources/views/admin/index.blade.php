@@ -52,7 +52,7 @@
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-edit-user-{{ $infrastructure->id }}">
+                <a class="dropdown-item" href="{{ route('infrastructure.edit', $infrastructure->id) }}">
                   Edit
                 </a>
               </li>
