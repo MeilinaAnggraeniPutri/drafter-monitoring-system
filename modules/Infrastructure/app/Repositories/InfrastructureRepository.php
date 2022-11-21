@@ -42,6 +42,11 @@ class InfrastructureRepository implements InfrastructureInterface
     );
   }
 
+  public function destroy(Infrastructure $infrastructure)
+  {
+    return $infrastructure->delete();
+  }
+
   protected function storeThumbnail(Request $request): string
   {
     $name = str()->uuid()->toString() . '.' . $request->file('thumbnail')->extension();

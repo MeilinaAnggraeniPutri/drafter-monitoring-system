@@ -57,14 +57,13 @@
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('modal-form-delete-user-{{ $infrastructure->id }}').submit()">
+                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('modal-form-delete-admin-{{ $infrastructure->id }}').submit()">
                   Delete
                 </a>
               </li>
             </ul>
 
-            {{-- @include('usermanagement::components.form.modal.user.edit') --}}
-            {{-- @include('usermanagement::components.form.modal.user.delete') --}}
+            @include('infrastructure::components.form.modal.admin.delete')
           </div>
         </td>
       </tr>

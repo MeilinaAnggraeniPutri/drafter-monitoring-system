@@ -93,8 +93,12 @@ class InfrastructureController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
-    {
-        //
+    public function destroy(
+        InfrastructureRepository $infrastructureRepository,
+        Infrastructure $infrastructure
+    ) {
+        return $infrastructureRepository->destroy($infrastructure)
+            ? to_route('infrastructure.index')->with('success', 'Infrastructure has been deleted successfully!')
+            : to_route('infrastructure.index')->with('failed', 'Infrastructure was not deleted successfully!');
     }
 }
