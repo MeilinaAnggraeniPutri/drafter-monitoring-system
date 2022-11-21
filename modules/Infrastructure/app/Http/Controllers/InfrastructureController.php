@@ -18,10 +18,12 @@ class InfrastructureController extends Controller
     ) {
         $infrastructures = $infrastructureRepository->getAll();
 
-        return view(
-            'infrastructure::' . (auth()->user()->hasRole('User') ? 'user' : 'admin') . '.index',
-            compact('infrastructures')
-        );
+        return auth()->user()->hasRole('User')
+            ? view('infrastructure::user.index', compact('infrastructures'))
+            : (auth()->user()->hasRole('Super Admin')
+                ? view('infrastructure::admin.index', compact('infrastructures'))
+                : abort()
+            );
     }
 
     /**
