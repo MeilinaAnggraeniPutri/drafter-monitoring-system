@@ -5,6 +5,7 @@ namespace Modules\Infrastructure\app\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Infrastructure\app\Http\Requests\StoreInfrastructureRequest;
 use Modules\Infrastructure\app\Repositories\InfrastructureRepository;
 
 class InfrastructureController extends Controller
@@ -40,9 +41,13 @@ class InfrastructureController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(
+        StoreInfrastructureRequest $request,
+        InfrastructureRepository $infrastructureRepository
+    ) {
+        return $infrastructureRepository->store($request)
+            ? to_route('infrastructure.index')->with('success', 'Infrastructure has been created successfully!')
+            : to_route('infrastructure.index')->with('failed', 'Infrastructure was not created successfully!');
     }
 
     /**

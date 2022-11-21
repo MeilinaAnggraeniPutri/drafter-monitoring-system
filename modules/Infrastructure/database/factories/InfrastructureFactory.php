@@ -29,7 +29,7 @@ class InfrastructureFactory extends Factory
         return [
             'title' => $title,
             'slug' => str($title)->slug(),
-            'thumbnail' => 'images.jpg',
+            'thumbnail' => 'thumbnail.jpg',
             'body' => $this->faker->paragraph(5),
             'user_id' => User::firstWhere('email', 'superadmin@gmail.com')->id,
         ];

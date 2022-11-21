@@ -12,12 +12,10 @@
   <div class="card-header border-bottom-dashed align-items-center d-flex">
     <h4 class="card-title mb-0 flex-grow-1">Infrastructure</h4>
     <div class="flex-shrink-0">
-      @if(auth()->user()->hasRole('Super Admin'))
-      <button type="button" class="btn btn-soft-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-form-add-report">
+      <a href="{{ route('infrastructure.create') }}" type="button" class="btn btn-soft-primary btn-sm">
         <i class="ri-add-line"></i>
         Add
-      </button>
-      @endif
+      </a>
     </div>
   </div>
   <!-- end cardheader -->
@@ -37,7 +35,7 @@
       <tr>
         <td>{{ $loop->iteration }}</td>
         <td>
-          <img class="img-thumbnail" alt="200x200" width="200" src="assets/images/small/img-3.jpg">
+          <img class="img-thumbnail" alt="200x200" width="200" src="{{ asset('assets/infrastructures/' . $infrastructure->thumbnail) }}">
         </td>
         <td>{{ $infrastructure->title }}</td>
         <td>{{ $infrastructure->user->name }}</td>
