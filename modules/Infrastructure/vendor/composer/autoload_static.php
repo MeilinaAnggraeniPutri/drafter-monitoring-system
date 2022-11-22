@@ -23,7 +23,8 @@ class ComposerStaticInit2a96e0d70d203cf2261d746786880017
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'Modules\\Infrastructure\\app\\Http\\Controllers\\InfrastructureController' => __DIR__ . '/../..' . '/app/Http/Controllers/InfrastructureController.php',
-        'Modules\\Infrastructure\\app\\Http\\Requests\\InfrastructureRequest' => __DIR__ . '/../..' . '/app/Http/Requests/InfrastructureRequest.php',
+        'Modules\\Infrastructure\\app\\Http\\Requests\\StoreInfrastructureRequest' => __DIR__ . '/../..' . '/app/Http/Requests/StoreInfrastructureRequest.php',
+        'Modules\\Infrastructure\\app\\Http\\Requests\\UpdateInfrastructureRequest' => __DIR__ . '/../..' . '/app/Http/Requests/UpdateInfrastructureRequest.php',
         'Modules\\Infrastructure\\app\\Interfaces\\InfrastructureInterface' => __DIR__ . '/../..' . '/app/Interfaces/InfrastructureInterface.php',
         'Modules\\Infrastructure\\app\\Models\\Infrastructure' => __DIR__ . '/../..' . '/app/Models/Infrastructure.php',
         'Modules\\Infrastructure\\app\\Providers\\InfrastructureServiceProvider' => __DIR__ . '/../..' . '/app/Providers/InfrastructureServiceProvider.php',

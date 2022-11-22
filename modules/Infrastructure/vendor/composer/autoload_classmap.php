@@ -8,7 +8,8 @@ $baseDir = dirname($vendorDir);
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
     'Modules\\Infrastructure\\app\\Http\\Controllers\\InfrastructureController' => $baseDir . '/app/Http/Controllers/InfrastructureController.php',
-    'Modules\\Infrastructure\\app\\Http\\Requests\\InfrastructureRequest' => $baseDir . '/app/Http/Requests/InfrastructureRequest.php',
+    'Modules\\Infrastructure\\app\\Http\\Requests\\StoreInfrastructureRequest' => $baseDir . '/app/Http/Requests/StoreInfrastructureRequest.php',
+    'Modules\\Infrastructure\\app\\Http\\Requests\\UpdateInfrastructureRequest' => $baseDir . '/app/Http/Requests/UpdateInfrastructureRequest.php',
     'Modules\\Infrastructure\\app\\Interfaces\\InfrastructureInterface' => $baseDir . '/app/Interfaces/InfrastructureInterface.php',
     'Modules\\Infrastructure\\app\\Models\\Infrastructure' => $baseDir . '/app/Models/Infrastructure.php',
     'Modules\\Infrastructure\\app\\Providers\\InfrastructureServiceProvider' => $baseDir . '/app/Providers/InfrastructureServiceProvider.php',
