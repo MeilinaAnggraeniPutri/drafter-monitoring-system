@@ -91,8 +91,10 @@ class ReportController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
+    public function destroy(Report $report)
     {
-        //
+        return $report->delete()
+            ? back()->with('success', 'Report has been deleted successfully!')
+            : back()->with('failed', 'Report was not deleted successfully!');
     }
 }

@@ -79,7 +79,7 @@
 
             @include('report::components.form.modal.report.show')
             @include('report::components.form.modal.report.edit')
-            {{-- @include('report::components.form.modal.report.delete') --}}
+            @include('report::components.form.modal.report.delete')
           </div>
         </td>
       </tr>

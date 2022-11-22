@@ -14,4 +14,4 @@ use Modules\Report\app\Http\Controllers\ReportController;
 |
 */
 
-Route::resource('report', ReportController::class)->only('index', 'store', 'update');
+Route::resource('report', ReportController::class)->only('index', 'store', 'update', 'destroy');
