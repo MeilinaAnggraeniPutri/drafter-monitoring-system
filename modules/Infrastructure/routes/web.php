@@ -14,4 +14,4 @@ use Modules\Infrastructure\app\Http\Controllers\InfrastructureController;
 |
 */
 
-Route::resource('infrastructure', InfrastructureController::class)->only('index', 'create', 'store', 'edit', 'update', 'destroy');
+Route::resource('infrastructure', InfrastructureController::class); // all method was used

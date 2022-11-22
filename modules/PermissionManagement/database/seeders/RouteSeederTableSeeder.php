@@ -19,180 +19,52 @@ class RouteSeederTableSeeder extends Seeder
 
         // $this->call("OthersTableSeeder");
 
-        // Dashboard
-        Route::insert([
-            [
-                'route' => 'dashboard.index',
-                'permission_name' => 'dashboard_index'
-            ],
-        ]);
+        Route::create(['route' => 'dashboard.index', 'permission_name' => 'dashboard_index',]);
 
-        // General Setting
-        Route::insert([
-            [
-                'route' => 'setting.index',
-                'permission_name' => 'setting_index'
-            ],
-            [
-                'route' => 'setting.update',
-                'permission_name' => 'setting_update'
-            ],
-        ]);
+        Route::create(['route' => 'infrastructure.index', 'permission_name' => 'infrastructure_index',]);
+        Route::create(['route' => 'infrastructure.store', 'permission_name' => 'infrastructure_store',]);
+        Route::create(['route' => 'infrastructure.create', 'permission_name' => 'infrastructure_create',]);
+        Route::create(['route' => 'infrastructure.update', 'permission_name' => 'infrastructure_update',]);
+        Route::create(['route' => 'infrastructure.destroy', 'permission_name' => 'infrastructure_destroy',]);
+        Route::create(['route' => 'infrastructure.edit', 'permission_name' => 'infrastructure_edit',]);
 
-        // User Management
-        Route::insert([
-            [
-                'route' => 'user.index',
-                'permission_name' => 'user_index'
-            ],
-            [
-                'route' => 'user.store',
-                'permission_name' => 'user_store'
-            ],
-            [
-                'route' => 'user.update',
-                'permission_name' => 'user_update'
-            ],
-            [
-                'route' => 'user.destroy',
-                'permission_name' => 'user_destroy'
-            ],
-        ]);
+        Route::create(['route' => 'menu.index', 'permission_name' => 'menu_index',]);
+        Route::create(['route' => 'menu.store', 'permission_name' => 'menu_store',]);
+        Route::create(['route' => 'menu.update', 'permission_name' => 'menu_update',]);
+        Route::create(['route' => 'menu.destroy', 'permission_name' => 'menu_destroy',]);
 
-        // User Profile
-        Route::insert([
-            [
-                'route' => 'profile.index',
-                'permission_name' => 'profile_index'
-            ]
-        ]);
+        Route::create(['route' => 'menu.item.index', 'permission_name' => 'menu.item_index',]);
+        Route::create(['route' => 'menu.item.store', 'permission_name' => 'menu.item_store',]);
+        Route::create(['route' => 'menu.item.update', 'permission_name' => 'menu.item_update',]);
+        Route::create(['route' => 'menu.item.destroy', 'permission_name' => 'menu.item_destroy',]);
 
-        // Menu Group Management
-        Route::insert([
-            [
-                'route' => 'menu.index',
-                'permission_name' => 'menu_index'
-            ],
-            [
-                'route' => 'menu.store',
-                'permission_name' => 'menu_store'
-            ],
-            [
-                'route' => 'menu.update',
-                'permission_name' => 'menu_update'
-            ],
-            [
-                'route' => 'menu.destroy',
-                'permission_name' => 'menu_destroy'
-            ],
-        ]);
+        Route::create(['route' => 'permission.index', 'permission_name' => 'permission_index',]);
+        Route::create(['route' => 'permission.store', 'permission_name' => 'permission_store',]);
+        Route::create(['route' => 'permission.update', 'permission_name' => 'permission_update',]);
+        Route::create(['route' => 'permission.destroy', 'permission_name' => 'permission_destroy',]);
 
-        // Menu Item Management
-        Route::insert([
-            [
-                'route' => 'menu.item.index',
-                'permission_name' => 'menu_item_index'
-            ],
-            [
-                'route' => 'menu.item.store',
-                'permission_name' => 'menu_item_store'
-            ],
-            [
-                'route' => 'menu.item.update',
-                'permission_name' => 'menu_item_update'
-            ],
-            [
-                'route' => 'menu.item.destroy',
-                'permission_name' => 'menu_item_destroy'
-            ],
-        ]);
+        Route::create(['route' => 'report.index', 'permission_name' => 'report_index',]);
+        Route::create(['route' => 'report.store', 'permission_name' => 'report_store',]);
+        Route::create(['route' => 'report.update', 'permission_name' => 'report_update',]);
 
-        // Route Management
-        Route::insert([
-            [
-                'route' => 'route.index',
-                'permission_name' => 'route_index'
-            ],
-            [
-                'route' => 'route.store',
-                'permission_name' => 'route_store'
-            ],
-            [
-                'route' => 'route.update',
-                'permission_name' => 'route_update'
-            ],
-            [
-                'route' => 'route.destroy',
-                'permission_name' => 'route_destroy'
-            ],
-        ]);
+        Route::create(['route' => 'role.index', 'permission_name' => 'role_index',]);
+        Route::create(['route' => 'role.store', 'permission_name' => 'role_store',]);
+        Route::create(['route' => 'role.update', 'permission_name' => 'role_update',]);
+        Route::create(['route' => 'role.destroy', 'permission_name' => 'role_destroy',]);
 
-        // Role Management
-        Route::insert([
-            [
-                'route' => 'role.index',
-                'permission_name' => 'role_index'
-            ],
-            [
-                'route' => 'role.store',
-                'permission_name' => 'role_store'
-            ],
-            [
-                'route' => 'role.update',
-                'permission_name' => 'role_update'
-            ],
-            [
-                'route' => 'role.destroy',
-                'permission_name' => 'role_destroy'
-            ],
-        ]);
+        Route::create(['route' => 'route.index', 'permission_name' => 'route_index',]);
+        Route::create(['route' => 'route.store', 'permission_name' => 'route_store',]);
+        Route::create(['route' => 'route.update', 'permission_name' => 'route_update',]);
+        Route::create(['route' => 'route.destroy', 'permission_name' => 'route_destroy',]);
 
-        // Permission Management
-        Route::insert([
-            [
-                'route' => 'permission.index',
-                'permission_name' => 'permission_index'
-            ],
-            [
-                'route' => 'permission.store',
-                'permission_name' => 'permission_store'
-            ],
-            [
-                'route' => 'permission.update',
-                'permission_name' => 'permission_update'
-            ],
-            [
-                'route' => 'permission.destroy',
-                'permission_name' => 'permission_destroy'
-            ],
-        ]);
+        Route::create(['route' => 'setting.index', 'permission_name' => 'setting_index',]);
+        Route::create(['route' => 'setting.update', 'permission_name' => 'setting_update',]);
 
-        // Report
-        Route::insert([
-            [
-                'route' => 'report.index',
-                'permission_name' => 'report_index'
-            ],
-            [
-                'route' => 'report.store',
-                'permission_name' => 'report_store'
-            ],
-            // [
-            //     'route' => 'report.index',
-            //     'permission_name' => 'report_index'
-            // ],
-            // [
-            //     'route' => 'report.index',
-            //     'permission_name' => 'report_index'
-            // ]
-        ]);
+        Route::create(['route' => 'user.index', 'permission_name' => 'user_index',]);
+        Route::create(['route' => 'user.store', 'permission_name' => 'user_store',]);
 
-        // Infrastructure
-        Route::insert([
-            [
-                'route' => 'infrastructure.index',
-                'permission_name' => 'infrastructure_index'
-            ]
-        ]);
+        Route::create(['route' => 'profile.index', 'permission_name' => 'profile_index',]);
+        Route::create(['route' => 'user.update', 'permission_name' => 'user_update',]);
+        Route::create(['route' => 'user.destroy', 'permission_name' => 'user_destroy',]);
     }
 }

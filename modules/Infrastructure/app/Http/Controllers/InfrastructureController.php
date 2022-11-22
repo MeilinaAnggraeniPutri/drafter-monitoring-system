@@ -57,9 +57,11 @@ class InfrastructureController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function show($id)
+    public function show(string $infrastructure)
     {
-        return view('infrastructure::admin.show');
+        $infrastructure = Infrastructure::where('slug', $infrastructure)->firstOrFail();
+
+        return view('infrastructure::show', compact('infrastructure'));
     }
 
     /**
