@@ -102,26 +102,3 @@
 @endif
 
 @endsection
-
-@push('plugin-css')
-<!-- dropzone css -->
-<link rel="stylesheet" href="{{ asset('assets/libs/dropzone/dropzone.css') }}" type="text/css" />
-
-<!-- Filepond css -->
-<link rel="stylesheet" href="{{ asset('assets/libs/filepond/filepond.min.css') }}" type="text/css" />
-<link rel="stylesheet" href="{{ asset('assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.css') }}" />
-@endpush
-
-@push('plugin-script')
-<!-- dropzone min -->
-<script src="{{ asset('assets/libs/dropzone/dropzone-min.js') }}"></script>
-
-<!-- filepond js -->
-<script src="{{ asset('assets/libs/filepond/filepond.min.js') }}"></script>
-<script src="{{ asset('assets/libs/filepond-plugin-image-preview/filepond-plugin-image-preview.min.js') }}"></script>
-<script src="{{ asset('assets/libs/filepond-plugin-file-validate-size/filepond-plugin-file-validate-size.min.js') }}"></script>
-<script src="{{ asset('assets/libs/filepond-plugin-image-exif-orientation/filepond-plugin-image-exif-orientation.min.js') }}"></script>
-<script src="{{ asset('assets/libs/filepond-plugin-file-encode/filepond-plugin-file-encode.min.js') }}"></script>
-
-<script src="{{ asset('assets/js/pages/form-file-upload.init.js') }}"></script>
-@endpush
