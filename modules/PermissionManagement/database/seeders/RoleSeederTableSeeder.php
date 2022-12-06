@@ -33,6 +33,7 @@ class RoleSeederTableSeeder extends Seeder
             'profile_index',
             'report_index',
             'report_store',
+            'report_update',
             'infrastructure_index',
         ]);
 
