@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use Modules\UserManagement\app\Http\Controllers\User\UserProfileController;
 use Modules\UserManagement\app\Http\Controllers\UserManagementController;
+use Modules\UserManagement\app\Http\Controllers\ValidationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,6 +17,7 @@ use Modules\UserManagement\app\Http\Controllers\UserManagementController;
 */
 
 Route::resource('user', UserManagementController::class)->only('index', 'store', 'update', 'destroy');
-Route::prefix('user')->group(function () {
+Route::prefix('user')->name('user.')->group(function () {
   Route::resource('profile', UserProfileController::class)->only('index');
+  Route::resource('validation', ValidationController::class)->only('index');
 });
