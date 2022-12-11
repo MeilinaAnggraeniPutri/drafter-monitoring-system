@@ -38,6 +38,8 @@
           <button type="button" class="btn btn-light" data-bs-dismiss="modal">Close</button>
           @if(auth()->user()->isValidated())
           <button type="submit" class="btn btn-primary ">Save</button>
+          @else
+          <a href="{{ route('user.validation.index') }}" type="button" class="btn btn-primary">Validate</a>
           @endif
         </div>
       </form>

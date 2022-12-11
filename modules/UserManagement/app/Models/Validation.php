@@ -15,6 +15,7 @@ class Validation extends Model
         'img_self',
         'img_card',
         'user_id',
+        'status',
     ];
 
     protected static function newFactory()

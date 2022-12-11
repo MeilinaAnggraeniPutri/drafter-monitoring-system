@@ -18,7 +18,8 @@ return new class extends Migration
             $table->uuid('id')->primary();
             $table->string('img_self');
             $table->string('img_card');
-            $table->foreignIdFor(User::class);
+            $table->foreignIdFor(User::class)->unique();
+            $table->string('status')->default('unverified');
             $table->timestamps();
         });
     }

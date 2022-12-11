@@ -14,7 +14,8 @@ class ValidationRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'user_selfie' => ['required', 'file'],
+            'user_card_id' => ['required', 'file'],
         ];
     }
 

@@ -5,6 +5,8 @@ namespace Modules\UserManagement\app\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\UserManagement\app\Http\Requests\ValidationRequest;
+use Modules\UserManagement\app\Repositories\ValidationRepository;
 
 class ValidationController extends Controller
 {
@@ -12,9 +14,12 @@ class ValidationController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function index()
-    {
-        return view('usermanagement::index');
+    public function index(
+        ValidationRepository $validationRepository
+    ) {
+        return $validationRepository->hasValidate()
+            ? to_route('dashboard.index')->with('success', 'User will verify soon!')
+            : view('usermanagement::validation.index');
     }
 
     /**
@@ -23,7 +28,7 @@ class ValidationController extends Controller
      */
     public function create()
     {
-        return view('usermanagement::create');
+        return view('usermanagement::validation.create');
     }
 
     /**
@@ -31,9 +36,13 @@ class ValidationController extends Controller
      * @param Request $request
      * @return Renderable
      */
-    public function store(Request $request)
-    {
-        //
+    public function store(
+        ValidationRequest $request,
+        ValidationRepository $validationRepository
+    ) {
+        return $validationRepository->store($request)
+            ? to_route('dashboard.index')->with('success', 'User will verify soon!')
+            : to_route('dashboard.index')->with('failed', 'Can not verify user!');
     }
 
     /**
@@ -43,7 +52,7 @@ class ValidationController extends Controller
      */
     public function show($id)
     {
-        return view('usermanagement::show');
+        return view('usermanagement::validation.show');
     }
 
     /**
@@ -53,7 +62,7 @@ class ValidationController extends Controller
      */
     public function edit($id)
     {
-        return view('usermanagement::edit');
+        return view('usermanagement::validation.edit');
     }
 
     /**
