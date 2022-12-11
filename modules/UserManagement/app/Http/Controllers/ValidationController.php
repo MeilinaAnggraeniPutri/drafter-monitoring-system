@@ -6,6 +6,7 @@ use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\UserManagement\app\Http\Requests\ValidationRequest;
+use Modules\UserManagement\app\Models\Validation;
 use Modules\UserManagement\app\Repositories\ValidationRepository;
 
 class ValidationController extends Controller
@@ -17,10 +18,10 @@ class ValidationController extends Controller
     public function index(
         ValidationRepository $validationRepository
     ) {
-        $users = [];
-
         if (auth()->user()->hasRole('Super Admin')) {
-            return view('usermanagement::validation.admin.index', compact('users'));
+            $validations = $validationRepository->getAll();
+
+            return view('usermanagement::validation.admin.index', compact('validations'));
         } else {
             return $validationRepository->hasValidate()
                 ? to_route('dashboard.index')->with('success', auth()->user()->isValidated() ? 'User already verify!' : 'User will verify soon!')
@@ -79,9 +80,13 @@ class ValidationController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Validation $validation)
     {
-        //
+        return $validation->user()->update([
+            'validated_at' => now()
+        ])
+            ? back()->with('success', 'User has been verified successfully!')
+            : back()->with('failed', 'User was not verified successfully!');
     }
 
     /**
@@ -89,8 +94,10 @@ class ValidationController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function destroy($id)
+    public function destroy(Validation $validation)
     {
-        //
+        return $validation->user()->delete() && $validation->delete()
+            ? back()->with('success', 'User has been deleted successfully!')
+            : back()->with('failed', 'User was not deleted successfully!');
     }
 }

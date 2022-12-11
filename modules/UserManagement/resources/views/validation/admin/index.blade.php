@@ -1,16 +1,16 @@
 @extends('layouts.dashboard.app')
 
-@section('title', 'User Management')
+@section('title', 'User Validation')
 
 @section('breadcrumb')
-<x-dashboard::breadcrumb title="User Management" page="User Management" active="Users" route="{{ route('user.index') }}" />
+<x-dashboard::breadcrumb title="User Validation" page="User Validation" active="Validation" route="{{ route('user.validation.index') }}" />
 @endsection
 
 @section('content')
 <div class="card card-height-100 table-responsive">
   <!-- cardheader -->
   <div class="card-header border-bottom-dashed align-items-center d-flex">
-    <h4 class="card-title mb-0 flex-grow-1">User</h4>
+    <h4 class="card-title mb-0 flex-grow-1">Validation</h4>
     <div class="flex-shrink-0">
       <button type="button" class="btn btn-soft-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-form-add-user">
         <i class="ri-add-line"></i>
@@ -24,29 +24,42 @@
     <thead>
       <tr>
         <th scope="col">#</th>
-        <th scope="col">Name</th>
-        <th scope="col">Email</th>
-        <th scope="col">Role</th>
-        <th scope="col">Verified</th>
+        <th scope="col">User</th>
+        <th scope="col">Selfie</th>
+        <th scope="col">Card ID</th>
+        <th scope="col"></th>
         <th scope="col" class="col-1"></th>
       </tr>
     </thead>
     <tbody>
-      @forelse ($users as $user)
+      @forelse ($validations as $validation)
       <tr>
         <th scope="row">{{ $loop->iteration }}</th>
-        <td>{{ $user->name }}</td>
-        <td>{{ $user->email }}</td>
+        <td>{{ $validation->user->name }}</td>
         <td>
-          @foreach ($user->roles as $role)
-          <span class="badge badge-soft-success">{{ $role->name }}</span>
-          @endforeach
+          <img src="{{ asset('assets/files/' . $validation->img_self) }}" alt="" class="img-thumbnail">
         </td>
         <td>
-          @if (!blank($user->email_verified_at))
-          <span class="badge badge-soft-success">Verified</span>
+          <img src="{{ asset('assets/files/' . $validation->img_card) }}" alt="" class="img-thumbnail">
+        </td>
+        <td>
+          @if($validation->user->isValidated())
+          <button type="button" class="btn btn-soft-success">Verified</button>
           @else
-          <span class="badge badge-soft-danger">Not Verified</span>
+          <button class="btn btn-soft-primary rounded rounded-circle" onclick="event.preventDefault(); document.getElementById('validation-update-{{ $validation->id }}').submit()">
+            <i class="ri-check-line"></i>
+          </button>
+          <button class="btn btn-soft-danger rounded rounded-circle" onclick="event.preventDefault(); document.getElementById('validation-delete-{{ $validation->id }}').submit()">
+            <i class="ri-close-line"></i>
+          </button>
+          <form action="{{ route('user.validation.update', $validation->id) }}" method="POST" id="validation-update-{{ $validation->id }}">
+            @csrf
+            @method('PUT')
+          </form>
+          <form action="{{ route('user.validation.destroy', $validation->id) }}" method="POST" id="validation-delete-{{ $validation->id }}">
+            @csrf
+            @method('DELETE')
+          </form>
           @endif
         </td>
         <td>
@@ -57,12 +70,12 @@
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li>
-                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-edit-user-{{ $user->id }}">
+                <a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal-form-edit-user-{{ $validation->id }}">
                   Edit
                 </a>
               </li>
               <li>
-                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('modal-form-delete-user-{{ $user->id }}').submit()">
+                <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('modal-form-delete-user-{{ $validation->id }}').submit()">
                   Delete
                 </a>
               </li>
@@ -82,7 +95,7 @@
   </table>
   <div class="card-footer py-4">
     <nav aria-label="..." class="pagination justify-content-end">
-      {{-- $users->links() --}}
+      {{-- $validations->links() --}}
     </nav>
   </div>
 </div>

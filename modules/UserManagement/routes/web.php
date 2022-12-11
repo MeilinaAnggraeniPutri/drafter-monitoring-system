@@ -19,5 +19,5 @@ use Modules\UserManagement\app\Http\Controllers\ValidationController;
 Route::resource('user', UserManagementController::class)->only('index', 'store', 'update', 'destroy');
 Route::prefix('user')->name('user.')->group(function () {
   Route::resource('profile', UserProfileController::class)->only('index');
-  Route::resource('validation', ValidationController::class)->only('index', 'store');
+  Route::resource('validation', ValidationController::class)->only('index', 'store', 'update', 'destroy');
 });

@@ -12,6 +12,14 @@ class ValidationRepository
     return auth()->user()->isValidated() || Validation::firstWhere('user_id', auth()->id()) ? true : false;
   }
 
+  public function getAll(int $paginate = 10)
+  {
+    return Validation::query()
+      ->with('user')
+      ->latest()
+      ->paginate($paginate);
+  }
+
   public function store(Request $request)
   {
     $request->validated();
