@@ -17,9 +17,17 @@ class ValidationController extends Controller
     public function index(
         ValidationRepository $validationRepository
     ) {
-        return $validationRepository->hasValidate()
-            ? to_route('dashboard.index')->with('success', 'User will verify soon!')
-            : view('usermanagement::validation.index');
+        $users = [];
+
+        if (auth()->user()->hasRole('Super Admin')) {
+            return view('usermanagement::validation.admin.index', compact('users'));
+        } else {
+            return $validationRepository->hasValidate()
+                ? to_route('dashboard.index')->with('success', auth()->user()->isValidated() ? 'User already verify!' : 'User will verify soon!')
+                : view('usermanagement::validation.user.index');
+        }
+
+        return back();
     }
 
     /**

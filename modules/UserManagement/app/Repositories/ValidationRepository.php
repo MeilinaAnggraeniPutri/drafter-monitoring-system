@@ -9,7 +9,7 @@ class ValidationRepository
 {
   public function hasValidate(): bool
   {
-    return Validation::firstWhere('user_id', auth()->id()) ? true : false;
+    return auth()->user()->isValidated() || Validation::firstWhere('user_id', auth()->id()) ? true : false;
   }
 
   public function store(Request $request)

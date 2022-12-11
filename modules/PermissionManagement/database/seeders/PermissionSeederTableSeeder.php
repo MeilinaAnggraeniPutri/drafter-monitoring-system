@@ -30,6 +30,7 @@ class PermissionSeederTableSeeder extends Seeder
         Permission::create(['name' => 'infrastructure_index']);
         Permission::create(['name' => 'infrastructure_store']);
         Permission::create(['name' => 'infrastructure_create']);
+        Permission::create(['name' => 'infrastructure_show']);
         Permission::create(['name' => 'infrastructure_update']);
         Permission::create(['name' => 'infrastructure_destroy']);
         Permission::create(['name' => 'infrastructure_edit']);
@@ -52,6 +53,7 @@ class PermissionSeederTableSeeder extends Seeder
         Permission::create(['name' => 'report_index']);
         Permission::create(['name' => 'report_store']);
         Permission::create(['name' => 'report_update']);
+        Permission::create(['name' => 'report_destroy']);
 
         Permission::create(['name' => 'role_index']);
         Permission::create(['name' => 'role_store']);
@@ -69,8 +71,9 @@ class PermissionSeederTableSeeder extends Seeder
         Permission::create(['name' => 'user_index']);
         Permission::create(['name' => 'user_store']);
 
-        Permission::create(['name' => 'profile_index']);
-
+        Permission::create(['name' => 'user_profile_index']);
+        Permission::create(['name' => 'user_validation_index']);
+        Permission::create(['name' => 'user_validation_store']);
         Permission::create(['name' => 'user_update']);
         Permission::create(['name' => 'user_destroy']);
     }

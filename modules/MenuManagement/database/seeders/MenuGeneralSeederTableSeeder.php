@@ -52,5 +52,14 @@ class MenuGeneralSeederTableSeeder extends Seeder
             'menu_group_id' => $general->id,
             'posision' => 3,
         ]);
+
+        MenuItem::create([
+            'name' => 'User Validation',
+            'icon' => 'ri-user-follow-line',
+            'route' => 'user.validation.index',
+            'permission_name' => 'user_validation_index',
+            'menu_group_id' => $general->id,
+            'posision' => 4,
+        ]);
     }
 }
