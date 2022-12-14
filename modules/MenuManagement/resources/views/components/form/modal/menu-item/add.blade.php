@@ -24,7 +24,7 @@
 
                     <div class="mb-3">
                         <label for="route" class="form-label">Route</label>
-                        <select class="form-control" id="route" name="route" data-choices data-choices-removeItem>
+                        <select class="form-select" id="route" name="route" data-choices data-choices-removeItem>
                             @foreach ($routes as $route)
                             @if (!blank($route->getName()))
                             <option value="{{ $route->getName() }}">{{ $route->getName() }}</option>
@@ -36,7 +36,7 @@
 
                     <div class="mb-3">
                         <label for="permission_name" class="form-label">Permission Name</label>
-                        <select class="form-control" id="permission_name" name="permission_name" data-choices data-choices-removeItem>
+                        <select class="form-select" id="permission_name" name="permission_name" data-choices data-choices-removeItem>
                             @foreach ($permissions as $permission)
                             <option value="{{ $permission->name }}">{{ $permission->name }}</option>
                             @endforeach

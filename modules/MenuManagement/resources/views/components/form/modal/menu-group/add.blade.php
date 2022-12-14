@@ -18,7 +18,7 @@
 
                     <div class="mb-3">
                         <label for="permission_name" class="form-label">Permission Name</label>
-                        <select class="form-control" id="permission_name" name="permission_name" data-choices data-choices-removeItem>
+                        <select class="form-select" id="permission_name" name="permission_name" data-choices data-choices-removeItem>
                             @foreach ($permissions as $permission)
                             <option value="{{ $permission->name }}">{{ $permission->name }}</option>
                             @endforeach

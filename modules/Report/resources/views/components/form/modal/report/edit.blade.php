@@ -38,8 +38,8 @@
           <input type="hidden" name="_c2VuZGVy" value="U3VwZXIgQWRtaW4=">
 
           <div class="mb-3">
-            <label for="status" class="form-label">Status</label>
-            <select class="form-control" id="status" name="status" data-choices>
+            <label for="select-status" class="form-label">Status</label>
+            <select class="form-select" id="select-status" name="status" data-choices>
               <option @selected($report->status->value == 'Pending') value="Pending">Pending</option>
               <option @selected($report->status->value == 'Processed') value="Processed">Processed</option>
               <option @selected($report->status->value == 'Accepted') value="Accepted">Accepted</option>

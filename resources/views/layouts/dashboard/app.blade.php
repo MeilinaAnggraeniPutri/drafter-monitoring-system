@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-layout="vertical" data-topbar="light" data-sidebar="dark" data-sidebar-size="lg">
+<html lang="en">
 
 <head>
 
@@ -14,32 +14,40 @@
   <!-- custom CSS-->
   @stack('plugin-css')
 
-  <!-- Layout config Js -->
-  <script src="{{ asset('assets/js/layout.js') }}"></script>
-  <!-- Bootstrap CSS -->
-  <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-  <!-- Icons CSS -->
+  <!-- Bootstrap Css -->
+  <link href="{{ asset('assets/css/bootstrap.min.css') }}" id="bootstrap-style" rel="stylesheet" type="text/css" />
+  <!-- Icons Css -->
   <link href="{{ asset('assets/css/icons.min.css') }}" rel="stylesheet" type="text/css" />
-  <!-- App CSS-->
-  <link href="{{ asset('assets/css/app.min.css') }}" rel="stylesheet" type="text/css" />
-  <!-- custom CSS-->
-  <link href="{{ asset('assets/css/custom.min.css') }}" rel="stylesheet" type="text/css" />
+  <!-- App Css-->
+  <link href="{{ asset('assets/css/app.min.css') }}" id="app-style" rel="stylesheet" type="text/css" />
 
   @stack('css')
 
 </head>
 
-<body>
+<body data-sidebar="dark" data-layout-mode="light">
+
+  <!-- <body data-layout="horizontal" data-topbar="dark"> -->
 
   <!-- Begin page -->
   <div id="layout-wrapper">
 
+
     <x-dashboard::topbar />
-    <!-- ========== App Menu ========== -->
-    <x-dashboard::sidebar />
+
+    <!-- ========== Left Sidebar Start ========== -->
+    <div class="vertical-menu">
+
+      <div data-simplebar class="h-100">
+
+        <!--- Sidemenu -->
+        <x-dashboard::sidebar />
+        <!-- Sidebar -->
+      </div>
+    </div>
     <!-- Left Sidebar End -->
-    <!-- Vertical Overlay-->
-    <div class="vertical-overlay"></div>
+
+
 
     <!-- ============================================================== -->
     <!-- Start right Content here -->
@@ -52,18 +60,23 @@
           <!-- start page title -->
           <div class="row">
             <div class="col-12">
-              @yield('breadcrumb')
+              <div class="page-title-box d-sm-flex align-items-center justify-content-between">
+
+                @yield('breadcrumb')
+
+              </div>
             </div>
           </div>
           <!-- end page title -->
+
           <x-form.notivication.alert />
 
           @yield('content')
 
-        </div>
-        <!-- container-fluid -->
+        </div> <!-- container-fluid -->
       </div>
       <!-- End Page-content -->
+
 
       <footer class="footer">
         <div class="container-fluid">
@@ -71,8 +84,7 @@
             <div class="col-sm-6">
               <script>
                 document.write(new Date().getFullYear())
-
-              </script> © Velzon.
+              </script> © Skote.
             </div>
             <div class="col-sm-6">
               <div class="text-sm-end d-none d-sm-block">
@@ -88,35 +100,23 @@
   </div>
   <!-- END layout-wrapper -->
 
-
-
-  <!--start back-to-top-->
-  <button onclick="topFunction()" class="btn btn-danger btn-icon" id="back-to-top">
-    <i class="ri-arrow-up-line"></i>
-  </button>
-  <!--end back-to-top-->
-
-  <div class="customizer-setting d-none d-md-block">
-    <div class="btn-info btn-rounded shadow-lg btn btn-icon btn-lg p-2" data-bs-toggle="offcanvas" data-bs-target="#theme-settings-offcanvas" aria-controls="theme-settings-offcanvas">
-      <i class='mdi mdi-spin mdi-cog-outline fs-22'></i>
-    </div>
-  </div>
-
-  <!-- Theme Settings -->
+  <!-- Right Sidebar -->
   <x-dashboard::theme-settings />
+  <!-- /Right-bar -->
+
+  <!-- Right bar overlay-->
+  <div class="rightbar-overlay"></div>
 
   <!-- JAVASCRIPT -->
+  <script src="{{ asset('assets/libs/jquery/jquery.min.js') }}"></script>
   <script src="{{ asset('assets/libs/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/metismenu/metisMenu.min.js') }}"></script>
   <script src="{{ asset('assets/libs/simplebar/simplebar.min.js') }}"></script>
   <script src="{{ asset('assets/libs/node-waves/waves.min.js') }}"></script>
-  <script src="{{ asset('assets/libs/feather-icons/feather.min.js') }}"></script>
-  <script src="{{ asset('assets/js/pages/plugins/lord-icon-2.1.0.js') }}"></script>
-  <script src="{{ asset('assets/js/plugins.js') }}"></script>
 
   <!-- custom JS-->
   @stack('plugin-script')
 
-  <!-- App js -->
   <script src="{{ asset('assets/js/app.js') }}"></script>
 
   <!-- custom JS-->

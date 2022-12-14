@@ -28,7 +28,7 @@ class MenuGeneralSeederTableSeeder extends Seeder
 
         MenuItem::create([
             'name' => 'Dashboard',
-            'icon' => 'ri-dashboard-2-line',
+            'icon' => 'fas fa-tachometer-alt',
             'route' => 'dashboard.index',
             'permission_name' => 'dashboard_index',
             'menu_group_id' => $general->id,
@@ -37,7 +37,7 @@ class MenuGeneralSeederTableSeeder extends Seeder
 
         MenuItem::create([
             'name' => 'Report',
-            'icon' => 'ri-file-warning-line',
+            'icon' => 'far fa-file-alt',
             'route' => 'report.index',
             'permission_name' => 'report_index',
             'menu_group_id' => $general->id,
@@ -46,7 +46,7 @@ class MenuGeneralSeederTableSeeder extends Seeder
 
         MenuItem::create([
             'name' => 'Infrastructure',
-            'icon' => 'ri-file-list-line',
+            'icon' => 'far fa-list-alt',
             'route' => 'infrastructure.index',
             'permission_name' => 'infrastructure_index',
             'menu_group_id' => $general->id,
@@ -55,7 +55,7 @@ class MenuGeneralSeederTableSeeder extends Seeder
 
         MenuItem::create([
             'name' => 'User Validation',
-            'icon' => 'ri-user-follow-line',
+            'icon' => 'fas fa-user-check',
             'route' => 'user.validation.index',
             'permission_name' => 'user_validation_index',
             'menu_group_id' => $general->id,

@@ -28,7 +28,7 @@ class MenuSettingSeederTableSeeder extends Seeder
 
         MenuItem::create([
             'name' => 'General Setting',
-            'icon' => 'ri-settings-2-line',
+            'icon' => 'fas fa-cogs',
             'route' => 'setting.index',
             'permission_name' => 'setting_index',
             'menu_group_id' => $setting->id,
@@ -37,7 +37,7 @@ class MenuSettingSeederTableSeeder extends Seeder
 
         MenuItem::create([
             'name' => 'User Management',
-            'icon' => 'ri-file-user-line',
+            'icon' => 'fas fa-users',
             'route' => 'user.index',
             'permission_name' => 'user_index',
             'menu_group_id' => $setting->id,
@@ -46,7 +46,7 @@ class MenuSettingSeederTableSeeder extends Seeder
 
         MenuItem::create([
             'name' => 'Menu Management',
-            'icon' => 'ri-menu-line',
+            'icon' => 'fas fa-bars',
             'route' => 'menu.index',
             'permission_name' => 'menu_index',
             'menu_group_id' => $setting->id,
@@ -55,7 +55,7 @@ class MenuSettingSeederTableSeeder extends Seeder
 
         MenuItem::create([
             'name' => 'Route Management',
-            'icon' => 'ri-link',
+            'icon' => 'fas fa-link',
             'route' => 'route.index',
             'permission_name' => 'route_index',
             'menu_group_id' => $setting->id,
@@ -64,7 +64,7 @@ class MenuSettingSeederTableSeeder extends Seeder
 
         MenuItem::create([
             'name' => 'Role Management',
-            'icon' => 'ri-shield-user-line',
+            'icon' => 'fas fa-user-shield',
             'route' => 'role.index',
             'permission_name' => 'role_index',
             'menu_group_id' => $setting->id,
@@ -73,7 +73,7 @@ class MenuSettingSeederTableSeeder extends Seeder
 
         MenuItem::create([
             'name' => 'Permission Management',
-            'icon' => 'ri-shield-star-line',
+            'icon' => 'fas fa-shield-alt',
             'route' => 'permission.index',
             'permission_name' => 'permission_index',
             'menu_group_id' => $setting->id,

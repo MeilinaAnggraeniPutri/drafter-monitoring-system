@@ -24,7 +24,7 @@
 
                     <div class="mb-3">
                         <label for="roles[]" class="form-label">Role Name</label>
-                        <select class="form-control" id="roles[]" name="roles[]" data-choices data-choices-removeItem multiple>
+                        <select class="form-select" id="roles[]" name="roles[]" data-choices data-choices-removeItem multiple>
                             @foreach ($roles as $role)
                             <option value="{{ $role->name }}">{{ $role->name }}</option>
                             @endforeach

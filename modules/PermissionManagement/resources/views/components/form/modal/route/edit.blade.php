@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <div class="mb-3">
                         <label for="route" class="form-label">Route Name</label>
-                        <select class="form-control" id="route" name="route" data-choices data-choices-removeItem>
+                        <select class="form-select" id="route" name="route" data-choices data-choices-removeItem>
                             @foreach ($facadesRoutes as $facadesRoute)
                             @if (!blank($facadesRoute->getName()))
                             <option @selected($route->permission_name == $facadesRoute->getName()) value="{{ $facadesRoute->getName() }}">{{ $facadesRoute->getName() }}</option>
@@ -25,7 +25,7 @@
 
                     <div class="mb-3">
                         <label for="permission_name" class="form-label">Permission Name</label>
-                        <select class="form-control" id="permission_name" name="permission_name" data-choices data-choices-removeItem>
+                        <select class="form-select" id="permission_name" name="permission_name" data-choices data-choices-removeItem>
                             @foreach ($permissions as $permission)
                             <option @selected($permission->name == $route->permission_name) value="{{ $permission->name }}">{{ $permission->name }}</option>
                             @endforeach

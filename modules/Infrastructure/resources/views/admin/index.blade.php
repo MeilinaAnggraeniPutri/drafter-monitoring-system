@@ -42,12 +42,12 @@
         <td>
           <div class="dropdown">
             <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
-              <i class="ri-more-2-fill"></i>
+              <i class="fas fa-ellipsis-v"></i>
             </a>
 
             <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
               <li>
-                <a class="dropdown-item" href="{{ $infrastructure->slug }}">
+                <a class="dropdown-item" href="{{ route('infrastructure.show', $infrastructure->slug) }}">
                   Show
                 </a>
               </li>

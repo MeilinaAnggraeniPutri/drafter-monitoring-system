@@ -191,7 +191,7 @@
                     <div class="flex-shrink-0">
                       <div class="dropdown">
                         <a href="#" role="button" id="dropdownMenuLink2" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="ri-more-2-fill fs-14"></i>
+                          <i class="fas fa-ellipsis-v fs-14"></i>
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink2">
@@ -259,7 +259,7 @@
                     <div class="flex-shrink-0">
                       <div class="dropdown">
                         <a href="#" role="button" id="dropdownMenuLink1" data-bs-toggle="dropdown" aria-expanded="false">
-                          <i class="ri-more-2-fill fs-14"></i>
+                          <i class="fas fa-ellipsis-v fs-14"></i>
                         </a>
 
                         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuLink1">
