@@ -30,5 +30,23 @@ class UserSeeder extends Seeder
             'email' => 'test@gmail.com',
             'validated_at' => null
         ]);
+
+        User::factory()->create([
+            'name' => 'Test',
+            'email' => 'test1@gmail.com',
+            'validated_at' => null
+        ]);
+
+        User::factory()->create([
+            'name' => 'Test',
+            'email' => 'test2@gmail.com',
+            'validated_at' => null
+        ]);
+
+        User::factory()->create([
+            'name' => 'Test',
+            'email' => 'test3@gmail.com',
+            'validated_at' => null
+        ]);
     }
 }

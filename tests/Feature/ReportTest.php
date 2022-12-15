@@ -16,104 +16,66 @@ class ReportTest extends TestCase
      *
      * @void
      */
+    use WithFaker;
 
-    use RefreshDatabase;
-
-    public function test_display_report_view()
+    public function test_report_user_create()
     {
-        $this->refreshDatabase();
-        $this->seed();
-
-        $user = User::firstWhere('email', 'superadmin@gmail.com');
-
-        $response = $this->actingAs($user)->get(route('report.index'));
-
-        $response->assertStatus(200);
-    }
-
-    public function test_redirect_when_open_report_view()
-    {
-        $this->refreshDatabase();
-        $this->seed();
-
-        $response = $this->get(route('report.index'));
-
-        $response->assertRedirect(route('dashboard.index'));
-    }
-
-    public function test_get_report_list_null()
-    {
-        $this->refreshDatabase();
-        $this->seed(UserSeeder::class);
-
-        $user = User::firstWhere('email', 'superadmin@gmail.com');
-
-        $response = $this->actingAs($user)->get(route('report.index'));
-
-        $response->assertSeeText('No data to display');
-    }
-
-    public function test_get_report_list_show_ten()
-    {
-        $this->refreshDatabase();
-        $this->seed();
-
-        $user = User::firstWhere('email', 'superadmin@gmail.com');
-
-        $response = $this->actingAs($user)->get(route('report.index'));
-
-        $response
-            ->assertSeeText('1')
-            ->assertSeeText('2')
-            ->assertSeeText('3')
-            ->assertSeeText('4')
-            ->assertSeeText('5')
-            ->assertSeeText('6')
-            ->assertSeeText('7')
-            ->assertSeeText('8')
-            ->assertSeeText('9')
-            ->assertSeeText('10');
-    }
-
-    public function test_super_admin_canont_create_report()
-    {
-        $this->refreshDatabase();
-        $this->seed();
-
-        $user = User::firstWhere('email', 'superadmin@gmail.com');
-
-        $response = $this->actingAs($user)->post(
+        $user = User::firstWhere('email', 'user@gmail.com');
+        $res = $this->actingAs($user)->post(
             route('report.store'),
             [
-                'title' => 'Title',
-                'description' => 'description',
-                'attach' => json_encode(array()),
-                'user_id' => $user->id
+                'title' => $this->faker()->sentence(),
             ]
         );
 
-        $response->assertRedirect(route('dashboard.index'));
+        $res->assertStatus(302);
     }
 
-    public function test_create_report()
+    public function test_report_user_update()
     {
-        $this->refreshDatabase();
-        $this->seed();
-
         $user = User::firstWhere('email', 'user@gmail.com');
+        $report = Report::query()->latest()->first();
+        $res = $this->actingAs($user)->put(
+            route('report.update', $report->id),
+            [
+                '_c2VuZGVy' => 'VXNlcg==',
+                'title' => $this->faker()->sentence()
+            ]
+        );
 
-        Report::create([
-            'title' => 'Title',
-            'description' => 'description',
-            'attach' => json_encode(array()),
-            'user_id' => $user->id
-        ]);
+        $res->assertStatus(302);
+    }
 
-        $response = $this->actingAs($user)->get(route('report.index'));
+    public function test_report_user_delete()
+    {
+        $user = User::firstWhere('email', 'user@gmail.com');
+        $report = Report::query()->latest()->first();
+        $res = $this->actingAs($user)->delete(route('report.destroy', $report->id));
 
-        $response
-            ->assertSee('Title')
-            ->assertSee('description')
-            ->assertSee($user->name);
+        $res->assertStatus(302);
+    }
+
+    public function test_report_admin_edit()
+    {
+        $user = User::firstWhere('email', 'superadmin@gmail.com');
+        $report = Report::query()->latest()->first();
+        $res = $this->actingAs($user)->put(
+            route('report.update', $report->id),
+            [
+                '_c2VuZGVy' => 'U3VwZXIgQWRtaW4=',
+                'status' => 'Accepted'
+            ]
+        );
+
+        $res->assertStatus(302);
+    }
+
+    public function test_report_admin_delete()
+    {
+        $user = User::firstWhere('email', 'superadmin@gmail.com');
+        $report = Report::query()->latest()->first();
+        $res = $this->actingAs($user)->delete(route('report.destroy', $report->id));
+
+        $res->assertStatus(302);
     }
 }
