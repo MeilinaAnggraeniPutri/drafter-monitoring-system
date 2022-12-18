@@ -1,7 +1,7 @@
 name: Testing CI
 
 env:
-  NAME: 'Snyk Demo'
+  NAME: 'Cloud Computing'
 
 on:
   push:
@@ -26,7 +26,11 @@ jobs:
         cache: maven
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Check Code
+      run: composer install
+           composer lint
     - name: Print name
       run: echo "Hello $NAME. $BUILD. Using Java Version $JAVA_VERSION. My API_KEY is ${{secrets.SERVER}}"
       env:
         BUILD: 'We are currently running the Build job'
+    
