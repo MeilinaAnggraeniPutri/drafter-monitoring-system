@@ -11,12 +11,12 @@
   <!-- cardheader -->
   <div class="card-header border-bottom-dashed align-items-center d-flex">
     <h4 class="card-title mb-0 flex-grow-1">Validation</h4>
-    <div class="flex-shrink-0">
+    {{-- <div class="flex-shrink-0">
       <button type="button" class="btn btn-soft-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-form-add-user">
         <i class="ri-add-line"></i>
         Add
       </button>
-    </div>
+    </div> --}}
   </div>
   <!-- end cardheader -->
   <!-- Hoverable Rows -->
