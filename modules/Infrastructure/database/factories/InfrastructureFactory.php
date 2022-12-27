@@ -25,12 +25,13 @@ class InfrastructureFactory extends Factory
          * for title and title slug
          */
         $title = $this->faker->sentence();
+        $thumbnail = ['street_1.jpeg', 'street_2.jpeg', 'street_3.jpeg', 'street_4.jpeg', 'street_5.jpeg'];
 
         return [
             'title' => $title,
             'slug' => str($title)->slug(),
-            'thumbnail' => 'thumbnail.jpg',
-            'body' => $this->faker->paragraph(5),
+            'thumbnail' => $thumbnail[array_rand($thumbnail, 1)],
+            'body' => $this->faker->paragraph(25),
             'user_id' => User::firstWhere('email', 'superadmin@gmail.com')->id,
         ];
     }

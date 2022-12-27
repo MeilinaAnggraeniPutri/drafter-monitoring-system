@@ -17,7 +17,7 @@ class StoreMenuitemRequest extends FormRequest
             'name' => ['required', 'string'],
             'route' => ['required', 'string'],
             'permission_name' => ['required', 'string'],
-            'icon' => ['sometimes', 'required', 'string', 'starts_with:ri-'],
+            'icon' => ['sometimes', 'required', 'string', 'starts_with:fas fa'],
             'status' => ['sometimes', 'required', 'boolean'],
         ];
     }
