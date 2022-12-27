@@ -6,22 +6,22 @@
         <a href="{{ route('dashboard.index') }}" class="logo logo-dark">
           <span class="logo-sm">
             {{-- <img src="/assets/images/logo.svg" alt="" height="22"> --}}
-            <h3 class="mt-3 text-white">DESA SINGGAHANESIA</h3>
+            <h3 class="mt-3 text-white">DESA SINGGAHAN</h3>
           </span>
           <span class="logo-lg">
             {{-- <img src="/assets/images/logo-dark.png" alt="" height="17"> --}}
-            <h3 class="mt-3 text-white">DESA SINGGAHANESIA</h3>
+            <h3 class="mt-3 text-white">DESA SINGGAHAN</h3>
           </span>
         </a>
 
         <a href="{{ route('dashboard.index') }}" class="logo logo-light">
           <span class="logo-sm">
             {{-- <img src="/assets/images/logo-light.svg" alt="" height="22"> --}}
-            <h3 class="mt-3 text-white">DESA SINGGAHANESIA</h3>
+            <h3 class="mt-3 text-white">DESA SINGGAHAN</h3>
           </span>
           <span class="logo-lg">
             {{-- <img src="/assets/images/logo-light.png" alt="" height="19"> --}}
-            <h3 class="mt-3 text-white">DESA SINGGAHANESIA</h3>
+            <h3 class="mt-3 text-white">DESA SINGGAHAN</h3>
           </span>
         </a>
       </div>
