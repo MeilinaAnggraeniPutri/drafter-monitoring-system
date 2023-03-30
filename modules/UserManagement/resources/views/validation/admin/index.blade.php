@@ -33,6 +33,7 @@
     </thead>
     <tbody>
       @forelse ($validations as $validation)
+      @if($validation->user?->name)
       <tr>
         <th scope="row">{{ $loop->iteration }}</th>
         <td>{{ $validation->user->name }}</td>
@@ -86,6 +87,7 @@
           </div>
         </td>
       </tr>
+      @endif
       @empty
       <tr>
         <th colspan="6" class="text-center">No data to display</th>
