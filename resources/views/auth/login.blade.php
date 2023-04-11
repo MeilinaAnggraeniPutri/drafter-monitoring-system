@@ -9,8 +9,8 @@
 
       <div class="card-body p-4">
         <div class="text-center mt-2">
-          <h5 class="text-primary">Welcome Back !</h5>
-          <p class="text-muted">Sign in to continue to Velzon.</p>
+          <h5 class="text-primary">Welcome Back, Please Enter Your Details </h5>
+          <p class="text-muted">Drafter Monitoring System</p>
         </div>
         <div class="p-2 mt-4">
           <form action="{{ route('login') }}" method="POST">
@@ -32,6 +32,11 @@
                 <button class="btn btn-link position-absolute end-0 top-0 text-decoration-none text-muted password-addon" type="button" id="password-addon"><i class="ri-eye-fill align-middle"></i></button>
                 <x-form.validation.error name="password" />
               </div>
+            </div>
+            <div class="mb-3">
+              <label for="nik" class="form-label">No NIK</label>
+              <input type="teks" class="form-control" id="nik" placeholder="Enter NO NIK" name="nik " value="{{ old('nik') }}" >
+              <x-form.validation.error name="nik" />
             </div>
 
             <div class="form-check">

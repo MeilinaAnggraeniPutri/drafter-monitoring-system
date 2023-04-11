@@ -2,10 +2,12 @@
 
 namespace App\Providers;
 
+use App\Models\User;
 use App\Actions\Fortify\CreateNewUser;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use App\Actions\Fortify\UpdateUserProfileInformation;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\RateLimiter;
@@ -63,5 +65,19 @@ class FortifyServiceProvider extends ServiceProvider
 
         // Verify Email
         Fortify::verifyEmailView(fn () => view('auth.verify'));
+
+        Fortify::authenticateUsing(function (Request $request) {
+            if ($request->has('nik') && !blank($request->input('nik'))) {
+                $user = User::where('nik', $request->input('nik'))->first();
+                if (!blank($user)) {
+                    return $user;
+                }
+            } else {
+                $user = User::where('email', $request->email)->first();
+                if ($user && Hash::check($request->password, $user->password)) {
+                    return $user;
+                }
+            }
+        });
     }
 }

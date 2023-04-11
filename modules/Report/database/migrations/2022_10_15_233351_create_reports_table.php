@@ -14,13 +14,16 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('reports', function (Blueprint $table) {
+        Schema::create('report', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('title')->unique();
-            $table->json('attach')->nullable();
-            $table->longText('description')->nullable();
-            $table->longText('comment')->nullable();
-            $table->string('status')->default('Pending');
+            $table->json('tgl')->nullable();
+            $table->string('unit')->unique();
+            $table->json('equipment')->nullable();
+            $table->longText('deskripsi_pekerjaan')->nullable();
+            $table->longText('nama')->nullable();
+            $table->string('upload_foto')->nullable();
+            $table->string('lokasi_barang')->nullable();
+            $table->string('sstatus')->default('Pending');
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });
@@ -33,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('reports');
+        Schema::dropIfExists('report');
     }
 };
