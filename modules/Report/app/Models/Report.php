@@ -14,18 +14,26 @@ class Report extends Model
     use Uuid, HasFactory;
 
     protected $fillable = [
-        'title',
-        'attach',
-        'description',
-        'comment',
+        // 'title',
+        // 'attach',
+        // 'description',
+        // 'comment',
+
+        'tgl',
+        'unit',
+        'equipment',
+        'deskripsi_pekerjaan',
+        'nama',
+        'upload_foto',
+        'lokasi_barang',
         'status',
         'user_id',
     ];
 
     protected $hidden = [
         'status',
-        'comment',
         'user_id',
+        // 'comment',
     ];
 
     protected $casts = [

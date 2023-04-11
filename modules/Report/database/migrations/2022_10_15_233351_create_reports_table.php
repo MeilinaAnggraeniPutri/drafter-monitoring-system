@@ -14,7 +14,7 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('report', function (Blueprint $table) {
+        Schema::create('reports', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->json('tgl')->nullable();
             $table->string('unit')->unique();
@@ -23,7 +23,7 @@ return new class extends Migration
             $table->longText('nama')->nullable();
             $table->string('upload_foto')->nullable();
             $table->string('lokasi_barang')->nullable();
-            $table->string('sstatus')->default('Pending');
+            $table->string('status')->default('Pending');
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });
@@ -36,6 +36,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('report');
+        Schema::dropIfExists('reports');
     }
 };

@@ -19,6 +19,6 @@ class ReportSeederTableSeeder extends Seeder
 
         // $this->call("OthersTableSeeder");
 
-        Report::factory(rand(100, 500))->create();
+        // Report::factory(rand(100, 500))->create();
     }
 }

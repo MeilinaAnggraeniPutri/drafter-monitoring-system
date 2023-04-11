@@ -19,6 +19,6 @@ class InfrastructureTableSeeder extends Seeder
 
         // $this->call("OthersTableSeeder");
 
-        Infrastructure::factory(rand(100, 500))->create();
+        // Infrastructure::factory(rand(100, 500))->create();
     }
 }

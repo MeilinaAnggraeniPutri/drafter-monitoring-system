@@ -1,6 +1,6 @@
 <div id="sidebar-menu">
     <!-- Left Menu Start -->
-    <ul class="metismenu list-unstyled" id="side-menu">
+    <ul class="metismenu list-unstyled mt-5" id="side-menu">
         @foreach ($menus as $menu)
         @can($menu->permission_name)
         <li class="menu-title"><span data-key="t-menu">{{ $menu->name }}</span></li>
