@@ -14,9 +14,10 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string'],
-            // 'email' => ['required', 'string', 'email:rfc,dns,spoof', 'unique:users'],
-            'email' => ['required', 'string', 'email:rfc', 'unique:users'],
+            'nik' => ['nullable', 'numeric'],
+            'name' => ['nullable', 'string'],
+            // 'email' => ['nullable', 'string', 'email:rfc,dns,spoof', 'unique:users'],
+            'email' => ['nullable', 'string', 'email:rfc', 'unique:users'],
             'role' => ['nullable', 'string'],
             'verified' => ['nullable', 'boolean'],
         ];

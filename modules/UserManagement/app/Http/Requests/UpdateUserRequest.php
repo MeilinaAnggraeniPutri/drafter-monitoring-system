@@ -14,9 +14,10 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string'],
-            // 'email' => ['required', 'string', 'email:rfc,dns,spoof'],
-            'email' => ['required', 'string', 'email:rfc'],
+            'nik' => ['nullable', 'numeric'],
+            'name' => ['nullable', 'string'],
+            // 'email' => ['nullable', 'string', 'email:rfc,dns,spoof'],
+            'email' => ['nullable', 'string', 'email:rfc'],
             'role' => ['nullable', 'string'],
             'verified' => ['nullable', 'boolean'],
         ];
