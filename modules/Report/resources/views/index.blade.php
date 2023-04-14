@@ -1,16 +1,16 @@
 @extends('layouts.dashboard.app')
 
-@section('title', 'Report')
+@section('title', 'Request')
 
 @section('breadcrumb')
-<x-dashboard::breadcrumb title="Report" page="Report" active="Report" route="{{ route('report.index') }}" />
+<x-dashboard::breadcrumb title="Request" page="Request" active="Request" route="{{ route('report.index') }}" />
 @endsection
 
 @section('content')
 <div class="card card-height-100 table-responsive">
     <!-- cardheader -->
     <div class="card-header border-bottom-dashed align-items-center d-flex">
-        <h4 class="card-title mb-0 flex-grow-1">Report</h4>
+        <h4 class="card-title mb-0 flex-grow-1">Request</h4>
         <div class="flex-shrink-0">
             @if(auth()->user()->hasRole('User'))
             <button type="button" class="btn btn-soft-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-form-add-report">
