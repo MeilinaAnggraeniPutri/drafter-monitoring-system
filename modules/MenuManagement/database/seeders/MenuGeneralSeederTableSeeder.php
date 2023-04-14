@@ -36,7 +36,7 @@ class MenuGeneralSeederTableSeeder extends Seeder
         ]);
 
         MenuItem::create([
-            'name' => 'Report',
+            'name' => 'Request',
             'icon' => 'far fa-file-alt',
             'route' => 'report.index',
             'permission_name' => 'report_index',
@@ -53,13 +53,13 @@ class MenuGeneralSeederTableSeeder extends Seeder
             'posision' => 3,
         ]);
 
-        MenuItem::create([
-            'name' => 'User Validation',
-            'icon' => 'fas fa-user-check',
-            'route' => 'user.validation.index',
-            'permission_name' => 'user_validation_index',
-            'menu_group_id' => $general->id,
-            'posision' => 4,
-        ]);
+        // MenuItem::create([
+        //     'name' => 'User Validation',
+        //     'icon' => 'fas fa-user-check',
+        //     'route' => 'user.validation.index',
+        //     'permission_name' => 'user_validation_index',
+        //     'menu_group_id' => $general->id,
+        //     'posision' => 4,
+        // ]);
     }
 }

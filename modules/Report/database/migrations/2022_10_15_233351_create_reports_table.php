@@ -16,14 +16,16 @@ return new class extends Migration
     {
         Schema::create('reports', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->json('tgl')->nullable();
             $table->string('unit')->unique();
-            $table->json('equipment')->nullable();
-            $table->longText('deskripsi_pekerjaan')->nullable();
             $table->longText('nama')->nullable();
-            $table->string('upload_foto')->nullable();
+
+            $table->date('tgl')->nullable();
+            $table->json('upload_foto')->nullable();
             $table->string('lokasi_barang')->nullable();
+            $table->longText('deskripsi_pekerjaan')->nullable();
             $table->string('status')->default('Pending');
+
+            $table->longText('equipment')->nullable();
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });

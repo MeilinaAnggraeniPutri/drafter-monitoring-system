@@ -48,7 +48,7 @@ class Report extends Model
     /**
      * attribute
      */
-    public function attach(): Attribute
+    public function uploadFoto(): Attribute
     {
         return Attribute::make(
             get: fn ($value) => json_decode($value)

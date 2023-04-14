@@ -14,9 +14,17 @@ class ReportStoreRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string'],
-            'attach.*' => ['nullable', 'file'],
-            'description' => ['nullable', 'string'],
+            // 'title' => ['required', 'string'],
+            // 'attach.*' => ['nullable', 'file'],
+            // 'description' => ['nullable', 'string'],
+            'tgl'                   => ['nullable', 'date'],
+            'unit'                  => ['nullable', 'string'],
+            'equipment'             => ['nullable', 'string'],
+            'deskripsi_pekerjaan'   => ['nullable', 'string'],
+            'nama'                  => ['nullable', 'string'],
+            'upload_foto.*'         => ['nullable', 'file'],
+            'lokasi_barang'         => ['nullable', 'string'],
+            'status'                => ['nullable', 'string'],
         ];
     }
 

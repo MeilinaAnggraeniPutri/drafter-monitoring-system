@@ -65,19 +65,19 @@ class ReportRepository implements ReportInterface
    */
   public function store(Request $request): bool | Report
   {
-    $attach = $this->storeAttach($request);
+    $upload_foto = $this->storeAttach($request);
 
     return Report::create(
-      $this->mergeRequest($request, $attach)
+      $this->mergeRequest($request, $upload_foto)
     );
   }
 
-  protected function mergeRequest(Request $request, string $attach)
+  protected function mergeRequest(Request $request, string $upload_foto)
   {
     return array_merge(
       $request->validated(),
       array(
-        'attach' => $attach,
+        'upload_foto' => $upload_foto,
         'user_id' => auth()->id()
       )
     );
@@ -87,13 +87,13 @@ class ReportRepository implements ReportInterface
   {
     $contents = array();
 
-    if (!$request->has('attach')) {
+    if (!$request->has('upload_foto')) {
       return json_encode($contents);
     }
 
-    $attach = $request->file('attach');
+    $upload_foto = $request->file('upload_foto');
 
-    foreach ($attach as $file) {
+    foreach ($upload_foto as $file) {
       $fileName = str()->uuid()->toString() . '.' . $file->extension();
 
       $file->move(public_path('assets/files/'), $fileName);
@@ -124,13 +124,13 @@ class ReportRepository implements ReportInterface
   {
     $validated = $this->validateUser($request);
 
-    $attach = $this->storeAttach($request);
+    $upload_foto = $this->storeAttach($request);
 
     return $report->update(
       array_merge(
         $validated,
         [
-          'attach' => $attach,
+          'upload_foto' => $upload_foto,
         ]
       )
     );
@@ -148,17 +148,28 @@ class ReportRepository implements ReportInterface
   protected function validateUser(Request $request)
   {
     return $request->validate([
-      'title' => ['required', 'string'],
-      'attach.*' => ['nullable', 'file'],
-      'description' => ['nullable', 'string'],
+      'tgl'                   => ['nullable', 'date'],
+      'unit'                  => ['nullable', 'string'],
+      'equipment'             => ['nullable', 'string'],
+      'deskripsi_pekerjaan'   => ['nullable', 'string'],
+      'nama'                  => ['nullable', 'string'],
+      'upload_foto.*'         => ['nullable', 'file'],
+      'lokasi_barang'         => ['nullable', 'string'],
+      'status'                => ['nullable', 'string'],
     ]);
   }
 
   protected function validateSuperAdmin(Request $request)
   {
     return $request->validate([
-      'status' => ['required', 'string'],
-      'comment' => ['nullable', 'string']
+      'tgl'                   => ['nullable', 'date'],
+      'unit'                  => ['nullable', 'string'],
+      'equipment'             => ['nullable', 'string'],
+      'deskripsi_pekerjaan'   => ['nullable', 'string'],
+      'nama'                  => ['nullable', 'string'],
+      'upload_foto.*'         => ['nullable', 'file'],
+      'lokasi_barang'         => ['nullable', 'string'],
+      'status'                => ['nullable', 'string'],
     ]);
   }
 }
