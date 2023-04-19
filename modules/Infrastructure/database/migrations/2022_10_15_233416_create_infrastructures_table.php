@@ -16,10 +16,11 @@ return new class extends Migration
     {
         Schema::create('infrastructures', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('title')->unique();
-            $table->string('slug')->unique();
-            $table->string('thumbnail')->nullable();
-            $table->longText('body')->nullable();
+            $table->string('file_pdf');
+            $table->string('drafter');
+            $table->string('revisi');
+            $table->string('keterangan');
+            $table->string('progress');
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });
