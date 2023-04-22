@@ -2,6 +2,7 @@
 
 namespace Modules\Infrastructure\app\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -35,7 +36,9 @@ class InfrastructureController extends Controller
      */
     public function create()
     {
-        return view('infrastructure::admin.create');
+        $users = User::all();
+
+        return view('infrastructure::admin.create', compact('users'));
     }
 
     /**

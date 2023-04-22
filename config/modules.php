@@ -37,7 +37,7 @@ return [
             'composer' => 'composer.json',
             'assets/js/app' => 'resources/assets/js/app.js',
             'assets/sass/app' => 'resources/assets/sass/app.scss',
-            'webpack' => 'webpack.mix.js',
+            // 'webpack' => 'webpack.mix.js',
             'package' => 'package.json',
         ],
         'replacements' => [

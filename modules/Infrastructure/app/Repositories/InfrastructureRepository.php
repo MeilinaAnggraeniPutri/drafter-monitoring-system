@@ -24,18 +24,18 @@ class InfrastructureRepository implements InfrastructureInterface
 
   public function store(Request $request)
   {
-    $thumbnail = $this->storeThumbnail($request);
+    $file_pdf = $this->storeThumbnail($request);
 
     return Infrastructure::create(
-      $this->mergeRequest($request, $thumbnail)
+      $this->mergeRequest($request, $file_pdf)
     );
   }
 
   public function update(Request $request, Infrastructure $infrastructure)
   {
-    $image = $request->hasFile('thumbnail')
+    $image = $request->hasFile('file_pdf')
       ? $this->storeThumbnail($request)
-      : $infrastructure->thumbnail;
+      : $infrastructure->file_pdf;
 
     return $infrastructure->update(
       $this->mergeRequest($request, $image)
@@ -49,21 +49,20 @@ class InfrastructureRepository implements InfrastructureInterface
 
   protected function storeThumbnail(Request $request): string
   {
-    $name = str()->uuid()->toString() . '.' . $request->file('thumbnail')->extension();
+    $name = str()->uuid()->toString() . '.' . $request->file('file_pdf')->extension();
 
-    $request->file('thumbnail')->move(public_path('assets/infrastructures'), $name);
+    $request->file('file_pdf')->move(public_path('assets/infrastructures'), $name);
 
     return $name;
   }
 
-  protected function mergeRequest(Request $request, string $thumbnail)
+  protected function mergeRequest(Request $request, string $file_pdf)
   {
     return array_merge(
       $request->validated(),
       [
-        'slug' => str($request->title)->slug(),
-        'thumbnail' => $thumbnail,
-        'user_id' => auth()->id()
+        'file_pdf' => $file_pdf,
+        'user_id' => $request->user_id
       ]
     );
   }

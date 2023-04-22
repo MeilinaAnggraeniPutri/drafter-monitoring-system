@@ -14,9 +14,12 @@ class StoreInfrastructureRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string'],
-            'body' => ['required', 'string'],
-            'thumbnail' => ['required', 'file'],
+            // 'revisi'        => ['required', 'string'],
+            'user_id'       => ['required', 'string'],
+            'progress'      => ['required', 'string'],
+            'drafter'       => ['required', 'string'],
+            'keterangan'    => ['nullable', 'string'],
+            'file_pdf'      => ['required', 'file'],
         ];
     }
 

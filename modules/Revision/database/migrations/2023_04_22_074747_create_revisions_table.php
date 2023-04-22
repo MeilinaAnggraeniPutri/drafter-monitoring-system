@@ -4,6 +4,7 @@ use App\Models\User;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Modules\Infrastructure\app\Models\Infrastructure;
 
 return new class extends Migration
 {
@@ -14,13 +15,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('infrastructures', function (Blueprint $table) {
+        Schema::create('revisions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('file_pdf')->nullable();
-            $table->string('drafter')->nullable();
-            $table->string('revisi')->nullable();
-            $table->string('keterangan')->nullable();
-            $table->string('progress')->nullable();
+            $table->longText('revisi');
+            $table->foreignIdFor(Infrastructure::class);
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });
@@ -33,6 +31,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('infrastructures');
+        Schema::dropIfExists('revisions');
     }
 };

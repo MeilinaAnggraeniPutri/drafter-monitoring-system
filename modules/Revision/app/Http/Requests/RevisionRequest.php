@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\Infrastructure\app\Http\Requests;
+namespace Modules\Revision\app\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class UpdateInfrastructureRequest extends FormRequest
+class RevisionRequest extends FormRequest
 {
     /**
      * Get the validation rules that apply to the request.
@@ -14,11 +14,7 @@ class UpdateInfrastructureRequest extends FormRequest
     public function rules()
     {
         return [
-            'revisi'        => ['nullable', 'string'],
-            'keterangan'    => ['nullable', 'string'],
-            'progress'      => ['nullable', 'string'],
-            'drafter'       => ['nullable', 'string'],
-            'file_pdf'      => ['nullable', 'file'],
+            //
         ];
     }
 
