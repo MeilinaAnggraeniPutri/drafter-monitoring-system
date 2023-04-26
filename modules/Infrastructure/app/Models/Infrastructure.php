@@ -6,6 +6,7 @@ use App\Models\User;
 use App\Traits\Uuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Modules\Revision\app\Models\Revision;
 
 class Infrastructure extends Model
 {
@@ -22,6 +23,7 @@ class Infrastructure extends Model
         'revisi',
         'keterangan',
         'progress',
+        'user_creaete',
     ];
 
     protected static function newFactory()
@@ -32,5 +34,10 @@ class Infrastructure extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function revisions()
+    {
+        return $this->hasMany(Revision::class);
     }
 }

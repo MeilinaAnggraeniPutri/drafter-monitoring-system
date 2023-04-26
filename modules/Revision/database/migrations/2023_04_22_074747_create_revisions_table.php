@@ -17,9 +17,9 @@ return new class extends Migration
     {
         Schema::create('revisions', function (Blueprint $table) {
             $table->uuid('id')->primary();
+            $table->string('name');
             $table->longText('revisi');
             $table->foreignIdFor(Infrastructure::class);
-            $table->foreignIdFor(User::class);
             $table->timestamps();
         });
     }

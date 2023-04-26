@@ -124,7 +124,9 @@ class ReportRepository implements ReportInterface
   {
     $validated = $this->validateUser($request);
 
-    $upload_foto = $this->storeAttach($request);
+    $attach = $this->storeAttach($request);
+
+    $upload_foto = $attach != json_encode(array()) ? $attach : $report->upload_foto;
 
     return $report->update(
       array_merge(

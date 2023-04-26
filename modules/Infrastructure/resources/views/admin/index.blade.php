@@ -11,12 +11,14 @@
     <!-- cardheader -->
     <div class="card-header border-bottom-dashed align-items-center d-flex">
         <h4 class="card-title mb-0 flex-grow-1">Infrastructure</h4>
+        @if(auth()->user()->hasRole('Super Admin'))
         <div class="flex-shrink-0">
             <a href="{{ route('infrastructure.create') }}" type="button" class="btn btn-soft-primary btn-sm">
                 <i class="ri-add-line"></i>
                 Add
             </a>
         </div>
+        @endif
     </div>
     <!-- end cardheader -->
     <!-- Hoverable Rows -->
@@ -26,7 +28,7 @@
                 <th scope="col">#</th>
                 <th scope="col">File Lampiran</th>
                 <th scope="col">Drafter</th>
-                <th scope="col">User Request</th>
+                <th scope="col">PIC</th>
                 <th scope="col">Progress</th>
                 <th scope="col">Revisi</th>
                 <th scope="col">Keterangan</th>
@@ -43,7 +45,13 @@
                 <td>{{ $infrastructure->drafter }}</td>
                 <td>{{ $infrastructure->user->name }}</td>
                 <td>{{ $infrastructure->progress }}</td>
-                <td>{{ $infrastructure->regisi }}</td>
+                <td>
+                    <ul>
+                        @foreach($infrastructure->revisions as $revision)
+                        <li>{{ $revision->name }}</li>
+                        @endforeach
+                    </ul>
+                </td>
                 <td>{{ $infrastructure->keterangan }}</td>
                 <td>
                     <div class="dropdown">
@@ -57,6 +65,7 @@
                                     Show
                                 </a>
                             </li>
+                            @if(auth()->user()->id == $infrastructure->user_creaete)
                             <li>
                                 <a class="dropdown-item" href="{{ route('infrastructure.edit', $infrastructure->id) }}">
                                     Edit
@@ -67,6 +76,14 @@
                                     Delete
                                 </a>
                             </li>
+                            @endif
+                            @if(auth()->user()->id == $infrastructure->user_id)
+                            <li>
+                                <a class="dropdown-item" href="{{ route('infrastructure.revisi.create', $infrastructure->id) }}">
+                                    Revisi
+                                </a>
+                            </li>
+                            @endif
                         </ul>
 
                         @include('infrastructure::components.form.modal.admin.delete')
@@ -75,7 +92,7 @@
             </tr>
             @empty
             <tr>
-                <th colspan="6" class="text-center">No data to display</th>
+                <th colspan="8" class="text-center">No data to display</th>
             </tr>
             @endforelse
         </tbody>

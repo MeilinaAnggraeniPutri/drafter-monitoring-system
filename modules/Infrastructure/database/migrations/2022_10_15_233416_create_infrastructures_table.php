@@ -21,6 +21,7 @@ return new class extends Migration
             $table->string('revisi')->nullable();
             $table->string('keterangan')->nullable();
             $table->string('progress')->nullable();
+            $table->uuid('user_creaete');
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });

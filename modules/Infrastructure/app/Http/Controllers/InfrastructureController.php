@@ -10,6 +10,7 @@ use Modules\Infrastructure\app\Http\Requests\StoreInfrastructureRequest;
 use Modules\Infrastructure\app\Http\Requests\UpdateInfrastructureRequest;
 use Modules\Infrastructure\app\Models\Infrastructure;
 use Modules\Infrastructure\app\Repositories\InfrastructureRepository;
+use Modules\Revision\app\Models\Revision;
 
 class InfrastructureController extends Controller
 {
@@ -22,12 +23,7 @@ class InfrastructureController extends Controller
     ) {
         $infrastructures = $infrastructureRepository->getAll();
 
-        return auth()->user()->hasRole('User')
-            ? view('infrastructure::user.index', compact('infrastructures'))
-            : (auth()->user()->hasRole('Super Admin')
-                ? view('infrastructure::admin.index', compact('infrastructures'))
-                : abort()
-            );
+        return view('infrastructure::admin.index', compact('infrastructures'));
     }
 
     /**
@@ -60,9 +56,9 @@ class InfrastructureController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function show(string $infrastructure)
+    public function show(Infrastructure $infrastructure)
     {
-        $infrastructure = Infrastructure::where('slug', $infrastructure)->firstOrFail();
+        $infrastructure->loadMissing('revisions');
 
         return view('infrastructure::show', compact('infrastructure'));
     }
@@ -74,7 +70,9 @@ class InfrastructureController extends Controller
      */
     public function edit(Infrastructure $infrastructure)
     {
-        return view('infrastructure::admin.edit', compact('infrastructure'));
+        $users = User::all();
+
+        return view('infrastructure::admin.edit', compact('infrastructure', 'users'));
     }
 
     /**
@@ -105,5 +103,17 @@ class InfrastructureController extends Controller
         return $infrastructureRepository->destroy($infrastructure)
             ? to_route('infrastructure.index')->with('success', 'Infrastructure has been deleted successfully!')
             : to_route('infrastructure.index')->with('failed', 'Infrastructure was not deleted successfully!');
+    }
+
+    public function revisi_create(Request $request, Infrastructure $infrastructure)
+    {
+        return view('infrastructure::admin.revisi', compact('infrastructure'));
+    }
+
+    public function revisi_store(Request $request, Infrastructure $infrastructure)
+    {
+        return Revision::create(array_merge($request->only(['name', 'revisi']), ['infrastructure_id' => $infrastructure->id]))
+            ? to_route('infrastructure.index')->with('success', 'Revisi has been created successfully!')
+            : back()->with('failed', 'Revisi was not created successfully!');
     }
 }

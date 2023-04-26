@@ -14,25 +14,25 @@
                     @if(auth()->user()->isValidated())
                     <div class="mb-3">
                         <label for="nama" class="form-label">Nama</label>
-                        <input type="text" class="form-control" id="nama" placeholder="Report title" name="nama">
+                        <input type="text" class="form-control" id="nama" name="nama">
                         <x-form.validation.error name="nama" />
                     </div>
 
                     <div class="mb-3">
                         <label for="tgl" class="form-label">Tanggal</label>
-                        <input type="date" class="form-control" id="tgl" placeholder="Report title" name="tgl">
+                        <input type="date" class="form-control" id="tgl" name="tgl">
                         <x-form.validation.error name="tgl" />
                     </div>
 
                     <div class="mb-3">
                         <label for="unit" class="form-label">Unit</label>
-                        <input type="number" class="form-control" id="unit" placeholder="Report title" name="unit">
+                        <input type="number" class="form-control" id="unit" name="unit">
                         <x-form.validation.error name="unit" />
                     </div>
 
                     <div class="mb-3">
                         <label for="lokasi_barang" class="form-label">Lokasi barang</label>
-                        <input type="text" class="form-control" id="lokasi_barang" placeholder="Report title" name="lokasi_barang">
+                        <input type="text" class="form-control" id="lokasi_barang" name="lokasi_barang">
                         <x-form.validation.error name="lokasi_barang" />
                     </div>
 

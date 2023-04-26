@@ -15,3 +15,8 @@ use Modules\Infrastructure\app\Http\Controllers\InfrastructureController;
 */
 
 Route::resource('infrastructure', InfrastructureController::class); // all method was used
+
+Route::get('infrastructure/{infrastructure}/revisi', [InfrastructureController::class, 'revisi_create'])
+    ->name('infrastructure.revisi.create');
+Route::post('infrastructure/{infrastructure}/revisi', [InfrastructureController::class, 'revisi_store'])
+    ->name('infrastructure.revisi.store');

@@ -17,7 +17,7 @@ class InfrastructureRepository implements InfrastructureInterface
   public function getAll(int $paginate = 10): LengthAwarePaginator
   {
     return Infrastructure::query()
-      ->with('user')
+      ->with(['user', 'revisions'])
       ->latest()
       ->paginate($paginate);
   }
@@ -62,7 +62,8 @@ class InfrastructureRepository implements InfrastructureInterface
       $request->validated(),
       [
         'file_pdf' => $file_pdf,
-        'user_id' => $request->user_id
+        'user_id' => $request->user_id,
+        'user_creaete' => auth()->user()->id
       ]
     );
   }

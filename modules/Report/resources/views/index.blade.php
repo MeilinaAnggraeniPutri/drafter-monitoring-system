@@ -26,6 +26,7 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
+                <th scope="col">PIC</th>
                 <th scope="col">nama</th>
                 <th scope="col">tgl</th>
                 <th scope="col">unit</th>
@@ -41,6 +42,7 @@
             @forelse ($reports as $report)
             <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
+                <th scope="row">{{ $report->user->name }}</th>
                 <th scope="row">{{ $report->nama }}</th>
                 <th scope="row">{{ $report->tgl }}</th>
                 <th scope="row">{{ $report->unit }}</th>
