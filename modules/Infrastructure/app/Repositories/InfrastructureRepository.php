@@ -6,6 +6,7 @@ use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
 use Modules\Infrastructure\app\Interfaces\InfrastructureInterface;
 use Modules\Infrastructure\app\Models\Infrastructure;
+use Modules\Notivication\app\Models\Notivication;
 
 class InfrastructureRepository implements InfrastructureInterface
 {
@@ -26,9 +27,16 @@ class InfrastructureRepository implements InfrastructureInterface
   {
     $file_pdf = $this->storeThumbnail($request);
 
-    return Infrastructure::create(
+    $infra = Infrastructure::create(
       $this->mergeRequest($request, $file_pdf)
     );
+
+    return $infra && Notivication::create([
+      'model' => 'Infrastructure',
+      'target' => $request->user_id,
+      'route' => route('infrastructure.show', $infra->id),
+      'user_id' => auth()->user()->id,
+    ]);
   }
 
   public function update(Request $request, Infrastructure $infrastructure)

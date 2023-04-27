@@ -4,6 +4,7 @@ namespace Modules\Report\app\Repositories;
 
 use Illuminate\Contracts\Pagination\LengthAwarePaginator;
 use Illuminate\Http\Request;
+use Modules\Notivication\app\Models\Notivication;
 use Modules\Report\app\Interfaces\ReportInterface;
 use Modules\Report\app\Models\Report;
 
@@ -67,9 +68,16 @@ class ReportRepository implements ReportInterface
   {
     $upload_foto = $this->storeAttach($request);
 
-    return Report::create(
+    $report = Report::create(
       $this->mergeRequest($request, $upload_foto)
     );
+
+    return $report && Notivication::create([
+      'model' => 'Request',
+      'target' => null,
+      'route' => route('report.index'),
+      'user_id' => auth()->user()->id
+    ]);
   }
 
   protected function mergeRequest(Request $request, string $upload_foto)

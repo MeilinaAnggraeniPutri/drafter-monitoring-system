@@ -6,5 +6,6 @@
     "Setting": true,
     "Report": true,
     "Infrastructure": true,
-    "Revision": true
+    "Revision": true,
+    "Notivication": true
 }

@@ -25,7 +25,12 @@ class UserSeeder extends Seeder
             'name' => 'User',
             'email' => 'user@gmail.com',
             'nik' => '20951452',
+        ]);
 
+        User::factory()->create([
+            'name' => 'Other User',
+            'email' => 'other.user@gmail.com',
+            'nik' => '20951453',
         ]);
     }
 }

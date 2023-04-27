@@ -10,6 +10,7 @@ use Modules\Infrastructure\app\Http\Requests\StoreInfrastructureRequest;
 use Modules\Infrastructure\app\Http\Requests\UpdateInfrastructureRequest;
 use Modules\Infrastructure\app\Models\Infrastructure;
 use Modules\Infrastructure\app\Repositories\InfrastructureRepository;
+use Modules\Notivication\app\Models\Notivication;
 use Modules\Revision\app\Models\Revision;
 
 class InfrastructureController extends Controller
@@ -112,7 +113,14 @@ class InfrastructureController extends Controller
 
     public function revisi_store(Request $request, Infrastructure $infrastructure)
     {
-        return Revision::create(array_merge($request->only(['name', 'revisi']), ['infrastructure_id' => $infrastructure->id]))
+        $revisi = Revision::create(array_merge($request->only(['name', 'revisi']), ['infrastructure_id' => $infrastructure->id]));
+
+        return $revisi && Notivication::create([
+            'model' => 'Revisi',
+            'target' => null,
+            'route' => route('infrastructure.show', $infrastructure->id),
+            'user_id' => auth()->user()->id
+        ])
             ? to_route('infrastructure.index')->with('success', 'Revisi has been created successfully!')
             : back()->with('failed', 'Revisi was not created successfully!');
     }
