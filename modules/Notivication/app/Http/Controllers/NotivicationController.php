@@ -5,6 +5,7 @@ namespace Modules\Notivication\app\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Notivication\app\Models\Notivication;
 
 class NotivicationController extends Controller
 {
@@ -41,9 +42,11 @@ class NotivicationController extends Controller
      * @param int $id
      * @return Renderable
      */
-    public function show($id)
+    public function show(Notivication $notivication)
     {
-        return view('notivication::show');
+        $notivication->update(['status' => 'read']);
+
+        return redirect()->to($notivication->route);
     }
 
     /**

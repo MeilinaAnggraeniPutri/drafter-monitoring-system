@@ -156,7 +156,9 @@
             <div class="dropdown d-inline-block">
                 <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="bx bx-bell bx-tada"></i>
+                    @if($notivications->count())
                     <span class="badge bg-danger rounded-pill">{{ $notivications->count() }}</span>
+                    @endif
                 </button>
                 <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
                     <div class="p-3">
@@ -168,7 +170,7 @@
                     </div>
                     <div data-simplebar style="max-height: 230px;">
                         @foreach($notivications as $notivication)
-                        <a href="{{ $notivication->route }}" class="text-reset notification-item">
+                        <a href="{{ route('notivication.show', $notivication->id) }}" class="text-reset notification-item">
                             <div class="d-flex">
                                 <div class="avatar-xs me-3">
                                     <span class="avatar-title bg-primary rounded-circle font-size-16">

@@ -14,4 +14,4 @@
 use Illuminate\Support\Facades\Route;
 use Modules\Notivication\app\Http\Controllers\NotivicationController;
 
-Route::resource('notivication', NotivicationController::class);
+Route::resource('notivication', NotivicationController::class)->only('show');
