@@ -14,11 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::table('users', function (Blueprint $table) {
-            $table->string('jabatan');
-            $table->string('area');
-            $table->string('phone', 15);
-            $table->longText('alamat');
-            $table->string('avatar');
+            $table->string('jabatan')->nullable();
+            $table->string('area')->nullable();
+            $table->string('phone', 15)->nullable();
+            $table->longText('alamat')->nullable();
+            $table->string('avatar')->nullable();
         });
     }
 
@@ -30,7 +30,6 @@ return new class extends Migration
     public function down()
     {
         Schema::table('users', function (Blueprint $table) {
-
         });
     }
 };
