@@ -18,14 +18,13 @@ class UserSeeder extends Seeder
         User::factory()->create([
             'name' => 'Super Admin',
             'email' => 'superadmin@gmail.com',
-            'nik' => '20951451',
         ]);
 
-        User::factory()->create([
-            'name' => 'Other User',
-            'email' => 'other.user@gmail.com',
-            'nik' => '2305022',
-        ]);
+        // User::factory()->create([
+        //     'name' => 'Other User',
+        //     'email' => 'other.user@gmail.com',
+        //     'nik' => '2305022',
+        // ]);
 
         User::factory()->create([
             'name' => 'Denni Firmansyah',
@@ -76,8 +75,5 @@ class UserSeeder extends Seeder
             'name' => 'Oki Ardianda',
             'nik' => '2166569',
         ]);
-
     }
-
-
 }
