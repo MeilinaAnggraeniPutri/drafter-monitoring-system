@@ -44,6 +44,6 @@ class RoleSeederTableSeeder extends Seeder
             $user->assignRole('User');
         }
 
-        User::firstWhere('email', 'superadmin@gmail.com')->assignRole('Super Admin');
+        User::firstWhere('email', 'superadmin@gmail.com')->syncRoles('Super Admin');
     }
 }
