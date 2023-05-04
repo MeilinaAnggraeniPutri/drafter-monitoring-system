@@ -1,5 +1,6 @@
 <!-- Modals add menu -->
-<div id="modal-form-edit-report-{{ $report->id }}" class="modal fade" tabindex="-1" aria-labelledby="modal-form-edit-report-{{ $report->id }}-label" aria-hidden="true" style="display: none;">
+<div id="modal-form-edit-report-{{ $report->id }}" class="modal fade" tabindex="-1"
+    aria-labelledby="modal-form-edit-report-{{ $report->id }}-label" aria-hidden="true" style="display: none;">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <form action="{{ route('report.update', $report->id) }}" method="post" enctype="multipart/form-data">
@@ -7,11 +8,14 @@
                 @method('PUT')
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-form-edit-report-{{ $report->id }}-label">Edit ({{ strlen($report->description) > 32 ? substr($report->title, 0, 16) . '...' : $report->title }})</h5>
+                    <h5 class="modal-title" id="modal-form-edit-report-{{ $report->id }}-label">Edit ({{
+                        strlen($report->description) > 32 ? substr($report->name, 0, 16) . '...' : $report->name }})
+                    </h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
                 </div>
                 <div class="modal-body">
 
+                    @if(auth()->user()->hasRole('User'))
                     <input type="hidden" name="_c2VuZGVy" value="VXNlcg==">
 
                     <div class="mb-3">
@@ -34,27 +38,55 @@
 
                     <div class="mb-3">
                         <label for="lokasi_barang" class="form-label">Lokasi barang</label>
-                        <input type="text" class="form-control" id="lokasi_barang" name="lokasi_barang" value="{{ $report->lokasi_barang }}">
+                        <input type="text" class="form-control" id="lokasi_barang" name="lokasi_barang"
+                            value="{{ $report->lokasi_barang }}">
                         <x-form.validation.error name="lokasi_barang" />
                     </div>
 
                     <div class="mb-3">
                         <label for="equipment" class="form-label">Equipment</label>
-                        <textarea class="form-control" name="equipment" id="equipment">{{ $report->equipment }}</textarea>
+                        <textarea class="form-control" name="equipment"
+                            id="equipment">{{ $report->equipment }}</textarea>
                         <x-form.validation.error name="equipment" />
                     </div>
 
                     <div class="mb-3">
                         <label for="deskripsi_pekerjaan" class="form-label">Deskripsi pekerjaan</label>
-                        <textarea class="form-control" name="deskripsi_pekerjaan" id="deskripsi_pekerjaan">{{ $report->deskripsi_pekerjaan }}</textarea>
+                        <textarea class="form-control" name="deskripsi_pekerjaan"
+                            id="deskripsi_pekerjaan">{{ $report->deskripsi_pekerjaan }}</textarea>
                         <x-form.validation.error name="deskripsi_pekerjaan" />
                     </div>
 
                     <div class="mb-3">
                         <label for="upload_foto" class="form-label">Upload foto</label>
-                        <input id="upload_foto" name="upload_foto[]" type="file" class="filepond filepond-input-multiple form-control" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3">
+                        <input id="upload_foto" name="upload_foto[]" type="file"
+                            class="filepond filepond-input-multiple form-control" multiple data-allow-reorder="true"
+                            data-max-file-size="3MB" data-max-files="3">
                         <x-form.validation.error name="upload_foto" />
                     </div>
+
+                    @endif
+
+                    @if(auth()->user()->hasRole('Super Admin'))
+                    <input type="hidden" name="_c2VuZGVy" value="U3VwZXIgQWRtaW4=">
+
+                    <div class="mb-3">
+                        <label for="status" class="form-label">Status</label>
+                        <input type="text" class="form-control" id="status" name="status" value="{{ $report->status }}">
+                        <x-form.validation.error name="status" />
+                    </div>
+
+                    <div class="mb-3">
+                        <select class="form-select" aria-label="Status request" name="status" id="status"
+                            style="width: 12rem;">
+                            <option value="Pending">Pending</option>
+                            <option value="Processed">Processed</option>
+                            <option value="Accepted">Accepted</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Closed">Closed</option>
+                        </select>
+                    </div>
+                    @endif
 
                 </div>
                 <div class="modal-footer">
