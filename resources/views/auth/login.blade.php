@@ -17,10 +17,10 @@
             @csrf
 
             <div class="mb-3" id="input-email">
-              <label for="email" class="form-label">Email</label>
-              <input type="email" class="form-control" id="email" placeholder="Enter email address" name="email"
-                value="{{ old('email') }}" autocomplete="email" autofocus tabindex="1">
-              <x-form.validation.error name="email" />
+              <label for="nik" class="form-label">Nik</label>
+              <input type="nik" class="form-control" id="nik" placeholder="Enter Nik" name="nik"
+                value="{{ old('email') }}" autocomplete="nik" autofocus tabindex="1">
+              <x-form.validation.error name="nik" />
             </div>
 
             <div class="mb-3" id="input-password">
@@ -38,12 +38,12 @@
               </div>
             </div>
 
-            <div class="mb-3 d-none" id="input-nik">
+            {{-- <div class="mb-3 d-none" id="input-nik">
               <label for="nik" class="form-label">No NIK</label>
               <input type="teks" class="form-control" id="nik" placeholder="Enter NO NIK" name="nik"
                 value="{{ old('nik') }}">
               <x-form.validation.error name="nik" />
-            </div>
+            </div> --}}
 
             <div class="form-check">
               <input class="form-check-input" type="checkbox" value="" id="auth-remember-check" name="remember" {{
@@ -55,7 +55,7 @@
               <button class="btn btn-success w-100" type="submit" tabindex="4">Sign In</button>
             </div>
 
-            <div class="mt-4 text-center">
+            {{-- <div class="mt-4 text-center">
               <div class="signin-other-title">
                 <h5 class="fs-13 mb-4 title">Sign In with</h5>
               </div>
@@ -65,7 +65,7 @@
                 <button id="btn-login-with-nik" type="button"
                   class="btn btn-danger btn-icon waves-effect waves-light">NIK</button>
               </div>
-            </div>
+            </div> --}}
           </form>
         </div>
       </div>

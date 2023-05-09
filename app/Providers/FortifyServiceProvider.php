@@ -70,16 +70,10 @@ class FortifyServiceProvider extends ServiceProvider
         Fortify::verifyEmailView(fn () => view('auth.verify'));
 
         Fortify::authenticateUsing(function (Request $request) {
-            if ($request->has('nik') && !blank($request->input('nik'))) {
-                if ($user = User::where('nik', $request->input('nik'))->first()) {
-                    return $user;
-                }
-            } else {
-                $user = User::where('email', $request->email)->first();
+            $user = User::query()->firstWhere('nik', $request->nik);
 
-                if ($user && Hash::check($request->password, $user->password)) {
-                    return $user;
-                }
+            if ($user && Hash::check($request->password, $user->password)) {
+                return $user;
             }
         });
     }

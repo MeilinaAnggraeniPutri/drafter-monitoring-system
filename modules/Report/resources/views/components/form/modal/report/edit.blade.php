@@ -31,8 +31,8 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="unit" class="form-label">Unit</label>
-                        <input type="number" class="form-control" id="unit" name="unit" value="{{ $report->unit }}">
+                        <label for="unit" class="form-label">Unit Kerja</label>
+                        <input type="text" class="form-control" id="unit" name="unit" value="{{ $report->unit }}">
                         <x-form.validation.error name="unit" />
                     </div>
 
