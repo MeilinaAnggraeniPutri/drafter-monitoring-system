@@ -17,6 +17,8 @@ class ReportStoreRequest extends FormRequest
             // 'title' => ['required', 'string'],
             // 'attach.*' => ['nullable', 'file'],
             // 'description' => ['nullable', 'string'],
+            'drafter'               => ['nullable', 'string'],
+            'prioritas'             => ['nullable', 'string'],
             'tgl'                   => ['nullable', 'date'],
             'unit'                  => ['nullable', 'string'],
             'equipment'             => ['nullable', 'string'],

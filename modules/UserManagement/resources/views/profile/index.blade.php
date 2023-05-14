@@ -36,21 +36,9 @@
             </div>
 
             <div class="mb-3">
-                <label for="area" class="form-label">Area</label>
-                <input type="text" class="form-control" id="area" name="area" value="{{ auth()->user()->area }}">
-                <x-form.validation.error name="area" />
-            </div>
-
-            <div class="mb-3">
                 <label for="phone" class="form-label">No HP</label>
                 <input type="text" class="form-control" id="phone" name="phone" value="{{ auth()->user()->phone }}">
                 <x-form.validation.error name="phone" />
-            </div>
-
-            <div class="mb-3">
-                <label for="alamat" class="form-label">Alamat Rumah</label>
-                <input type="text" class="form-control" id="alamat" name="alamat" value="{{ auth()->user()->alamat }}">
-                <x-form.validation.error name="alamat" />
             </div>
 
             <div class="mb-3">

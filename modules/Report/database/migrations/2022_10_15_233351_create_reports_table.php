@@ -23,7 +23,10 @@ return new class extends Migration
             $table->json('upload_foto')->nullable();
             $table->string('lokasi_barang')->nullable();
             $table->longText('deskripsi_pekerjaan')->nullable();
-            $table->string('status')->default('Pending');
+            $table->string('status')->default('Belom');
+
+            $table->string('prioritas')->default('medium');
+            $table->string('drafter');
 
             $table->longText('equipment')->nullable();
             $table->foreignIdFor(User::class);

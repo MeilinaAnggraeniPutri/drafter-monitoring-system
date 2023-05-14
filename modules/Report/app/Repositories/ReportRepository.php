@@ -158,6 +158,8 @@ class ReportRepository implements ReportInterface
   protected function validateUser(Request $request)
   {
     return $request->validate([
+      'drafter'               => ['nullable', 'string'],
+      'prioritas'             => ['nullable', 'string'],
       'tgl'                   => ['nullable', 'date'],
       'unit'                  => ['nullable', 'string'],
       'equipment'             => ['nullable', 'string'],

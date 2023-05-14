@@ -13,9 +13,15 @@
 
                     @if(auth()->user()->isValidated())
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Nama</label>
+                        <label for="nama" class="form-label">Requester</label>
                         <input type="text" class="form-control" id="nama" name="nama">
                         <x-form.validation.error name="nama" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="drafter" class="form-label">Drafter</label>
+                        <input type="text" class="form-control" id="drafter" name="drafter">
+                        <x-form.validation.error name="drafter" />
                     </div>
 
                     <div class="mb-3">
@@ -52,6 +58,16 @@
                         <label for="upload_foto" class="form-label">Upload foto</label>
                         <input id="upload_foto" name="upload_foto[]" type="file" class="filepond filepond-input-multiple form-control" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3">
                         <x-form.validation.error name="upload_foto" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="prioritas" class="form-label">Prioritas</label>
+                        <select class="form-select" aria-label="prioritas request" name="prioritas" id="prioritas" style="width: 12rem;">
+                            <option value="emergency">emergency</option>
+                            <option value="high">high</option>
+                            <option selected value="medium">medium</option>
+                            <option value="low">low</option>
+                        </select>
                     </div>
                     @else
                     <p>Validate your account first to do reporting!</p>

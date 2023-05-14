@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('jabatan')->nullable();
             $table->string('unit_kerja')->nullable();
             $table->string('phone', 25)->nullable();
-            $table->longText('alamat')->nullable();
+            // $table->longText('alamat')->nullable();
             $table->string('avatar')->nullable();
         });
     }

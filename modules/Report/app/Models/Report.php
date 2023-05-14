@@ -24,10 +24,12 @@ class Report extends Model
         'equipment',
         'deskripsi_pekerjaan',
         'nama',
+        'drafter',
         'upload_foto',
         'lokasi_barang',
         'status',
         'user_id',
+        'prioritas',
     ];
 
     protected $hidden = [
@@ -68,11 +70,9 @@ class Report extends Model
      */
     public function getStatusColor()
     {
-        return $this->status->value === 'Pending' ? 'primary'
-            : ($this->status->value === 'Processed' ? 'secondary'
-                : ($this->status->value === 'Accepted' ? 'success'
-                    : ($this->status->value === 'Rejected' ? 'warning'
-                        : ($this->status->value === 'Closed' ? 'danger'
-                            : ''))));
+        return $this->status->value === 'Belom' ? 'secondary'
+            : ($this->status->value === 'IP' ? 'primary'
+                : ($this->status->value === 'Ok' ? 'success'
+                    : ''));
     }
 }

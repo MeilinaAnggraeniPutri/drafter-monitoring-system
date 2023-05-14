@@ -27,11 +27,13 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">PIC</th>
-                <th scope="col">nama</th>
                 <th scope="col">tgl</th>
                 <th scope="col">unit</th>
                 <th scope="col">equipment</th>
                 <th scope="col">deskripsi pekerjaan</th>
+                <th scope="col">requester</th>
+                <th scope="col">drafter</th>
+                <th scope="col">prioritas</th>
                 <th scope="col">upload foto</th>
                 <th scope="col">lokasi barang</th>
                 <th scope="col">status</th>
@@ -42,12 +44,23 @@
             @forelse ($reports as $report)
             <tr>
                 <th scope="row">{{ $loop->iteration }}</th>
+                {{-- PIC --}}
                 <th scope="row">{{ $report->user->name }}</th>
-                <th scope="row">{{ $report->nama }}</th>
+                {{-- tgl --}}
                 <th scope="row">{{ $report->tgl }}</th>
+                {{-- unit --}}
                 <th scope="row">{{ $report->unit }}</th>
+                {{-- equipment --}}
                 <th scope="row">{{ $report->equipment }}</th>
+                {{-- deskripsi pekerjaan --}}
                 <th scope="row">{{ $report->deskripsi_pekerjaan }}</th>
+                {{-- requester --}}
+                <th scope="row">{{ $report->nama }}</th>
+                {{-- drafter --}}
+                <th scope="row">{{ $report->drafter }}</th>
+                {{-- prioritas --}}
+                <th scope="row">{{ $report->prioritas }}</th>
+                {{-- upload foto --}}
                 <th scope="row">
                     <div class="">
                         @foreach($report->upload_foto as $file)
@@ -57,7 +70,9 @@
                         @endforeach
                     </div>
                 </th>
+                {{-- lokasi barang --}}
                 <th scope="row">{{ $report->lokasi_barang }}</th>
+                {{-- status --}}
                 <th scope="row">{{ $report->status }}</th>
                 <td>
                     <div class="dropdown">
@@ -93,7 +108,7 @@
             </tr>
             @empty
             <tr>
-                <th colspan="10" class="text-center">No data to display</th>
+                <th colspan="13" class="text-center">No data to display</th>
             </tr>
             @endforelse
         </tbody>
