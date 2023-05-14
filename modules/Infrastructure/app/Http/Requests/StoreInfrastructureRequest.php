@@ -15,6 +15,8 @@ class StoreInfrastructureRequest extends FormRequest
     {
         return [
             // 'revisi'        => ['required', 'string'],
+            'nama_draw'     => ['required', 'string'],
+            'no_draw'       => ['required', 'string'],
             'user_id'       => ['required', 'string'],
             'progress'      => ['required', 'string'],
             'drafter'       => ['required', 'string'],

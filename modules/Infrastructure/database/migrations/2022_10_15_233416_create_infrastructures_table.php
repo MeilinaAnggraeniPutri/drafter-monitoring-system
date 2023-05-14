@@ -17,11 +17,16 @@ return new class extends Migration
         Schema::create('infrastructures', function (Blueprint $table) {
             $table->uuid('id')->primary();
             $table->string('file_pdf')->nullable();
+            $table->string('equipment')->nullable();
+            $table->string('nama_draw')->nullable();
+            $table->string('no_draw')->nullable();
             $table->string('drafter')->nullable();
             $table->string('revisi')->nullable();
             $table->string('keterangan')->nullable();
             $table->string('progress')->nullable();
             $table->uuid('user_creaete');
+            $table->string('nama_draw')->nullable();
+            $table->string('no_draw')->nullable();
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });

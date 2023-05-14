@@ -31,6 +31,24 @@
             </div>
 
             <div class="mb-3">
+                <p class="text-muted">nama draw</p>
+                <input type="text" name="nama_draw" id="nama_draw" class="form-control" value="{{ $infrastructure->nama_draw }}">
+                <x-form.validation.error name="nama_draw" />
+            </div>
+
+            <div class="mb-3">
+                <p class="text-muted">no draw</p>
+                <input type="text" name="no_draw" id="no_draw" class="form-control" value="{{ $infrastructure->no_draw }}">
+                <x-form.validation.error name="no_draw" />
+            </div>
+
+            <div class="mb-3">
+                <p class="text-muted">equipment</p>
+                <input type="text" name="equipment" id="equipment" class="form-control" value="{{ $infrastructure->equipment }}">
+                <x-form.validation.error name="equipment" />
+            </div>
+
+            <div class="mb-3">
                 <label for="user_id" class="form-label">User Request</label>
                 <select class="form-select" id="user_id" name="user_id" data-choices data-choices-removeItem>
                     @foreach ($users as $user)
