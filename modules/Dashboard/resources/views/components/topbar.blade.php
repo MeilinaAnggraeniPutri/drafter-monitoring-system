@@ -31,11 +31,13 @@
             </button>
 
             <!-- App Search-->
-            <form class="app-search d-none d-lg-block" action="" method="get">
+            <form class="app-search d-none d-lg-block" action="" method="get" style="margin-top: 4.5rem;">
                 <div class="position-relative">
-                    <input type="text" class="form-control" placeholder="Search..." autocomplete="off" id="search-options" value="" name="search">
+                    <input type="text" class="form-control" placeholder="Search..." autocomplete="off"
+                        id="search-options" value="" name="search">
                     <span class="mdi mdi-magnify search-widget-icon"></span>
-                    <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none" id="search-close-options"></span>
+                    <span class="mdi mdi-close-circle search-widget-icon search-widget-icon-close d-none"
+                        id="search-close-options"></span>
                 </div>
             </form>
         </div>
@@ -43,17 +45,21 @@
         <div class="d-flex">
 
             <div class="dropdown d-inline-block d-lg-none ms-2">
-                <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-search-dropdown"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     <i class="mdi mdi-magnify"></i>
                 </button>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-search-dropdown">
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                    aria-labelledby="page-header-search-dropdown">
 
                     <form class="p-3">
                         <div class="form-group m-0">
                             <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Search ..." aria-label="Recipient's username">
+                                <input type="text" class="form-control" placeholder="Search ..."
+                                    aria-label="Recipient's username">
                                 <div class="input-group-append">
-                                    <button class="btn btn-primary" type="submit"><i class="mdi mdi-magnify"></i></button>
+                                    <button class="btn btn-primary" type="submit"><i
+                                            class="mdi mdi-magnify"></i></button>
                                 </div>
                             </div>
                         </div>
@@ -62,14 +68,16 @@
             </div>
 
             <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn header-item waves-effect" data-bs-toggle="dropdown"
+                    aria-haspopup="true" aria-expanded="false">
                     <img id="header-lang-img" src="/assets/images/flags/us.jpg" alt="Header Language" height="16">
                 </button>
                 <div class="dropdown-menu dropdown-menu-end">
 
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="en">
-                        <img src="/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span class="align-middle">English</span>
+                        <img src="/assets/images/flags/us.jpg" alt="user-image" class="me-1" height="12"> <span
+                            class="align-middle">English</span>
                     </a>
                     <!-- item-->
                     <a href="javascript:void(0);" class="dropdown-item notify-item language" data-lang="sp">
@@ -104,13 +112,16 @@
             </div>
 
             <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item noti-icon waves-effect" id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button type="button" class="btn header-item noti-icon waves-effect"
+                    id="page-header-notifications-dropdown" data-bs-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
                     <i class="bx bx-bell bx-tada"></i>
                     @if($notivications->count())
                     <span class="badge bg-danger rounded-pill">{{ $notivications->count() }}</span>
                     @endif
                 </button>
-                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0" aria-labelledby="page-header-notifications-dropdown">
+                <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end p-0"
+                    aria-labelledby="page-header-notifications-dropdown">
                     <div class="p-3">
                         <div class="row align-items-center">
                             <div class="col">
@@ -120,19 +131,24 @@
                     </div>
                     <div data-simplebar style="max-height: 230px;">
                         @foreach($notivications as $notivication)
-                        <a href="{{ route('notivication.show', $notivication->id) }}" class="text-reset notification-item">
+                        <a href="{{ route('notivication.show', $notivication->id) }}"
+                            class="text-reset notification-item">
                             <div class="d-flex">
                                 <div class="avatar-xs me-3">
                                     <span class="avatar-title bg-primary rounded-circle font-size-16">
                                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-                                            <path d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z" fill="rgba(255,255,255,1)"></path>
+                                            <path
+                                                d="M12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM11 15H13V17H11V15ZM11 7H13V13H11V7Z"
+                                                fill="rgba(255,255,255,1)"></path>
                                         </svg>
                                     </span>
                                 </div>
                                 <div class="flex-grow-1">
-                                    <h6 class="mb-1" key="t-your-order">New {{ $notivication->model }} from {{ $notivication->user->name }}</h6>
+                                    <h6 class="mb-1" key="t-your-order">New {{ $notivication->model }} from {{
+                                        $notivication->user->name }}</h6>
                                     <div class="font-size-12 text-muted">
-                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">{{ $notivication->created_at->diffForHumans() }}</span></p>
+                                        <p class="mb-0"><i class="mdi mdi-clock-outline"></i> <span key="t-min-ago">{{
+                                                $notivication->created_at->diffForHumans() }}</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -149,8 +165,11 @@
             </div>
 
             <div class="dropdown d-inline-block">
-                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <img class="rounded-circle header-profile-user" src="{{ $user->avatar ? asset('assets/user/image/' . $user->avatar) : '/assets/images/users/avatar-1.jpg' }}" alt="Header Avatar">
+                <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
+                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <img class="rounded-circle header-profile-user"
+                        src="{{ $user->avatar ? asset('assets/user/image/' . $user->avatar) : '/assets/images/users/avatar-1.jpg' }}"
+                        alt="Header Avatar">
                     <span class="d-none d-xl-inline-block ms-1" key="t-henry">{{ $user->name }}</span>
                     <i class="mdi mdi-chevron-down d-none d-xl-inline-block"></i>
                 </button>
@@ -160,11 +179,16 @@
                         <i class="bx bx-user font-size-16 align-middle me-1"></i>
                         <span key="t-profile">Profile</span>
                     </a>
-                    <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span key="t-my-wallet">My Wallet</span></a>
-                    <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i class="bx bx-wrench font-size-16 align-middle me-1"></i> <span key="t-settings">Settings</span></a>
-                    <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i> <span key="t-lock-screen">Lock screen</span></a>
+                    <a class="dropdown-item" href="#"><i class="bx bx-wallet font-size-16 align-middle me-1"></i> <span
+                            key="t-my-wallet">My Wallet</span></a>
+                    <a class="dropdown-item d-block" href="#"><span class="badge bg-success float-end">11</span><i
+                            class="bx bx-wrench font-size-16 align-middle me-1"></i> <span
+                            key="t-settings">Settings</span></a>
+                    <a class="dropdown-item" href="#"><i class="bx bx-lock-open font-size-16 align-middle me-1"></i>
+                        <span key="t-lock-screen">Lock screen</span></a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#" onclick="event.preventDefault(); document.getElementById('form-logout').submit()">
+                    <a class="dropdown-item text-danger" href="#"
+                        onclick="event.preventDefault(); document.getElementById('form-logout').submit()">
                         <i class="bx bx-power-off font-size-16 align-middle me-1 text-danger"></i>
                         <span key="t-logout">Logout</span>
                     </a>
