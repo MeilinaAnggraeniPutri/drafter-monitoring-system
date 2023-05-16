@@ -11,4 +11,8 @@ enum StatusEnum: string
   case REJECTED = 'Rejected'; // warning
 
   case CLOSED = 'Closed'; // danger
+
+  case BELOM = 'Belom';
+  case IP = 'IP';
+  case OK = 'Ok';
 }
