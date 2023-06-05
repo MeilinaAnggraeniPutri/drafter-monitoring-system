@@ -1,6 +1,6 @@
 <!-- Modals add menu -->
 <div id="modal-form-add-menu" class="modal fade" tabindex="-1" aria-labelledby="modal-form-add-menu-label" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog">
         <div class="modal-content">
             <form action="{{ route('menu.store') }}" method="post">
                 @csrf

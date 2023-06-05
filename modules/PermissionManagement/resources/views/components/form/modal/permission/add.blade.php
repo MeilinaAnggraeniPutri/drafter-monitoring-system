@@ -1,6 +1,6 @@
 <!-- Modals add menu -->
 <div id="modal-form-add-permission" class="modal fade" tabindex="-1" aria-labelledby="modal-form-add-permission-label" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog">
         <div class="modal-content">
             <form action="{{ route('permission.store') }}" method="post">
                 @csrf

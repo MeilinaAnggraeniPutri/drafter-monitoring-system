@@ -1,6 +1,6 @@
 <!-- Modals add menu -->
 <div id="modal-form-edit-menu-{{ $menuItem->id }}" class="modal fade" tabindex="-1" aria-labelledby="modal-form-edit-menu-{{ $menuItem->id }}-label" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog">
         <div class="modal-content">
             <form action="{{ route('menu.item.update', [$menu->id, $menuItem->id]) }}" method="post">
                 @csrf

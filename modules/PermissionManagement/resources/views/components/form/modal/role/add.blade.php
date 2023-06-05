@@ -1,6 +1,6 @@
 <!-- Modals add menu -->
 <div id="modal-form-add-role" class="modal fade" tabindex="-1" aria-labelledby="modal-form-add-role-label" aria-hidden="true" style="display: none;">
-    <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-dialog">
         <div class="modal-content">
             <form action="{{ route('role.store') }}" method="post">
                 @csrf
