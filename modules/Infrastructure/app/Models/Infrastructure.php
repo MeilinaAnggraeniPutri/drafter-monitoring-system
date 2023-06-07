@@ -26,7 +26,8 @@ class Infrastructure extends Model
         'revisi',
         'keterangan',
         'progress',
-        'user_creaete',
+        'user_create',
+        'unit',
     ];
 
     protected static function newFactory()

@@ -71,7 +71,7 @@ class InfrastructureRepository implements InfrastructureInterface
       [
         'file_pdf' => $file_pdf,
         'user_id' => $request->user_id,
-        'user_creaete' => auth()->user()->id
+        'user_create' => $request->pic
       ]
     );
   }

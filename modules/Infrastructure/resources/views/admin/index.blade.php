@@ -27,8 +27,9 @@
             <tr>
                 <th scope="col">#</th>
                 <th scope="col">Tanggal</th>
-                <th scope="col">nama_draw</th>
-                <th scope="col">no_draw</th>
+                <th scope="col">Nama Draw</th>
+                <th scope="col">No Draw</th>
+                <th scope="col">Unit</th>
                 <th scope="col">File Lampiran</th>
                 <th scope="col">Drafter</th>
                 <th scope="col">PIC</th>
@@ -45,6 +46,7 @@
                 <td>{{ $infrastructure->created_at }}</td>
                 <td>{{ $infrastructure->nama_draw }}</td>
                 <td>{{ $infrastructure->no_draw }}</td>
+                <td>{{ $infrastructure->unit }}</td>
                 <td>
                     <a href="{{ url('assets/infrastructures/' . $infrastructure->file_pdf) }}" download>{{ $infrastructure->file_pdf }}</a>
                 </td>
@@ -71,7 +73,7 @@
                                     Show
                                 </a>
                             </li>
-                            @if(auth()->user()->id == $infrastructure->user_creaete)
+                            @if(auth()->user()->id == $infrastructure->user_create)
                             <li>
                                 <a class="dropdown-item" href="{{ route('infrastructure.edit', $infrastructure->id) }}">
                                     Edit
@@ -98,7 +100,7 @@
             </tr>
             @empty
             <tr>
-                <th colspan="8" class="text-center">No data to display</th>
+                <th colspan="12" class="text-center">No data to display</th>
             </tr>
             @endforelse
         </tbody>

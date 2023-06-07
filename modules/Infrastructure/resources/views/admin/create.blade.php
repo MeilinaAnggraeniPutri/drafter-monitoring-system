@@ -30,21 +30,37 @@
             </div>
 
             <div class="mb-3">
-                <p class="text-muted">nama draw</p>
+                <p class="text-muted">Nama Draw</p>
                 <input type="text" name="nama_draw" id="nama_draw" class="form-control">
                 <x-form.validation.error name="nama_draw" />
             </div>
 
             <div class="mb-3">
-                <p class="text-muted">no draw</p>
+                <p class="text-muted">No Draw</p>
                 <input type="text" name="no_draw" id="no_draw" class="form-control">
                 <x-form.validation.error name="no_draw" />
             </div>
 
             <div class="mb-3">
-                <p class="text-muted">equipment</p>
+                <p class="text-muted">Equipment</p>
                 <input type="text" name="equipment" id="equipment" class="form-control">
                 <x-form.validation.error name="equipment" />
+            </div>
+
+            <div class="mb-3">
+                <p class="text-muted">Unit</p>
+                <input type="text" name="unit" id="unit" class="form-control">
+                <x-form.validation.error name="unit" />
+            </div>
+
+            <div class="mb-3">
+                <label for="pic" class="form-label">PIC</label>
+                <select class="form-select" id="pic" name="pic" data-choices data-choices-removeItem>
+                    @foreach ($users as $user)
+                    <option value="{{ $user->id }}">{{ $user->name }}</option>
+                    @endforeach
+                </select>
+                <x-form.validation.error name="pic" />
             </div>
 
             <div class="mb-3">

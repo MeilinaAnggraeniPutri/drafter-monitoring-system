@@ -22,9 +22,10 @@ return new class extends Migration
             $table->string('revisi')->nullable();
             $table->string('keterangan')->nullable();
             $table->string('progress')->nullable();
-            $table->uuid('user_creaete');
+            $table->uuid('user_create')->nullable();
             $table->string('nama_draw')->nullable();
             $table->string('no_draw')->nullable();
+            $table->string('unit')->nullable();
             $table->foreignIdFor(User::class);
             $table->timestamps();
         });
