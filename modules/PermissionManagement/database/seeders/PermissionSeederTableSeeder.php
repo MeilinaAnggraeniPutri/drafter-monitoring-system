@@ -35,6 +35,18 @@ class PermissionSeederTableSeeder extends Seeder
         Permission::create(['name' => 'infrastructure_destroy']);
         Permission::create(['name' => 'infrastructure_edit']);
 
+        //add library
+        Permission::create(['name' => 'library_index']);
+        Permission::create(['name' => 'library_store']);
+        Permission::create(['name' => 'library_create']);
+        Permission::create(['name' => 'library_show']);
+        Permission::create(['name' => 'library_update']);
+        Permission::create(['name' => 'library_destroy']);
+        Permission::create(['name' => 'library_edit']);
+
+        //approve user
+        Permission::create(['name' => 'approve_user']);
+
         Permission::create(['name' => 'menu_index']);
         Permission::create(['name' => 'menu_store']);
         Permission::create(['name' => 'menu_update']);

@@ -29,6 +29,18 @@ class RouteSeederTableSeeder extends Seeder
         Route::create(['route' => 'infrastructure.destroy', 'permission_name' => 'infrastructure_destroy']);
         Route::create(['route' => 'infrastructure.edit', 'permission_name' => 'infrastructure_edit']);
 
+        //add library
+        Route::create(['route' => 'library.index', 'permission_name' => 'library_index']);
+        Route::create(['route' => 'library.store', 'permission_name' => 'library_store']);
+        Route::create(['route' => 'library.create', 'permission_name' => 'library_create']);
+        Route::create(['route' => 'library.show', 'permission_name' => 'library_show']);
+        Route::create(['route' => 'library.update', 'permission_name' => 'library_update']);
+        Route::create(['route' => 'library.destroy', 'permission_name' => 'library_destroy']);
+        Route::create(['route' => 'library.edit', 'permission_name' => 'library_edit']);
+
+        //approve user
+        Route::create(['route' => 'approve.user', 'permission_name' => 'approve_user']);
+
         Route::create(['route' => 'menu.index', 'permission_name' => 'menu_index']);
         Route::create(['route' => 'menu.store', 'permission_name' => 'menu_store']);
         Route::create(['route' => 'menu.update', 'permission_name' => 'menu_update']);

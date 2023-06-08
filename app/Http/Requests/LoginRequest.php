@@ -2,6 +2,8 @@
 
 namespace App\Http\Requests;
 
+use App\Models\User;
+use Illuminate\Support\Facades\Hash;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Http\Requests\LoginRequest as RequestsLoginRequest;
 
@@ -29,5 +31,18 @@ class LoginRequest extends RequestsLoginRequest
             'password' => 'nullable|string',
             'nik' => 'nullable|numeric',
         ];
+    }
+
+    //handle status 0 then redirect to login and show message withValidator
+    public function withValidator($validator)
+    {
+        $validator->after(function ($validator) {
+            $user = User::where('nik', $this->nik)->first();
+            if ($user) {
+                if ($user->status == 0) {
+                    $validator->errors()->add('nik', 'Your account is not active, please contact the administrator');
+                }
+            }
+        });
     }
 }
