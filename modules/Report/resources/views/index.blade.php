@@ -26,18 +26,18 @@
         <table class="table table-hover table-nowrap mb-0">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Tgl</th>
+                    <th scope="col">Requester</th>
+                    <th scope="col">Unit Kerja</th>
+                    <th scope="col">Drafter</th>
                     <th scope="col">PIC</th>
-                    <th scope="col">tgl</th>
-                    <th scope="col">unit</th>
-                    <th scope="col">equipment</th>
-                    <th scope="col">deskripsi pekerjaan</th>
-                    <th scope="col">requester</th>
-                    <th scope="col">drafter</th>
-                    <th scope="col">prioritas</th>
-                    <th scope="col">upload foto</th>
-                    <th scope="col">lokasi barang</th>
-                    <th scope="col">status</th>
+                    <th scope="col">Equipment</th>
+                    <th scope="col">Deskripsi Pekerjaan</th>
+                    <th scope="col">Upload Foto</th>
+                    <th scope="col">Lokasi Barang</th>
+                    <th scope="col">Prioritas</th>
+                    <th scope="col">Progress</th>
                     <th scope="col" class="col-1"></th>
                 </tr>
             </thead>
