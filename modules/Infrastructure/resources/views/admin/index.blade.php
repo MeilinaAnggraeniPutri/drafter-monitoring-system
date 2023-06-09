@@ -26,17 +26,17 @@
         <table class="table table-hover table-nowrap mb-0">
             <thead>
                 <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Tanggal</th>
-                    <th scope="col">Nama Draw</th>
-                    <th scope="col">No Draw</th>
-                    <th scope="col">Unit</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Tgl</th>
+                    <th scope="col">Nama Drawing</th>
+                    <th scope="col">Nomor Drawing</th>
+                    <th scope="col">Unit Kerja</th>
                     <th scope="col">File Lampiran</th>
                     <th scope="col">Drafter</th>
                     <th scope="col">PIC</th>
                     <th scope="col">Progress</th>
-                    <th scope="col">Revisi</th>
                     <th scope="col">Keterangan</th>
+                    <th scope="col">Revisi</th>
                     <th scope="col" class="col-1"></th>
                 </tr>
             </thead>
