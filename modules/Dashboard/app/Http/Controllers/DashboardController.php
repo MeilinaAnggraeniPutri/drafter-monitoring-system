@@ -10,6 +10,10 @@ use Modules\Report\app\Repositories\ReportRepository;
 
 class DashboardController extends Controller
 {
+    protected int $belom = 0;
+    protected int $ip = 0;
+    protected int $ok = 0;
+
     /**
      * Display a listing of the resource.
      * @return Renderable
@@ -20,12 +24,30 @@ class DashboardController extends Controller
     ) {
         $reportCount = $reportRepository->getCount();
         $infrastructureCount = $infrastructureRepository->getCount();
+        $repos = $reportRepository->getNoPaginate();
+
+        $repos->each(function ($report){
+            if($report->status->value == 'Belom') {
+                $this->belom++;
+            } elseif ($report->status->value == 'IP') {
+                $this->ip++;
+            } elseif ($report->status->value == 'Ok') {
+                $this->ok++;
+            } else {}
+        });
+
+        $belom = $this->belom;
+        $ip = $this->ip;
+        $ok = $this->ok;
 
         return view(
             'dashboard::dashboard.index',
             compact(
                 'reportCount',
-                'infrastructureCount'
+                'infrastructureCount',
+                'belom',
+                'ip',
+                'ok',
             )
         );
     }

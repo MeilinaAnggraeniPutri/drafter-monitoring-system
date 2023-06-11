@@ -42,6 +42,10 @@ class ReportRepository implements ReportInterface
       : $this->getListForAdmin($paginate);
   }
 
+  function getNoPaginate() {
+    return Report::all();
+  }
+
   protected function getListForUser(int $paginate = 10): LengthAwarePaginator
   {
     return Report::query()
