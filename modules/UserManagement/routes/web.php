@@ -18,6 +18,7 @@ use Modules\UserManagement\app\Http\Controllers\ValidationController;
 
 Route::resource('user', UserManagementController::class)->only('index', 'store', 'update', 'destroy');
 Route::prefix('user')->name('user.')->group(function () {
-  Route::resource('profile', UserProfileController::class)->only('index', 'update');
-  Route::resource('validation', ValidationController::class)->only('index', 'store', 'update', 'destroy');
+    Route::resource('profile', UserProfileController::class)->only('index', 'update');
+    Route::resource('validation', ValidationController::class)->only('index', 'store', 'update', 'destroy');
 });
+Route::put('approve/{id}', [ValidationController::class, 'approve'])->name('approve.user');

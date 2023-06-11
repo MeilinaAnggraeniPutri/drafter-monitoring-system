@@ -20,6 +20,7 @@ class UserSeeder extends Seeder
             'name' => 'Super Admin',
             'nik' => '000000',
             'password' => Hash::make('000000'),
+            'status' => 1
         ]);
 
         // User::factory()->create([

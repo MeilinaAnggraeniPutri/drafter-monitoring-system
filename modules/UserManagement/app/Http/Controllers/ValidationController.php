@@ -2,6 +2,7 @@
 
 namespace Modules\UserManagement\app\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -99,5 +100,13 @@ class ValidationController extends Controller
         return $validation->user()->delete() && $validation->delete()
             ? back()->with('success', 'User has been deleted successfully!')
             : back()->with('failed', 'User was not deleted successfully!');
+    }
+
+    public function approve(Request $request, $id)
+    {
+        $user = User::find($id);
+        $user->status = 1;
+        $user->save();
+        return back()->with('success', 'User has been approved successfully!');
     }
 }
