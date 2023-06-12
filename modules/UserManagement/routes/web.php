@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use Modules\UserManagement\app\Http\Controllers\User\UserProfileController;
+use Modules\UserManagement\app\Http\Controllers\UserChangePasswordController;
 use Modules\UserManagement\app\Http\Controllers\UserManagementController;
 use Modules\UserManagement\app\Http\Controllers\ValidationController;
 
@@ -20,5 +21,6 @@ Route::resource('user', UserManagementController::class)->only('index', 'store',
 Route::prefix('user')->name('user.')->group(function () {
     Route::resource('profile', UserProfileController::class)->only('index', 'update');
     Route::resource('validation', ValidationController::class)->only('index', 'store', 'update', 'destroy');
+    Route::post('change-password', UserChangePasswordController::class)->name('change-password');
 });
 Route::put('approve/{id}', [ValidationController::class, 'approve'])->name('approve.user');
