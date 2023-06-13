@@ -45,9 +45,9 @@
                 @forelse ($reports as $report)
                     <tr>
                         <th scope="row">{{ $loop->iteration }}</th>
-                        {{-- tgl --}}
+                        {{-- PIC --}}
                         <th scope="row">{{ $report->user->name }}</th>
-                        {{-- requester --}}
+                        {{-- tgl --}}
                         <th scope="row">{{ $report->tgl }}</th>
                         {{-- unit --}}
                         <th scope="row">{{ $report->unit }}</th>
