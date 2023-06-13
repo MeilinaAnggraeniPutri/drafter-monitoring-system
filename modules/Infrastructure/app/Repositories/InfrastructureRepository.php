@@ -69,10 +69,16 @@ class InfrastructureRepository implements InfrastructureInterface
     return array_merge(
       $request->validated(),
       [
+        'no_draw' => 'DH-III-M-' . $request->unit . '-' . ($this->getNumber() + 1),
         'file_pdf' => $file_pdf,
         'user_id' => $request->user_id,
         'user_create' => $request->pic
       ]
     );
+  }
+
+  protected function getNumber()
+  {
+    return Infrastructure::count() + 10446;
   }
 }

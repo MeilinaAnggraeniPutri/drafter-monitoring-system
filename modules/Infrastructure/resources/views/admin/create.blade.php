@@ -36,12 +36,6 @@
             </div>
 
             <div class="mb-3">
-                <p class="text-muted">No Draw</p>
-                <input type="text" name="no_draw" id="no_draw" class="form-control">
-                <x-form.validation.error name="no_draw" />
-            </div>
-
-            <div class="mb-3">
                 <p class="text-muted">Equipment</p>
                 <input type="text" name="equipment" id="equipment" class="form-control">
                 <x-form.validation.error name="equipment" />
