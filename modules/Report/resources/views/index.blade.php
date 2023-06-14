@@ -44,22 +44,20 @@
             <tbody>
                 @forelse ($reports as $report)
                     <tr>
+                        <th scope="row">{{ $report->user->name }}</th>
+                        {{-- tgl --}} 
+                        <th scope="row">{{ $report->deskripsi_pekerjaan }}</th>
+                        {{-- requester --}} 
+                        <th scope="row">{{ $report->tgl }}</th>
+                        {{-- unit --}}  
+                        <th scope="row">{{ $report->nama }}</th>
+                        {{-- drafter --}}
                         <th scope="row">{{ $loop->iteration }}</th>
                         {{-- PIC --}}
-                        <th scope="row">{{ $report->user->name }}</th>
-                        {{-- tgl --}}
-                        <th scope="row">{{ $report->tgl }}</th>
-                        {{-- unit --}}
                         <th scope="row">{{ $report->unit }}</th>
                         {{-- equipment --}}
                         <th scope="row">{{ $report->equipment }}</th>
                         {{-- deskripsi pekerjaan --}}
-                        <th scope="row">{{ $report->deskripsi_pekerjaan }}</th>
-                        {{-- requester --}}
-                        <th scope="row">{{ $report->nama }}</th>
-                        {{-- drafter --}}
-                        <th scope="row">{{ $report->drafter }}</th>
-                        {{-- prioritas --}}
                         <th scope="row">{{ $report->prioritas }}</th>
                         {{-- upload foto --}}
                         <th scope="row">
@@ -74,6 +72,8 @@
                         </th>
                         {{-- lokasi barang --}}
                         <th scope="row">{{ $report->lokasi_barang }}</th>
+                        <th scope="row">{{ $report->drafter }}</th>
+                        {{-- prioritas --}}
                         {{-- status --}}
                         <th scope="row">{{ $report->status }}</th>
                         <td>
