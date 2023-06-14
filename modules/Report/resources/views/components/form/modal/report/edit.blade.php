@@ -18,21 +18,15 @@
                     <input type="hidden" name="_c2VuZGVy" value="VXNlcg==">
 
                     <div class="mb-3">
-                        <label for="nama" class="form-label">Requester</label>
-                        <input type="text" class="form-control" id="nama" name="nama" value="{{ $report->nama }}">
-                        <x-form.validation.error name="nama" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="drafter" class="form-label">Drafter</label>
-                        <input type="text" class="form-control" id="drafter" name="drafter" value="{{ $report->drafter }}">
-                        <x-form.validation.error name="drafter" />
-                    </div>
-
-                    <div class="mb-3">
                         <label for="tgl" class="form-label">Tanggal</label>
                         <input type="date" class="form-control" id="tgl" name="tgl" value="{{ $report->tgl }}">
                         <x-form.validation.error name="tgl" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Requester</label>
+                        <input type="text" class="form-control" id="nama" name="nama" value="{{ $report->nama }}">
+                        <x-form.validation.error name="nama" />
                     </div>
 
                     <div class="mb-3">
@@ -42,11 +36,11 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="lokasi_barang" class="form-label">Lokasi barang</label>
-                        <input type="text" class="form-control" id="lokasi_barang" name="lokasi_barang" value="{{ $report->lokasi_barang }}">
-                        <x-form.validation.error name="lokasi_barang" />
+                        <label for="drafter" class="form-label">Drafter</label>
+                        <input type="text" class="form-control" id="drafter" name="drafter" value="{{ $report->drafter }}">
+                        <x-form.validation.error name="drafter" />
                     </div>
-
+                    
                     <div class="mb-3">
                         <label for="equipment" class="form-label">Equipment</label>
                         <textarea class="form-control" name="equipment" id="equipment">{{ $report->equipment }}</textarea>
@@ -63,6 +57,12 @@
                         <label for="upload_foto" class="form-label">Upload foto</label>
                         <input id="upload_foto" name="upload_foto[]" type="file" class="filepond filepond-input-multiple form-control" multiple data-allow-reorder="true" data-max-file-size="3MB" data-max-files="3">
                         <x-form.validation.error name="upload_foto" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="lokasi_barang" class="form-label">Lokasi barang</label>
+                        <input type="text" class="form-control" id="lokasi_barang" name="lokasi_barang" value="{{ $report->lokasi_barang }}">
+                        <x-form.validation.error name="lokasi_barang" />
                     </div>
 
                     @endif

@@ -6,28 +6,23 @@
                 @csrf
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal-form-add-report-label">Add Report</h5>
+                    <h5 class="modal-title" id="modal-form-add-report-label">Add Request</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> </button>
                 </div>
                 <div class="modal-body">
 
                     @if(auth()->user()->isValidated())
-                    <div class="mb-3">
-                        <label for="nama" class="form-label">Requester</label>
-                        <input type="text" class="form-control" id="nama" name="nama">
-                        <x-form.validation.error name="nama" />
-                    </div>
-
-                    <div class="mb-3">
-                        <label for="drafter" class="form-label">Drafter</label>
-                        <input type="text" class="form-control" id="drafter" name="drafter">
-                        <x-form.validation.error name="drafter" />
-                    </div>
 
                     <div class="mb-3">
                         <label for="tgl" class="form-label">Tanggal</label>
                         <input type="date" class="form-control" id="tgl" name="tgl">
                         <x-form.validation.error name="tgl" />
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="nama" class="form-label">Requester</label>
+                        <input type="text" class="form-control" id="nama" name="nama">
+                        <x-form.validation.error name="nama" />
                     </div>
 
                     <div class="mb-3">
@@ -37,9 +32,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="lokasi_barang" class="form-label">Lokasi barang</label>
-                        <input type="text" class="form-control" id="lokasi_barang" name="lokasi_barang">
-                        <x-form.validation.error name="lokasi_barang" />
+                        <label for="drafter" class="form-label">Drafter</label>
+                        <input type="text" class="form-control" id="drafter" name="drafter">
+                        <x-form.validation.error name="drafter" />
                     </div>
 
                     <div class="mb-3">
@@ -60,6 +55,12 @@
                         <x-form.validation.error name="upload_foto" />
                     </div>
 
+                    <div class="mb-3">
+                        <label for="lokasi_barang" class="form-label">Lokasi barang</label>
+                        <input type="text" class="form-control" id="lokasi_barang" name="lokasi_barang">
+                        <x-form.validation.error name="lokasi_barang" />
+                    </div>
+                    
                     <div class="mb-3">
                         <label for="prioritas" class="form-label">Prioritas</label>
                         <select class="form-select" aria-label="prioritas request" name="prioritas" id="prioritas" style="width: 12rem;">
