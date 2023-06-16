@@ -52,6 +52,9 @@ class ReportRepository implements ReportInterface
       ->whereBelongsTo(
         related: auth()->user()
       )
+      ->when(request()->search, function ($query, $search) {
+        return $query->where('nama', 'like', '%' . $search . '%');
+    })
       ->with('user')
       ->latest()
       ->paginate($paginate);
@@ -60,11 +63,15 @@ class ReportRepository implements ReportInterface
   protected function getListForAdmin(int $paginate = 10): LengthAwarePaginator
   {
     return Report::query()
+    ->when(request()->search, function ($query, $search) {
+      return $query->where('nama', 'like', '%' . $search . '%');
+})
+  
       ->with('user')
       ->latest()
       ->paginate($paginate);
+      
   }
-
   /**
    * store
    */

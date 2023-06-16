@@ -56,6 +56,7 @@
                         <td>{{ $infrastructure->drafter }}</td>
                         <td>{{ $infrastructure->user->name }}</td>
                         <td>{{ $infrastructure->progress }}</td>
+                        <td>{{ $infrastructure->keterangan }}</td>
                         <td>
                             <ul>
                                 @foreach ($infrastructure->revisions as $revision)
@@ -63,7 +64,7 @@
                                 @endforeach
                             </ul>
                         </td>
-                        <td>{{ $infrastructure->keterangan }}</td>
+                       
                         <td>
                             <div class="dropdown">
                                 <a href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown"
@@ -78,7 +79,7 @@
                                             Show
                                         </a>
                                     </li>
-                                    @if (auth()->user()->id == $infrastructure->user_create)
+                                   
                                         <li>
                                             <a class="dropdown-item"
                                                 href="{{ route('infrastructure.edit', $infrastructure->id) }}">
@@ -91,15 +92,14 @@
                                                 Delete
                                             </a>
                                         </li>
-                                    @endif
-                                    @if (auth()->user()->id == $infrastructure->user_id)
+                                   
                                         <li>
                                             <a class="dropdown-item"
                                                 href="{{ route('infrastructure.revisi.create', $infrastructure->id) }}">
                                                 Revisi
                                             </a>
                                         </li>
-                                    @endif
+                                   
                                 </ul>
 
                                 @include('infrastructure::components.form.modal.admin.delete')
