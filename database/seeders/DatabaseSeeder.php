@@ -40,5 +40,6 @@ class DatabaseSeeder extends Seeder
         $this->call(SettingDatabaseSeeder::class);
         $this->call(ReportDatabaseSeeder::class);
         $this->call(InfrastructureDatabaseSeeder::class);
+        $this->call(MenuLibrarySeeder::class);
     }
 }

@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\library;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -13,13 +14,10 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('libraries', function (Blueprint $table) {
+        Schema::create('library_has_revisions', function (Blueprint $table) {
             $table->id();
-            $table->date('tgl_regis')->nullable();
-            $table->string('nama')->nullable();
-            $table->string('no_draw')->nullable();
-            $table->longText('equiptment')->nullable();
-            $table->string('pdf')->nullable();
+            $table->foreignIdFor(library::class);
+            $table->longText('content');
             $table->timestamps();
         });
     }
@@ -31,6 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('libraries');
+        Schema::dropIfExists('library_has_revisions');
     }
 };

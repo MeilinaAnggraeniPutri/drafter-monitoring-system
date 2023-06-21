@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\LibraryController;
 use Illuminate\Support\Facades\Route;
 use Modules\Infrastructure\app\Models\Infrastructure;
 
@@ -15,3 +16,5 @@ use Modules\Infrastructure\app\Models\Infrastructure;
 */
 
 Route::permanentRedirect('/', '/login');
+
+Route::resource('libraries', LibraryController::class);
