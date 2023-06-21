@@ -24,11 +24,11 @@
         <thead>
             <tr>
                 <th scope="col">No</th>
-                <th scope="col">Tgl</th>
-                <th scope="col">Nama</th>
-                <th scope="col">No Drawing</th>
+                <th scope="col">Tanggal Register</th>
+                <th scope="col">Nama Drawing</th>
+                <th scope="col">Nomor Drawing</th>
                 <th scope="col">Equipment</th>
-                <th scope="col">PDF</th>
+                <th scope="col">Upload PDF</th>
                 <th scope="col">Revisi</th>
                 <th scope="col" class="col-1"></th>
             </tr>
