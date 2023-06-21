@@ -12,9 +12,9 @@
                 <div class="modal-body">
 
                     <div class="mb-3">
-                        <label for="tgl" class="form-label">Tanggal</label>
-                        <input type="date" class="form-control" id="tgl" name="tgl">
-                        <x-form.validation.error name="tgl" />
+                        <label for="tgl_regis" class="form-label">Tanggal</label>
+                        <input type="date" class="form-control" id="tgl_regis" name="tgl_regis">
+                        <x-form.validation.error name="tgl_regis" />
                     </div>
 
                     <div class="mb-3">
