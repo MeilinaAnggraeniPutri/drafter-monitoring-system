@@ -75,4 +75,15 @@ class Report extends Model
                 : ($this->status->value === 'Ok' ? 'success'
                     : ''));
     }
+    /**
+     * prioritas
+     */
+    public function getPrioritasColor()
+    {
+        return $this->prioritas == 'emergency' ? 'danger'
+            : ($this->prioritas == 'high' ? 'warning'
+                : ($this->prioritas == 'medium' ? 'info'
+                    : ($this->prioritas == 'low' ? 'success'
+                        : '')));
+    }
 }

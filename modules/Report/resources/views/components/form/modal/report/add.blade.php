@@ -27,7 +27,15 @@
 
                     <div class="mb-3">
                         <label for="unit" class="form-label">Unit Kerja</label>
-                        <input type="text" class="form-control" id="unit" name="unit">
+                        <select class="form-select" id="unit" name="unit" data-choices data-choices-removeItem>
+                         <option value="PA I">PA I</option>
+                            <option value="PA II">PA II</option>
+                            <option value="SASU I">SASU I</option>
+                             <option value="SASU II">SASU II</option>
+                                <option value="UBB">UBB</option>
+                                <option value="ZA II">ZA II</option>
+                                <option value="Gypsum AlF3">Gypsum AlF3</option>
+                             </select>
                         <x-form.validation.error name="unit" />
                     </div>
 
@@ -64,11 +72,13 @@
                     <div class="mb-3">
                         <label for="prioritas" class="form-label">Prioritas</label>
                         <select class="form-select" aria-label="prioritas request" name="prioritas" id="prioritas" style="width: 12rem;">
-                            <option value="emergency">emergency</option>
+                            <option value="emergency">emergency</option> 
                             <option value="high">high</option>
                             <option selected value="medium">medium</option>
                             <option value="low">low</option>
+                            
                         </select>
+                        
                     </div>
                     @else
                     <p>Validate your account first to do reporting!</p>

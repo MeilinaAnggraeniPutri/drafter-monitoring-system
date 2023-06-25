@@ -71,7 +71,7 @@
                 {{-- lokasi barang --}}
                 <th scope="row">{{ $report->lokasi_barang }}</th>
                 {{-- prioritas --}}
-                <th scope="row">{{ $report->prioritas }}</th>
+                <th scope="row" class="text-{{$report->getPrioritasColor()}}">{{ $report->prioritas }}</th>
                 {{-- status --}}
                 <th scope="row">{{ $report->status }}</th>
                 <td>
