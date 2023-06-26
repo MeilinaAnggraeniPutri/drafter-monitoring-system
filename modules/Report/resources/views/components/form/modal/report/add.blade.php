@@ -35,7 +35,11 @@
 
                     <div class="mb-3">
                         <label for="drafter" class="form-label">Drafter</label>
-                        <input type="text" class="form-control" id="drafter" name="drafter">
+                        <select class="form-select" id="drafter" name="drafter" data-choices data-choices-removeItem>
+                         <option value="PA I">Pemal Kabogi</option>
+                            <option value="PA II">Henri Koreyanto</option>
+                            
+                             </select>
                         <x-form.validation.error name="drafter" />
                     </div>
 
