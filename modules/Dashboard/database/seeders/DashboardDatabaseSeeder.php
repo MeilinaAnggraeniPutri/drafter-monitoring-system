@@ -2,8 +2,8 @@
 
 namespace Modules\Dashboard\database\seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
 class DashboardDatabaseSeeder extends Seeder
 {

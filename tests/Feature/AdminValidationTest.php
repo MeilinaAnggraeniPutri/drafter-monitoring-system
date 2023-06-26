@@ -3,8 +3,6 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
 use Modules\UserManagement\app\Models\Validation;
 use Tests\TestCase;
@@ -22,8 +20,8 @@ class AdminValidationTest extends TestCase
         $res = $this->actingAs($test1)->post(
             route('user.validation.store'),
             [
-                'user_selfie' => UploadedFile::fake()->image(uniqid() . '.png'),
-                'user_card_id' => UploadedFile::fake()->image(uniqid() . '.png'),
+                'user_selfie' => UploadedFile::fake()->image(uniqid().'.png'),
+                'user_card_id' => UploadedFile::fake()->image(uniqid().'.png'),
             ]
         );
 
@@ -31,8 +29,8 @@ class AdminValidationTest extends TestCase
         $res = $this->actingAs($test2)->post(
             route('user.validation.store'),
             [
-                'user_selfie' => UploadedFile::fake()->image(uniqid() . '.png'),
-                'user_card_id' => UploadedFile::fake()->image(uniqid() . '.png'),
+                'user_selfie' => UploadedFile::fake()->image(uniqid().'.png'),
+                'user_card_id' => UploadedFile::fake()->image(uniqid().'.png'),
             ]
         );
 
@@ -40,8 +38,8 @@ class AdminValidationTest extends TestCase
         $res = $this->actingAs($test3)->post(
             route('user.validation.store'),
             [
-                'user_selfie' => UploadedFile::fake()->image(uniqid() . '.png'),
-                'user_card_id' => UploadedFile::fake()->image(uniqid() . '.png'),
+                'user_selfie' => UploadedFile::fake()->image(uniqid().'.png'),
+                'user_card_id' => UploadedFile::fake()->image(uniqid().'.png'),
             ]
         );
 

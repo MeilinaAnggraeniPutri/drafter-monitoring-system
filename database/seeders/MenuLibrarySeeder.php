@@ -2,7 +2,6 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Modules\MenuManagement\app\Models\MenuGroup;
 use Modules\MenuManagement\app\Models\MenuItem;

@@ -11,7 +11,7 @@ class UserChangePasswordController extends Controller
     public function __invoke(UserChangePasswordRequest $request)
     {
         $status = $request->user()->update([
-            'password' => Hash::make($request->password)
+            'password' => Hash::make($request->password),
         ]);
 
         return $status

@@ -3,7 +3,6 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\UploadedFile;
 use Modules\Infrastructure\app\Models\Infrastructure;
@@ -35,7 +34,7 @@ class InfrastrukturTest extends TestCase
             [
                 'title' => $this->faker()->sentence(),
                 'body' => $this->faker()->paragraph(),
-                'thumbnail' => UploadedFile::fake()->image(uniqid() . '.png'),
+                'thumbnail' => UploadedFile::fake()->image(uniqid().'.png'),
             ]
         );
 
@@ -65,7 +64,7 @@ class InfrastrukturTest extends TestCase
             [
                 // 'title' => $this->faker()->sentence(),
                 'body' => $this->faker()->paragraph(),
-                'thumbnail' => UploadedFile::fake()->image(uniqid() . '.png'),
+                'thumbnail' => UploadedFile::fake()->image(uniqid().'.png'),
             ]
         );
 
@@ -80,7 +79,7 @@ class InfrastrukturTest extends TestCase
             [
                 'title' => $this->faker()->sentence(),
                 // 'body' => $this->faker()->paragraph(),
-                'thumbnail' => UploadedFile::fake()->image(uniqid() . '.png'),
+                'thumbnail' => UploadedFile::fake()->image(uniqid().'.png'),
             ]
         );
 
@@ -96,7 +95,7 @@ class InfrastrukturTest extends TestCase
             [
                 'title' => $this->faker()->sentence(),
                 'body' => $this->faker()->paragraph(),
-                'thumbnail' => UploadedFile::fake()->image(uniqid() . '.png'),
+                'thumbnail' => UploadedFile::fake()->image(uniqid().'.png'),
             ]
         );
 
@@ -128,7 +127,7 @@ class InfrastrukturTest extends TestCase
             [
                 // 'title' => $this->faker()->sentence(),
                 'body' => $this->faker()->paragraph(),
-                'thumbnail' => UploadedFile::fake()->image(uniqid() . '.png'),
+                'thumbnail' => UploadedFile::fake()->image(uniqid().'.png'),
             ]
         );
 
@@ -144,7 +143,7 @@ class InfrastrukturTest extends TestCase
             [
                 'title' => $this->faker()->sentence(),
                 // 'body' => $this->faker()->paragraph(),
-                'thumbnail' => UploadedFile::fake()->image(uniqid() . '.png'),
+                'thumbnail' => UploadedFile::fake()->image(uniqid().'.png'),
             ]
         );
 

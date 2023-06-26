@@ -32,12 +32,11 @@ class LibraryController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $name = str()->uuid()->toString() . '.' . $request->file('pdf')->extension();
+        $name = str()->uuid()->toString().'.'.$request->file('pdf')->extension();
 
         $request->file('pdf')->move(public_path('assets/libraries'), $name);
 
@@ -46,13 +45,12 @@ class LibraryController extends Controller
             ['pdf' => $name]
         ))
             ? back()->with('success', 'Libraries has been created successfully!')
-            : back()->with('failed', 'Libraries was not created successfully!');;
+            : back()->with('failed', 'Libraries was not created successfully!');
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\library  $library
      * @return \Illuminate\Http\Response
      */
     public function show(library $library)
@@ -63,7 +61,6 @@ class LibraryController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\library  $library
      * @return \Illuminate\Http\Response
      */
     public function edit(library $library)
@@ -74,8 +71,6 @@ class LibraryController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\library  $library
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, library $library)
@@ -86,7 +81,6 @@ class LibraryController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\library  $library
      * @return \Illuminate\Http\Response
      */
     public function destroy(library $library)

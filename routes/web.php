@@ -2,7 +2,6 @@
 
 use App\Http\Controllers\LibraryController;
 use Illuminate\Support\Facades\Route;
-use Modules\Infrastructure\app\Models\Infrastructure;
 
 /*
 |--------------------------------------------------------------------------

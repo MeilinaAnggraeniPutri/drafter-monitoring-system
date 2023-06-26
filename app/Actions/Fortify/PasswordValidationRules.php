@@ -20,7 +20,7 @@ trait PasswordValidationRules
                 ->requireSpecialCharacter()
                 ->requireUppercase()
                 ->requireNumeric(),
-            'confirmed'
+            'confirmed',
         ];
     }
 }

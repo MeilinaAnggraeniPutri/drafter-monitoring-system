@@ -2,8 +2,8 @@
 
 namespace Modules\MenuManagement\database\seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 use Modules\MenuManagement\app\Models\MenuGroup;
 use Modules\MenuManagement\app\Models\MenuItem;
 

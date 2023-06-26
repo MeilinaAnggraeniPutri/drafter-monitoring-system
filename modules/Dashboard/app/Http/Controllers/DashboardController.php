@@ -11,11 +11,14 @@ use Modules\Report\app\Repositories\ReportRepository;
 class DashboardController extends Controller
 {
     protected int $belom = 0;
+
     protected int $ip = 0;
+
     protected int $ok = 0;
 
     /**
      * Display a listing of the resource.
+     *
      * @return Renderable
      */
     public function index(
@@ -26,14 +29,15 @@ class DashboardController extends Controller
         $infrastructureCount = $infrastructureRepository->getCount();
         $repos = $reportRepository->getNoPaginate();
 
-        $repos->each(function ($report){
-            if($report->status->value == 'Belom') {
+        $repos->each(function ($report) {
+            if ($report->status->value == 'Belom') {
                 $this->belom++;
             } elseif ($report->status->value == 'IP') {
                 $this->ip++;
             } elseif ($report->status->value == 'Ok') {
                 $this->ok++;
-            } else {}
+            } else {
+            }
         });
 
         $belom = $this->belom;
@@ -54,6 +58,7 @@ class DashboardController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
      * @return Renderable
      */
     public function create()
@@ -63,7 +68,7 @@ class DashboardController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
+     *
      * @return Renderable
      */
     public function store(Request $request)
@@ -73,7 +78,8 @@ class DashboardController extends Controller
 
     /**
      * Show the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function show($id)
@@ -83,7 +89,8 @@ class DashboardController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function edit($id)
@@ -93,8 +100,8 @@ class DashboardController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function update(Request $request, $id)
@@ -104,7 +111,8 @@ class DashboardController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function destroy($id)

@@ -4,8 +4,8 @@ namespace Modules\Infrastructure\app\Models;
 
 use App\Models\User;
 use App\Traits\Uuid;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 use Modules\Revision\app\Models\Revision;
 
 class Infrastructure extends Model

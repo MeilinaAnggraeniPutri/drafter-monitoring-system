@@ -14,11 +14,11 @@ class UpdateInfrastructureRequest extends FormRequest
     public function rules()
     {
         return [
-            'revisi'        => ['nullable', 'string'],
-            'keterangan'    => ['nullable', 'string'],
-            'progress'      => ['nullable', 'string'],
-            'drafter'       => ['nullable', 'string'],
-            'file_pdf'      => ['nullable', 'file'],
+            'revisi' => ['nullable', 'string'],
+            'keterangan' => ['nullable', 'string'],
+            'progress' => ['nullable', 'string'],
+            'drafter' => ['nullable', 'string'],
+            'file_pdf' => ['nullable', 'file'],
         ];
     }
 

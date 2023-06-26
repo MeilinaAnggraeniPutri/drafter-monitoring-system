@@ -22,8 +22,8 @@ class UserChangePasswordRequest extends FormRequest
                     ->requireSpecialCharacter()
                     ->requireUppercase()
                     ->requireNumeric(),
-                'confirmed'
-            ]
+                'confirmed',
+            ],
         ];
     }
 

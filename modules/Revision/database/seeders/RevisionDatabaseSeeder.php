@@ -2,8 +2,8 @@
 
 namespace Modules\Revision\database\seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 
 class RevisionDatabaseSeeder extends Seeder
 {

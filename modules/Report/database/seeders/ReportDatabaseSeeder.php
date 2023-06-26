@@ -2,8 +2,8 @@
 
 namespace Modules\Report\database\seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 use Modules\Report\database\seeders\Report\ReportSeederTableSeeder;
 
 class ReportDatabaseSeeder extends Seeder

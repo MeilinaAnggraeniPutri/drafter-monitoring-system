@@ -14,6 +14,7 @@ class ValidationController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
      * @return Renderable
      */
     public function index(
@@ -34,6 +35,7 @@ class ValidationController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
      * @return Renderable
      */
     public function create()
@@ -43,7 +45,8 @@ class ValidationController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
+     *
+     * @param  Request  $request
      * @return Renderable
      */
     public function store(
@@ -57,7 +60,8 @@ class ValidationController extends Controller
 
     /**
      * Show the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function show($id)
@@ -67,7 +71,8 @@ class ValidationController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function edit($id)
@@ -77,14 +82,14 @@ class ValidationController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function update(Request $request, Validation $validation)
     {
         return $validation->user()->update([
-            'validated_at' => now()
+            'validated_at' => now(),
         ])
             ? back()->with('success', 'User has been verified successfully!')
             : back()->with('failed', 'User was not verified successfully!');
@@ -92,7 +97,8 @@ class ValidationController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function destroy(Validation $validation)
@@ -107,6 +113,7 @@ class ValidationController extends Controller
         $user = User::find($id);
         $user->status = 1;
         $user->save();
+
         return back()->with('success', 'User has been approved successfully!');
     }
 }

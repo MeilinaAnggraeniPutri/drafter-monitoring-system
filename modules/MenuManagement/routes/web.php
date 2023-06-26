@@ -1,10 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\MenuManagement\app\Http\Controllers\{
-  MenuGroupController,
-  MenuItemController,
-};
+use Modules\MenuManagement\app\Http\Controllers\MenuGroupController;
+use Modules\MenuManagement\app\Http\Controllers\MenuItemController;
 
 /*
 |--------------------------------------------------------------------------

@@ -2,8 +2,8 @@
 
 namespace Modules\Setting\database\seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 use Modules\Setting\app\Models\Setting;
 
 class SettingSeederTableSeeder extends Seeder
@@ -19,20 +19,20 @@ class SettingSeederTableSeeder extends Seeder
 
         // $this->call("OthersTableSeeder");
 
-        $logo = array(
+        $logo = [
             'sm' => 'logo-sm.png',
             'dark' => 'logo-dark.png',
             'light' => 'logo-light.png',
-        );
+        ];
 
-        $data = array(
+        $data = [
             'role' => 'User',
-            'logo' => json_encode($logo)
-        );
+            'logo' => json_encode($logo),
+        ];
 
         Setting::create([
             'name' => 'General',
-            'data' => json_encode($data)
+            'data' => json_encode($data),
         ]);
     }
 }

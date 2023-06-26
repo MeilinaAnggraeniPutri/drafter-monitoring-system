@@ -2,8 +2,8 @@
 
 namespace Modules\PermissionManagement\database\seeders;
 
-use Illuminate\Database\Seeder;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Seeder;
 use Modules\PermissionManagement\app\Models\Route;
 
 class RouteSeederTableSeeder extends Seeder

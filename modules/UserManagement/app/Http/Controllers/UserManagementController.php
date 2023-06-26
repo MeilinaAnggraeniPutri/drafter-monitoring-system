@@ -15,15 +15,16 @@ class UserManagementController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
      * @return Renderable
      */
     public function index(Request $request)
     {
         $users = User::query()
-            ->when(!blank($request->search), function ($query) use ($request) {
+            ->when(! blank($request->search), function ($query) use ($request) {
                 return $query
-                    ->where('name', 'like', '%' . $request->search . '%')
-                    ->orWhere('email', 'like', '%' . $request->search . '%');
+                    ->where('name', 'like', '%'.$request->search.'%')
+                    ->orWhere('email', 'like', '%'.$request->search.'%');
             })
             ->with('roles', function ($query) {
                 return $query->select('name');
@@ -38,6 +39,7 @@ class UserManagementController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
      * @return Renderable
      */
     public function create()
@@ -47,7 +49,8 @@ class UserManagementController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
+     *
+     * @param  Request  $request
      * @return Renderable
      */
     public function store(StoreUserRequest $request, UserService $userService)
@@ -59,7 +62,8 @@ class UserManagementController extends Controller
 
     /**
      * Show the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function show($id)
@@ -69,7 +73,8 @@ class UserManagementController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function edit($id)
@@ -79,8 +84,9 @@ class UserManagementController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
+     *
+     * @param  Request  $request
+     * @param  int  $id
      * @return Renderable
      */
     public function update(UpdateUserRequest $request, User $user, UserService $userService)
@@ -92,7 +98,8 @@ class UserManagementController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function destroy(User $user)

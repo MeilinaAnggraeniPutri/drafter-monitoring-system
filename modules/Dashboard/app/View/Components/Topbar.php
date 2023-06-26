@@ -29,7 +29,7 @@ class Topbar extends Component
             'user' => auth()->user(),
             'notivications' => auth()->user()->hasAnyRole(['Super Admin'])
                 ? $this->notivication->with('user')->where('status', 'unread')->whereNull('target')->latest()->limit(15)->get()
-                : $this->notivication->with('user')->where('status', 'unread')->where('target', auth()->user()->id)->latest()->limit(5)->get()
+                : $this->notivication->with('user')->where('status', 'unread')->where('target', auth()->user()->id)->latest()->limit(5)->get(),
         ]);
     }
 }

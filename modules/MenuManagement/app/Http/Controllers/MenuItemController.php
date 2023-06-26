@@ -16,15 +16,16 @@ class MenuItemController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
      * @return Renderable
      */
     public function index(Request $request, MenuGroup $menu)
     {
         $menuItems = $menu->items()
-            ->when(!blank($request->search), function ($query) use ($request) {
+            ->when(! blank($request->search), function ($query) use ($request) {
                 return $query
-                    ->where('name', 'like', '%' . $request->search . '%')
-                    ->orWhere('permission_name', 'like', '%' . $request->search . '%');
+                    ->where('name', 'like', '%'.$request->search.'%')
+                    ->orWhere('permission_name', 'like', '%'.$request->search.'%');
             })
             ->orderBy('name')
             ->paginate(10);
@@ -36,6 +37,7 @@ class MenuItemController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
      * @return Renderable
      */
     public function create()
@@ -45,7 +47,8 @@ class MenuItemController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
+     *
+     * @param  Request  $request
      * @return Renderable
      */
     public function store(StoreMenuitemRequest $request, MenuGroup $menu, MenuItemService $menuItemService)
@@ -57,7 +60,8 @@ class MenuItemController extends Controller
 
     /**
      * Show the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function show($id)
@@ -67,7 +71,8 @@ class MenuItemController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function edit($id)
@@ -77,8 +82,9 @@ class MenuItemController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
+     *
+     * @param  Request  $request
+     * @param  int  $id
      * @return Renderable
      */
     public function update(StoreMenuitemRequest $request, MenuGroup $menu, MenuItem $item, MenuItemService $menuItemService)
@@ -90,7 +96,8 @@ class MenuItemController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function destroy(MenuGroup $menu, MenuItem $item)

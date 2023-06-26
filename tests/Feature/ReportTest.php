@@ -3,8 +3,6 @@
 namespace Tests\Feature;
 
 use App\Models\User;
-use Database\Seeders\User\UserSeeder;
-use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Modules\Report\app\Models\Report;
 use Tests\TestCase;
@@ -39,7 +37,7 @@ class ReportTest extends TestCase
             route('report.update', $report->id),
             [
                 '_c2VuZGVy' => 'VXNlcg==',
-                'title' => $this->faker()->sentence()
+                'title' => $this->faker()->sentence(),
             ]
         );
 
@@ -63,7 +61,7 @@ class ReportTest extends TestCase
             route('report.update', $report->id),
             [
                 '_c2VuZGVy' => 'U3VwZXIgQWRtaW4=',
-                'status' => 'Accepted'
+                'status' => 'Accepted',
             ]
         );
 

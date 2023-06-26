@@ -3,8 +3,8 @@
 namespace Modules\Setting\app\Models;
 
 use App\Traits\Uuid;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 
 class Setting extends Model
 {

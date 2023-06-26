@@ -13,15 +13,16 @@ class PermissionController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
      * @return Renderable
      */
     public function index(Request $request)
     {
         $permissions = Permission::query()
-            ->when(!blank($request->search), function ($query) use ($request) {
+            ->when(! blank($request->search), function ($query) use ($request) {
                 return $query
-                    ->where('name', 'like', '%' . $request->search . '%')
-                    ->orWhere('guard_name', 'like', '%' . $request->search . '%');
+                    ->where('name', 'like', '%'.$request->search.'%')
+                    ->orWhere('guard_name', 'like', '%'.$request->search.'%');
             })
             ->with('roles', function ($query) {
                 return $query->select('id', 'name');
@@ -35,6 +36,7 @@ class PermissionController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
      * @return Renderable
      */
     public function create()
@@ -44,20 +46,22 @@ class PermissionController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
+     *
+     * @param  Request  $request
      * @return Renderable
      */
     public function store(StorePermissionRequest $request)
     {
         return Permission::create($request->validated())
-            ?->assignRole(!blank($request->roles) ? $request->roles : array())
+            ?->assignRole(! blank($request->roles) ? $request->roles : [])
             ? back()->with('success', 'Permission has been created successfully!')
             : back()->with('failed', 'Permission was not created successfully!');
     }
 
     /**
      * Show the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function show($id)
@@ -67,7 +71,8 @@ class PermissionController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function edit($id)
@@ -77,21 +82,23 @@ class PermissionController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
+     *
+     * @param  Request  $request
+     * @param  int  $id
      * @return Renderable
      */
     public function update(StorePermissionRequest $request, Permission $permission)
     {
         return $permission->update($request->validated())
-            && $permission->syncRoles(!blank($request->roles) ? $request->roles : array())
+            && $permission->syncRoles(! blank($request->roles) ? $request->roles : [])
             ? back()->with('success', 'Permission has been updated successfully!')
             : back()->with('failed', 'Permission was not updated successfully!');
     }
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function destroy(Permission $permission)

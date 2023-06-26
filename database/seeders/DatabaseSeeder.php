@@ -3,7 +3,6 @@
 namespace Database\Seeders;
 
 use Database\Seeders\User\UserSeeder;
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Modules\Infrastructure\database\seeders\InfrastructureDatabaseSeeder;
 use Modules\MenuManagement\database\seeders\MenuManagementDatabaseSeeder;

@@ -2,9 +2,9 @@
 
 namespace Modules\Dashboard\app\Providers;
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Blade;
+use Illuminate\Support\Facades\Route;
 use Modules\Dashboard\app\View\Components\Breadcrumb;
 use Modules\Dashboard\app\View\Components\Sidebar;
 use Modules\Dashboard\app\View\Components\Topbar;

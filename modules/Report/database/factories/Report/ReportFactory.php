@@ -28,10 +28,10 @@ class ReportFactory extends Factory
 
         return [
             'title' => $this->faker->sentence(),
-            'attach' => json_encode(array()),
+            'attach' => json_encode([]),
             'description' => $this->faker->paragraph(),
             'user_id' => User::firstWhere('email', 'user@gmail.com')->id,
-            'status' => $status[array_rand($status, 1)]
+            'status' => $status[array_rand($status, 1)],
         ];
     }
 }

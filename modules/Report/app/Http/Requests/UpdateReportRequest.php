@@ -14,7 +14,7 @@ class UpdateReportRequest extends FormRequest
     public function rules()
     {
         return [
-            '_c2VuZGVy' => ['required', 'string']
+            '_c2VuZGVy' => ['required', 'string'],
         ];
     }
 

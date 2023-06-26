@@ -17,6 +17,7 @@ class InfrastructureController extends Controller
 {
     /**
      * Display a listing of the resource.
+     *
      * @return Renderable
      */
     public function index(
@@ -29,6 +30,7 @@ class InfrastructureController extends Controller
 
     /**
      * Show the form for creating a new resource.
+     *
      * @return Renderable
      */
     public function create()
@@ -40,7 +42,8 @@ class InfrastructureController extends Controller
 
     /**
      * Store a newly created resource in storage.
-     * @param Request $request
+     *
+     * @param  Request  $request
      * @return Renderable
      */
     public function store(
@@ -54,7 +57,8 @@ class InfrastructureController extends Controller
 
     /**
      * Show the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function show(Infrastructure $infrastructure)
@@ -66,7 +70,8 @@ class InfrastructureController extends Controller
 
     /**
      * Show the form for editing the specified resource.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function edit(Infrastructure $infrastructure)
@@ -78,8 +83,9 @@ class InfrastructureController extends Controller
 
     /**
      * Update the specified resource in storage.
-     * @param Request $request
-     * @param int $id
+     *
+     * @param  Request  $request
+     * @param  int  $id
      * @return Renderable
      */
     public function update(
@@ -94,7 +100,8 @@ class InfrastructureController extends Controller
 
     /**
      * Remove the specified resource from storage.
-     * @param int $id
+     *
+     * @param  int  $id
      * @return Renderable
      */
     public function destroy(
@@ -119,7 +126,7 @@ class InfrastructureController extends Controller
             'model' => 'Revisi',
             'target' => null,
             'route' => route('infrastructure.show', $infrastructure->id),
-            'user_id' => auth()->user()->id
+            'user_id' => auth()->user()->id,
         ])
             ? to_route('infrastructure.index')->with('success', 'Revisi has been created successfully!')
             : back()->with('failed', 'Revisi was not created successfully!');
