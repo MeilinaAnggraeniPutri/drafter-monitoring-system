@@ -41,7 +41,7 @@
                 <td>{{ $library->nama }}</td>
                 <td>{{ $library->no_draw }}</td>
                 <td>{{ $library->equiptment }}</td>
-                <td>{{ $library->pdf }}</td>
+                <td><a href="{{ url('assets/libraries/' . $library->pdf) }}">{{ $library->pdf }}</a></td>
                 <td></td>
                 <td></td>
             </tr>
