@@ -14,12 +14,6 @@
                     @if(auth()->user()->isValidated())
 
                     <div class="mb-3">
-                        <label for="tgl" class="form-label">Tanggal</label>
-                        <input type="date" class="form-control" id="tgl" name="tgl">
-                        <x-form.validation.error name="tgl" />
-                    </div>
-
-                    <div class="mb-3">
                         <label for="nama" class="form-label">Requester</label>
                         <input type="text" class="form-control" id="nama" name="nama">
                         <x-form.validation.error name="nama" />
@@ -28,14 +22,14 @@
                     <div class="mb-3">
                         <label for="unit" class="form-label">Unit Kerja</label>
                         <select class="form-select" id="unit" name="unit" data-choices data-choices-removeItem>
-                         <option value="PA I">PA I</option>
+                            <option value="PA I">PA I</option>
                             <option value="PA II">PA II</option>
                             <option value="SASU I">SASU I</option>
-                             <option value="SASU II">SASU II</option>
-                                <option value="UBB">UBB</option>
-                                <option value="ZA II">ZA II</option>
-                                <option value="Gypsum AlF3">Gypsum AlF3</option>
-                             </select>
+                            <option value="SASU II">SASU II</option>
+                            <option value="UBB">UBB</option>
+                            <option value="ZA II">ZA II</option>
+                            <option value="Gypsum AlF3">Gypsum AlF3</option>
+                        </select>
                         <x-form.validation.error name="unit" />
                     </div>
 
@@ -68,17 +62,17 @@
                         <input type="text" class="form-control" id="lokasi_barang" name="lokasi_barang">
                         <x-form.validation.error name="lokasi_barang" />
                     </div>
-                    
+
                     <div class="mb-3">
                         <label for="prioritas" class="form-label">Prioritas</label>
                         <select class="form-select" aria-label="prioritas request" name="prioritas" id="prioritas" style="width: 12rem;">
-                            <option value="emergency">emergency</option> 
+                            <option value="emergency">emergency</option>
                             <option value="high">high</option>
                             <option selected value="medium">medium</option>
                             <option value="low">low</option>
-                            
+
                         </select>
-                        
+
                     </div>
                     @else
                     <p>Validate your account first to do reporting!</p>
