@@ -30,9 +30,9 @@
                     </div>
 
                     <div class="mb-3">
-                        <label for="equipment" class="form-label">Equipment</label>
-                        <textarea class="form-control" name="equipment" id="equipment"></textarea>
-                        <x-form.validation.error name="equipment" />
+                        <label for="equiptment" class="form-label">Equipment</label>
+                        <textarea class="form-control" name="equiptment" id="equiptment"></textarea>
+                        <x-form.validation.error name="equiptment" />
                     </div>
 
                     <div class="mb-3">
