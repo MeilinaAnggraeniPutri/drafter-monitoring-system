@@ -10,7 +10,7 @@
 <div class="card card-height-100 table-responsive">
     <!-- cardheader -->
     <div class="card-header border-bottom-dashed align-items-center d-flex">
-        
+
         <div class="flex-shrink-0">
             @if (auth()->user()->hasRole('User'))
             <button type="button" class="btn btn-soft-primary btn-sm" data-bs-toggle="modal" data-bs-target="#modal-form-add-report">
@@ -37,7 +37,8 @@
                 <th scope="col">Lokasi Barang</th>
                 <th scope="col">Prioritas</th>
                 <th scope="col">Progress</th>
-                <th scope="col" class="col-1"></th>
+                <th scope="col"></th>
+                <th scope="col"></th>
             </tr>
         </thead>
         <tbody>
@@ -51,7 +52,7 @@
                 {{-- unit --}}
                 <th scope="row">{{ $report->unit }}</th>
                 {{-- drafter --}}
-                <th scope="row">{{ $report->drafter }}</th>
+                <th scope="row">{{ $report->has_drafter->name }}</th>
                 {{-- PIC --}}
                 <th scope="row">{{ $report->user->name }}</th>
                 {{-- equipment --}}
@@ -91,8 +92,15 @@
                                     Edit
                                 </a>
                             </li>
+                            @if($report->drafter === auth()->user()->id)
+                            <li>
+                                <a class="dropdown-item" href="{{ route('infrastructure.create') }}">
+                                    Eksekusi
+                                </a>
+                            </li>
+                            @endif
                             @if (
-                            $report->user->id === auth()->id() ||
+                            in_array(auth()->id(), [$report->drafter, $report->user->id]) ||
                             auth()->user()->hasRole('Super Admin'))
                             <li>
                                 <a class="dropdown-item" href="#" onclick="event.preventDefault(); document.getElementById('modal-form-delete-report-{{ $report->id }}').submit()">
@@ -107,6 +115,7 @@
                         @include('report::components.form.modal.report.delete')
                     </div>
                 </td>
+                <td></td>
             </tr>
             @empty
             <tr>

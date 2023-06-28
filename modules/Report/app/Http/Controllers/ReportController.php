@@ -9,6 +9,7 @@ use Modules\Report\app\Http\Requests\ReportStoreRequest;
 use Modules\Report\app\Http\Requests\UpdateReportRequest;
 use Modules\Report\app\Models\Report;
 use Modules\Report\app\Repositories\ReportRepository;
+use Spatie\Permission\Models\Role;
 
 class ReportController extends Controller
 {
@@ -21,10 +22,11 @@ class ReportController extends Controller
         ReportRepository $reportRepository
     ) {
         $reports = $reportRepository->getAll();
+        $drafters = Role::query()->firstWhere('name', 'Draf')->loadMissing('users');
 
         return view(
             'report::index',
-            compact('reports')
+            compact('reports', 'drafters')
         );
     }
 

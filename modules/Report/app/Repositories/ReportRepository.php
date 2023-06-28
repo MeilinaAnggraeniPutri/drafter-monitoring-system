@@ -16,8 +16,8 @@ class ReportRepository implements ReportInterface
     public function getCount()
     {
         return auth()->user()->hasRole('User')
-          ? $this->getUserCount()
-          : $this->getAllCount();
+            ? $this->getUserCount()
+            : $this->getAllCount();
     }
 
     protected function getUserCount()
@@ -38,8 +38,8 @@ class ReportRepository implements ReportInterface
     public function getAll(int $paginate = 10): LengthAwarePaginator
     {
         return auth()->user()->hasRole('User')
-          ? $this->getListForUser($paginate)
-          : $this->getListForAdmin($paginate);
+            ? $this->getListForUser($paginate)
+            : $this->getListForAdmin($paginate);
     }
 
     public function getNoPaginate()
@@ -56,7 +56,7 @@ class ReportRepository implements ReportInterface
             ->when(request()->search, function ($query, $search) {
                 return $query->where('nama', 'like', '%'.$search.'%');
             })
-            ->with('user')
+            ->with('user', 'has_drafter')
             ->latest()
             ->paginate($paginate);
     }
@@ -67,7 +67,7 @@ class ReportRepository implements ReportInterface
             ->when(request()->search, function ($query, $search) {
                 return $query->where('nama', 'like', '%'.$search.'%');
             })
-            ->with('user')
+            ->with('user', 'has_drafter')
             ->latest()
             ->paginate($paginate);
     }
@@ -85,7 +85,7 @@ class ReportRepository implements ReportInterface
 
         return $report && Notivication::create([
             'model' => 'Request',
-            'target' => null,
+            'target' => $report->drafter,
             'route' => route('report.index'),
             'user_id' => auth()->user()->id,
         ]);

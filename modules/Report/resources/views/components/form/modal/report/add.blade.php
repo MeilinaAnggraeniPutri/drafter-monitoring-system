@@ -36,10 +36,12 @@
                     <div class="mb-3">
                         <label for="drafter" class="form-label">Drafter</label>
                         <select class="form-select" id="drafter" name="drafter" data-choices data-choices-removeItem>
-                         <option value="PA I">Pemal Kabogi</option>
-                            <option value="PA II">Henri Koreyanto</option>
-                            
-                             </select>
+                            {{-- <option value="PA I">Pemal Kabogi</option> --}}
+                            {{-- <option value="PA II">Henri Koreyanto</option> --}}
+                            @foreach($drafters->users as $user)
+                            <option value="{{ $user->id }}">{{ $user->name }}</option>
+                            @endforeach
+                        </select>
                         <x-form.validation.error name="drafter" />
                     </div>
 

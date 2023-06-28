@@ -23,11 +23,12 @@ class RoleSeederTableSeeder extends Seeder
 
         $superadmin = Role::create(['name' => 'Super Admin']);
         $user = Role::create(['name' => 'User']);
+        $draf = Role::create(['name' => 'Draf']);
 
         $superadmin->givePermissionTo(Permission::all());
         $superadmin->revokePermissionTo('report_store');
 
-        $user->givePermissionTo([
+        $userPerm = [
             'general',
             'dashboard_index',
             'report_index',
@@ -38,12 +39,17 @@ class RoleSeederTableSeeder extends Seeder
             'infrastructure_show',
             'user_validation_index',
             'user_validation_store',
-        ]);
+        ];
+
+        $user->givePermissionTo($userPerm);
+        $draf->givePermissionTo($userPerm);
 
         foreach (User::all() as $user) {
             $user->assignRole('User');
         }
 
         User::firstWhere('nik', '000000')->syncRoles('Super Admin');
+        User::firstWhere('nik', 'K201429')->syncRoles('Draf');
+        User::firstWhere('nik', 'K201680')->syncRoles('Draf');
     }
 }

@@ -28,7 +28,7 @@ class LoginRequest extends RequestsLoginRequest
         return [
             Fortify::username() => 'nullable|string',
             'password' => 'nullable|string',
-            'nik' => 'nullable|numeric',
+            'nik' => 'nullable|string',
         ];
     }
 

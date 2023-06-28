@@ -65,6 +65,11 @@ class Report extends Model
         return $this->belongsTo(User::class);
     }
 
+    public function has_drafter()
+    {
+        return $this->belongsTo(User::class, 'drafter');
+    }
+
     /**
      * proced columns
      */
