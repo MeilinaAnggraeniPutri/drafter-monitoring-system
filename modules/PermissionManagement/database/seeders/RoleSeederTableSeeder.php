@@ -42,7 +42,20 @@ class RoleSeederTableSeeder extends Seeder
         ];
 
         $user->givePermissionTo($userPerm);
-        $draf->givePermissionTo($userPerm);
+        $draf->givePermissionTo(
+            array_merge(
+                $userPerm,
+                [
+                    'infrastructure_create',
+                    'infrastructure_destroy',
+                    'infrastructure_edit',
+                    'infrastructure_index',
+                    'infrastructure_show',
+                    'infrastructure_store',
+                    'infrastructure_update',
+                ]
+            )
+        );
 
         foreach (User::all() as $user) {
             $user->assignRole('User');
